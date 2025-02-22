@@ -1,0 +1,20 @@
+FlowStates:
+    FIRST_REACH:
+        next_states: [GENERIC_STATE]
+    GENERIC_STATE:
+        next_states: [END_STATE]
+    END_STATE:
+        next_states: []
+
+FlowConfig:
+    is_ai_first_message: true
+    translation_service_enabled: false
+    message_timeout_s: 900
+    variants_config:
+        variants_weights: [100]
+    flow_supervisor:
+        enabled: false
+        max_consecutive_unrelated_state_count: 3
+        max_total_unrelated_state_count: 6
+    callsight:
+        enabled: true

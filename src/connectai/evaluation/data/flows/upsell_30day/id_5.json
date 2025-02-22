@@ -1,0 +1,35 @@
+{
+    "id": "005",
+    "flow": "upsell_30day",
+    "conversation": [
+        {
+            "interaction": 0,
+            "state": "FIRST_REACH",
+            "assistant": "Hello, I'm AI Bot (Beta).\n\n\nYou have 2.2 GB of data expiring in 3 days. Renew your plan before it expires to carry over the data and avoid losing it. Click here to renew!\n\n\nQuestions? Ask me! I speak English and Bangla, just like ChatGPT."
+        },
+        {
+            "interaction": 1,
+            "state": "OBJECTION_WITH_REASON",
+            "user": "No, it costs too much money",
+            "assistant": "I understand that the plan might seem expensive.\n\n\nHowever, if you choose a cheaper plan, you'll lose your 2.2 GB remaining data.\n\n\nDoes that help with your decision?"
+        },
+        {
+            "interaction": 2,
+            "state": "OBJECTION_NO_REASON",
+            "user": "no",
+            "assistant": "I see. You're not interested in renewing your 30-day plan.\n\n\nMost customers with this plan typically carry over their unused data.\n\n\nWhy are you not interested in renewing your plan?"
+        },
+        {
+            "interaction": 3,
+            "state": "UNRELATED_CONVERSATION",
+            "user": "Cats are cool",
+            "assistant": "Cats are cool, and so is carrying over your unused data!\n\n\nDon't let your 2.2 GB of data go to waste. Would you like to renew your 30-day plan?"
+        },
+        {
+            "interaction": 4,
+            "state": "RELATED_CONVERSATION",
+            "user": "How do I change my simcard?",
+            "assistant": "You might find the answer to your SIM card question in the FAQ at FAQ or the product catalogue at product catalogue.\n\n\nIf not, I can provide the information to customer support.\n\n\nWould you instead be interested in renewing your 30-day plan?"
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+FIRST_REACH:
+  state_description: Initial state for all conversations.
+  state_next_goal: |
+    Please click on the link below to schedule your SIM delivery.
+
+    If you have any questions, feel free to ask! I speak English and Hindi, just like ChatGPT!
+  is_static_response: true
+  ai_state_type: FIRST_STATE
+  static_response: |
+    Hello I'm your Sales Assistant, I'm here to help you with your data and broadband needs. How can I help you today?
+
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+
+GENERIC_STATE:
+  state_description: |
+    User replies with anything related or not related to the conversation.
+  state_next_goal: |
+    Plan the next step based on the user's message.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: gpt-4o-mini
+      instructions: |
+        You are a sales agent.
+        You never reply with false information.
+        If you don't know the answer to a question, please don't share false information.
+        Do not exceed 15 words unless to provide critical information the user explicitly asked for
+      user_command: |
+        Try to understand the user's message and understand how you can sell them data or broadband plans.
+        If the user asks a question that it not related, drive the conversation back to the data and broadband discussion.
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 15 words unless to provide critical information the user explicitly asked for
+
+END_STATE:
+  state_description: |
+    User explicitly ends the conversation by saying goodbye.
+  state_next_goal: |
+    Saying goodbye to the user.
+  ai_state_type: END_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        You are a sales agent.
+        You never reply with false information.
+        If you don't know the answer to a question, please don't share false information.
+        Do not exceed 15 words unless to provide critical information the user explicitly asked for
+      user_command: |
+        Based on the user message, thank them for their time and say goodbye.

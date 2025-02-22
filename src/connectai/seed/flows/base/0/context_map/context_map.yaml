@@ -1,0 +1,25 @@
+user_context:
+  context_type: customer_data
+  value: |
+    --- USER INFORMATION ---
+    - The user currently does not have the product.
+    --- USER PERSONA ---
+    - 25-year-old male. Plays video games, works from home.
+    - Location: Mumbai
+
+agent_style_context:
+  context_type: sales_flow_strategy
+  value: |
+    - You are a respectful, convincing and honest sales agent.
+    - Each message you create can have at maximum one question. Never repeat an answer you have already given.
+    - Always reply in a way that is relevant to the user's last message.
+    - Do not us a greeting or introduce your message. Instead, strictly stick to the provided instructions.
+
+product_context:
+  context_type: product_data
+  value: |
+    --- PRODUCT INFORMATION ---
+    Only the following product is available.
+
+    --- The Product ₹500/month ---
+    - Summary: It's a premium product. Ideal for the customer.

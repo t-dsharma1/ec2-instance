@@ -1,0 +1,24 @@
+{
+    "id": "006",
+    "flow": "upsell_next_best_offer",
+    "conversation": [
+        {
+            "interaction": 0,
+            "state": "FIRST_REACH",
+            "user": "",
+            "assistant": "Hi, I'm AI Bot (Beta), here to recommend a prepaid offer based on your needs. \n\nStream and scroll endlessly with DOUBLE GIGA STORIES+ 399 UACT. Get UNLI ALLNET minutes, UNLI ALLNET SMS, 4 GB open access data, and 2 GB/day for TikTok, IG, FB, and more for 30 days, all for only 399 PHP!\n\n Click [here](smart.com/catalogue) to avail, or share any questions or doubts below."
+        },
+        {
+            "interaction": 1,
+            "state": "OBJECTION_PRICE_INITIAL",
+            "user": "too expensive",
+            "assistant": "I understand your concern about the price.\n\n\nHowever, the ALLNET 30 plan offers great value for money, with UNLI ALLNET minutes, UNLI ALLNET SMS, and 100 MB of open access data for just 30 PHP, valid for 1 day.\n\n\nDoes this help?"
+        },
+        {
+            "interaction": 2,
+            "state": "OBJECTION_NO_REASON",
+            "user": "no thanks",
+            "assistant": "I see. You're hesitant about the ALLNET 30 plan.\n\n\nThis plan offers great value with UNLI ALLNET minutes and SMS, plus 100 MB of open access data.\n\n\nAre you looking for a specific price point, validity, or set of features?"
+        }
+    ]
+}

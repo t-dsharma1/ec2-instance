@@ -1,0 +1,119 @@
+name: Build and Deploy Application
+on:
+  push:
+    branches:
+      - "release/develop/*"
+      - "release/prod/*"
+
+permissions: read-all
+
+jobs:
+  prepare:
+    runs-on: self-hosted
+    steps:
+      - id: prepare
+        uses: bcgx-gp-atlasCommunity/actions/atlas/prepare@v0.0.17
+        with:
+          REPOSITORY_TYPE: ${{  vars.REPOSITORY_TYPE }}
+          REGISTRY_HOST: ${{  vars.REGISTRY_HOST }}
+          PLATFORM_BASE_DOMAIN: ${{ vars.PLATFORM_BASE_DOMAIN }}
+      - id: fix-registry-url   # Lower casing Registry URL, so that it is Helm compatible
+        run: |
+          echo ORG_LOWER=${{ github.repository_owner }}| tr '[:upper:]' '[:lower:]'>>$GITHUB_OUTPUT
+    outputs:
+      ENVIRONMENT: ${{ steps.prepare.outputs.ENVIRONMENT }}
+      APPLICATION: ${{ steps.prepare.outputs.APPLICATION }}
+      CONTAINER_REPOSITORY_URL: ${{ steps.prepare.outputs.CONTAINER_REPOSITORY_URL }}
+      SHORT_SHA: ${{ steps.prepare.outputs.SHORT_SHA }}
+      REGISTRY_IMAGE: ${{ steps.prepare.outputs.REGISTRY_IMAGE }}
+      DWH_BUCKET_PREFIX: ${{ steps.prepare.outputs.DWH_BUCKET_PREFIX }}
+      APPLICATION_ENVIRONMENT_DOMAIN: ${{ steps.prepare.outputs.APPLICATION_ENVIRONMENT_DOMAIN }}
+      ORG_LOWER: ${{ steps.fix-registry-url.outputs.ORG_LOWER }}
+
+  build-and-deploy:
+    runs-on: self-hosted
+    needs: [prepare]
+
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - id: build
+        uses: bcgx-gp-atlasCommunity/actions/docker/build-push@v0.0.20
+        with:
+          ENVIRONMENT: ${{ needs.prepare.outputs.ENVIRONMENT }}
+          WORKDIR: "."
+          DOCKER_FILE: "Dockerfile"
+          IMAGE_TAG: ${{ needs.prepare.outputs.SHORT_SHA }}
+          IMAGE_NAME: ${{ github.event.repository.name }}-${{ needs.prepare.outputs.APPLICATION }}
+          REGISTRY_HOST: ${{ vars.REGISTRY_HOST }}
+          REGISTRY_USERNAME: ${{ vars.REGISTRY_USERNAME }}
+          REGISTRY_PASSWORD: ${{ secrets[vars.REGISTRY_SECRET_NAME] }}
+          CONTAINER_REPOSITORY_URL: ${{ needs.prepare.outputs.CONTAINER_REPOSITORY_URL }}
+
+      - id: deploy
+        uses: bcgx-gp-atlasCommunity/actions/helm/install-chart@v0.0.17
+        with:
+          WORKDIR: "."
+          HELM_CHART_URL: oci://ghcr.io/${{ needs.prepare.outputs.ORG_LOWER }}/atlas-core-application-helm
+          HELM_RELEASE_NAME: ${{ github.event.repository.name }}-${{ needs.prepare.outputs.APPLICATION }}
+          HELM_RELEASE_NAMESPACE: ${{ needs.prepare.outputs.ENVIRONMENT }}-ai
+          HELM_FILES: "-f ./deploy-api.yaml"
+          REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          HELM_VARS: >
+            --set serviceAccount.name=${{ vars.SERVICE_ACCOUNT_NAME_BASE }}-${{ needs.prepare.outputs.ENVIRONMENT }}
+            --set global.nodeNamespace=${{ needs.prepare.outputs.ENVIRONMENT }}
+            --set global.namespace=${{ needs.prepare.outputs.ENVIRONMENT }}-ai
+            --set image.tag=${{ needs.prepare.outputs.SHORT_SHA }}
+            --set image.name=${{ needs.prepare.outputs.CONTAINER_REPOSITORY_URL }}/${{ github.event.repository.name }}-${{ needs.prepare.outputs.APPLICATION }}
+            --set env.extra.DATA_ENVIRONMENT=${{ needs.prepare.outputs.ENVIRONMENT }}
+            --set env.extra.PLATFORM_BASE_DOMAIN=${{ vars.PLATFORM_BASE_DOMAIN }}
+            --set env.extra.BEDROCK_REGION=${{ vars.BEDROCK_REGION }}
+            --set env.extra.OPENAI_KEY=${{ secrets.OPENAI_KEY }}
+            --set env.extra.FB_WABA_URL=${{ vars.FB_WABA_URL }}
+            --set env.extra.FB_WABA_TOKEN=${{ secrets.FB_WABA_TOKEN }}
+            --set env.extra.SUPERSET_BASE_URL=https://superset.${{ needs.prepare.outputs.ENVIRONMENT }}.${{ vars.PLATFORM_BASE_NAME }}.atlas-platform.io
+            --set env.extra.SUPERSET_DASHBOARD_ID=${{ needs.prepare.outputs.ENVIRONMENT == 'develop' && vars.SUPERSET_DASHBOARD_ID_DEVELOP || needs.prepare.outputs.ENVIRONMENT == 'prod' && vars.SUPERSET_DASHBOARD_ID_PROD }}
+            --set env.extra.KEYCLOAK_SERVER_URL=${{ vars.KEYCLOAK_SERVER_URL }}
+            --set env.extra.KEYCLOAK_REALM=${{ vars.KEYCLOAK_REALM }}
+            --set env.extra.KEYCLOAK_ADMIN_CLIENT_SECRET=${{ secrets.KEYCLOAK_ADMIN_CLIENT_SECRET }}
+            --set env.extra.KEYCLOAK_CLIENT_ID=${{ needs.prepare.outputs.ENVIRONMENT == 'develop' && vars.KEYCLOAK_CLIENT_ID_DEVELOP || needs.prepare.outputs.ENVIRONMENT == 'prod' && vars.KEYCLOAK_CLIENT_ID_PROD }}
+            --set env.extra.KEYCLOAK_CLIENT_SECRET=${{ needs.prepare.outputs.ENVIRONMENT == 'develop' && secrets.KEYCLOAK_CLIENT_SECRET_DEVELOP || needs.prepare.outputs.ENVIRONMENT == 'prod' && secrets.KEYCLOAK_CLIENT_SECRET_PROD }}
+            --set env.extra.SUPERSET_USERNAME=${{ vars.SUPERSET_USERNAME }}
+            --set env.extra.SUPERSET_PASSWORD=${{ secrets.SUPERSET_PASSWORD }}
+            --set env.extra.SUPERSET_FIRSTNAME=${{ vars.SUPERSET_FIRSTNAME }}
+            --set env.extra.SUPERSET_LASTNAME=${{ vars.SUPERSET_LASTNAME }}
+            --set env.extra.GENIE_LOG_LEVEL=${{ vars.GENIE_LOG_LEVEL }}
+            --set env.extra.SAGEMAKER_ENDPOINT_NAME=${{ vars.SAGEMAKER_ENDPOINT_NAME }}
+            --set env.extra.SAGEMAKER_REGION=${{ vars.SAGEMAKER_REGION }}
+            --set env.extra.ABLY_API_KEY=${{ secrets.ABLY_API_KEY }}
+            --set env.extra.CALLSIGHT_URL=${{ needs.prepare.outputs.ENVIRONMENT == 'develop' && vars.CALLSIGHT_URL_DEVELOP || needs.prepare.outputs.ENVIRONMENT == 'prod' && vars.CALLSIGHT_URL_PROD }}
+            --set env.extra.CALLSIGHT_EXECUTE_PIPELINE_ENDPOINT=${{ vars.CALLSIGHT_EXECUTE_PIPELINE_ENDPOINT }}
+            --set env.extra.CALLSIGHT_API_USERNAME=${{ secrets.CALLSIGHT_API_USERNAME }}
+            --set env.extra.CALLSIGHT_API_PASSWORD=${{ secrets.CALLSIGHT_API_PASSWORD }}
+
+
+  db-init:
+    runs-on: ubuntu-latest
+    needs: [prepare]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -f Dockerfile --target dbinit . -t dbinit
+
+    - name: DynamoDB Boostrap
+      run: |
+        docker run --name dynamodb_init \
+          -e REDIS_HOST=localhost \
+          -e OPENAI_KEY=${{ secrets.OPENAI_KEY }} \
+          -e ABLY_API_KEY=${{ secrets.ABLY_API_KEY }} \
+          -e AWS_REGION=${{ vars.AWS_REGION_ATLAS }} \
+          -e AWS_DEFAULT_REGION=${{ vars.AWS_REGION_ATLAS }} \
+          -e AWS_ACCESS_KEY_ID=${{ secrets.DB_INIT_AWS_ACCESS_KEY_ID }} \
+          -e AWS_SECRET_ACCESS_KEY=${{ secrets.DB_INIT_AWS_SECRET_ACCESS_KEY }} \
+          -e DATA_ENVIRONMENT=${{ needs.prepare.outputs.ENVIRONMENT }} \
+          dbinit

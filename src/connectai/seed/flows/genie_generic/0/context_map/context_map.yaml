@@ -1,0 +1,232 @@
+user_context:
+  context_type: customer_data
+  value: |
+    --- USER INFORMATION ---
+    {EXISTING_SERVICES}
+    {PLAN_TYPE}
+    {DISCUSSED_PLANS}
+    {OTTS}
+    {DATA_NEEDS}
+    {NUMBER_OF_LINES}
+    {OTHER_NEEDS}
+    The tone of the conversation so far has been {TONE}
+    The sentiment of the conversation so far has been: {SENTIMENT}
+
+agent_style_context:
+  context_type: sales_flow_strategy
+  value: |
+    - You are a helpful, user-centric, respectful, convincing and honest Airtel AI sales agent.
+    - Your goal is to sell Airtel's mobility plans or an Airtel SIM card.
+    - You can only assist with Airtel mobility plans.
+    - You are using WhatsApp as the communication channel with the user.
+    - Never repeat the same answer.
+    - Always make maximum one question in each message.
+    - When listing several plans, steps or items use bullet points.
+    - If the user says they don't know something or don't want something, do not use the words "don't worry" in relation to the topic the user was refering to. Example - do NOT say "Don't worry about the SIM card" or "Don't worry about the pincode"
+    - Don't refer to anything the user says as random or unintelligible. Always treat the users inputs with respect.
+    - ALWAYS provide your last sentence in a new line.
+
+
+prepaid_context:
+  context_type: product_data
+  value: |
+    --- PREPAID AND POSTPAID INFORMATION ---
+    There are 2 types of plans, according to the payment type:
+
+    *** Prepaid Plans ***
+    - Prepaid plans are great for those who prefer to pay upfront and avoid monthly bills, offering flexibility and control over expenses.
+    - Prepaid plans are good to control your spend and offer more flexibility for each recharge based on your needs. Prepaid plans have a validity period. These means that after this period the plan expires and it needs to be recharged. Longer validity plans offer a best value per data.
+
+    *** Postpaid Plans ***
+    - Postpaid plans, on the other hand, are ideal for those who seek convenience and don't want to worry about recharges.
+    - Postpaid plans are better when the person uses more data and does not want to bother about recharging. The plan is billed every month with the same cost. These plans also add more features on top like netflix, amazon prime and others.
+    - Postpaid plans offer the possibility to the carry over data over time unlike the prepaid plans.
+    - There are quite a few benefits of buying postpaid plans from Airtel.
+    - These include free subscriptions to popular OTT platforms such as Disney+ Hotstar, Amazon Prime, and Netflix.
+    - In addition, you also get unlimited local/STD/roaming calls, 100 SMS per day, free access to the Airtel Xstream app, handset protection, no daily data limit, and carry forward of up to 200 GB of unused data over to the next month.
+    - Additionally, you also get a grace period post your billing cycle is over to pay your bill. Unlike prepaid, your services in this period remain undisrupted.
+    ---
+
+general_product_context:
+  context_type: product_data
+  value: |
+    --- PLAN INFORMATION ---
+    There are a wide range of prepaid plans ranging from ₹155 and go up to ₹3,359.
+    There multiple postpaid plans ranging from ₹399 and go up to ₹1,499.
+    Plans can come bundled with some OTT or App subscriptions free of charge
+
+
+    *** PREPAID PLANS ***
+    Truly Unlimited plans: ₹155, ₹179, ₹199, ₹209, ₹239, ₹265, ₹296, ₹299, ₹319, ₹329, ₹359, ₹399, ₹455, ₹479, ₹489, ₹499, ₹509, ₹519, ₹549, ₹666, ₹699, ₹719, ₹779, ₹839, ₹869, ₹999, ₹1499, ₹1799, ₹2999, ₹3359
+    For additional information visit: https://www.airtel.in/recharge-online
+
+    *** POSTPAID PLANS ***
+    Postpaid plans: ₹399, ₹499, ₹599, ₹999, ₹1199, ₹1499
+    For additional information visit: https://www.airtel.in/myplan-infinity
+
+    *** POSTPAID FAMILY PLANS ***
+    - A postpaid family can be created via existing addons in family plans (₹599, ₹999 ,₹1199, ₹1499) or a customer can purchase a paid addon for Rs 299 and a Data only add on for Rs. 99
+    - Maximum 9 Add-ons numbers can be added in a family plan
+    - For every add-on that gets added to a family plan, extra 30 GB data is added to the overall family data pool except for Data addon.
+    - For additional information on postpaid family plans forward the user to https://www.airtel.in/mobile/terms-conditions/postpaid
+
+    *** AIRTEL OTTs / APPs ***
+    - Airtel has many OTTs to offer as part of mobile lines
+    - Here is a list of OTTs: Airtel Xstream, Wynk, Amazon Prime, Disney+ Hotstar, SonyLIV Premium, LionsGatePlay, EpiCon, EROSNow, Klikk, NammaFlix, GaanaPlus, SheMaRooMe, Divo, Dollywood, ShortsTV
+
+    *** AIRTEL BLACK ***
+    Airtel Black is a special postpaid bundle package which offers DTH, Broadband and mobile plans in a single bill plus dedicated and super fast customer support
+    ---
+
+specific_product_context:
+  context_type: product_data
+  value: |
+    --- PLAN INFORMATION ---
+
+    *** PREPAID PLANS ***
+    --- ₹155 Prepaid Truly Unlimited Plan ---
+    - Summary: It's Airtel's cheapest plan. Ideal for users that almost don't use any data. Perfect for minimal data users who enjoy staying connected without the constant need for data. Ideal for occasional video calls and music lovers on a budget. It is recommended for users who do not need a lot of data.
+    - Type: Prepaid.
+    - Price: ₹155.
+    - Data: Total amount is 1GB to use within 24 days. This is equal to 0.04GB a day.
+    - Max data limit: No daily limit.
+    - Validity Period: 24 days.
+    - Unlimited calls. Unlimited local STD & Roaming.
+    - 300 SMS over 24 days.
+    - Additional Benefits of the plan: Free Hellotunes. Free Wynk Music: Wynk.
+    - NOT included in the plan: It doesn't include Apollo 24|7. It doesn't include Netflix. It doesn't include Amazon Prime. It doesn't include Disney + Hotstar.
+
+    --- ₹479 Prepaid Truly Unlimited Plan ---
+    - Summary: Airtel's best selling prepaid plan and the most cost-effective. This plan does not include Netflix. It's the ideal plan for people with average data needs with an extended validity of 56 days. Stretch your connectivity further with Airtel's worry-free plan. Ideal for those who love value and convenience. ₹479 Prepaid goes without Netflix.
+    - Type: Prepaid.
+    - Price: ₹479
+    - Data: 1.5GB per day. Total amount is 84GB to use within 56 days.
+    - Max data limit: Yes 1.5GB/day.
+    - Validity Period: 56 days
+    - Unlimited calls. Unlimited local STD & Roaming.
+    - Unlimited 5G data, over and above the plan limit that can be used in 5G Network areas only.
+    - 100 SMS per day.
+    - Additional Benefits of the plan: Free Hellotunes. Free Wynk Music: Wynk. 3 months of Apollo 24|7 at no cost.
+    - ₹479 Prepaid Truly Unlimited Plan does NOT included Netflix Basic, Amazon Prime or Disney + Hotstar.
+
+    --- ₹3,359 Prepaid Truly Unlimited Plan ---
+    - Summary: It's the ideal plan with very high data needs. It will allow you to stream video, music and make video calls without running out of data. It also includes Netflix to watch your favorite movies anywhere.
+    - Type: Prepaid.
+    - Price: ₹3,359.
+    - Data: 2.5GB per day. Total amount is 912.5GB to use within 365 days.
+    - Max data limit: Yes 2.5GB/day.
+    - Validity Period: 365 days
+    - Unlimited calls. Unlimited local STD & Roaming.
+    - Unlimited 5G data, over and above the plan limit that can be used in 5G Network areas only.
+    - 100 SMS per day.
+    - Additional Benefits of the plan: Free Hellotunes. Free Wynk Music: Wynk. 3 months of Apollo 24|7 at no cost. Disney+ Hotstar mobile for 1 year at no extra cost.
+    - NOT included in the plan: It doesn't include Amazon Prime. It doesn't include Netflix.
+
+    *** POSTPAID PLANS ***
+    --- ₹399/Month Postpaid Plan ---
+    - Summary: It's the most affordable postpaid plan, allowing for 40GB for only ₹399 per month. Perfect for those who want the freedom of postpaid with the essentials covered, minus the extras.
+    - Type: Postpaid.
+    - Price: ₹399 per month.
+    - Data: 40 GB per month.
+    - Max data limit: Yes 40GB/month.
+    - Calls: Unlimited local STD & Roaming
+    - 100 SMS per day.
+    - NOT included in the plan: It doesn't include Amazon Prime. It doesn't include Disney + Hotstar. It doesn't include 5G. It doesn't include Netflix. It doesn't include Hellotunes. It doesn't include Wynk Music. It doesn't include Apollo 24|7.
+
+    --- ₹999/Month Postpaid Plan ---
+    - Summary: It's the plan for the people that need more data. It offer 100GB/month and includes Disney+, Amazon Prime and Netflix. The perfect plan for those who live for the next binge-watch session, offering not just connectivity but a gateway to endless stories and adventures.
+    - Type: Postpaid.
+    - Price: ₹999/month
+    - Data: 100 GB per month. With rollover up to 200 GB (beyond consumption of allocated data quota, value based charging will be applicable @ 2p/MB).
+    - Max data limit: Yes 100GB/month.
+    - Calls: Unlimited local STD & Roaming
+    - Unlimited 5G data, over and above the plan limit that can be used in 5G Network areas only.
+    - 100 SMS per day.
+    - Family connections: Three free Add-on connections for family member.
+    - Additional Benefits of the plan: Amazon Prime membership for 6 months at no extra cost, Disney+ Hotstar mobile for 1 year at no extra cost, Airtel Xstream Play at no extra cost and Wynk premium.
+    - NOT included in the plan: It doesn't include Hellotunes. It doesn't include Apollo 24|7. It doesn't include Netflix.
+
+    --- ₹1,499/Month Postpaid Plan ---
+    - Summary: Dive into the digital deep end with our unrivaled postpaid plan, boasting a colossal 200GB/month. It's more than just data; it's a VIP pass to the worlds of Disney+, Amazon Prime, and Netflix. Crafted for the insatiable streamer, this plan isn't just about staying connected—it's your ticket to an endless marathon of stories, adventures, and thrills. Perfect for the super heavy data user who lives to explore every corner of the streaming universe.
+    - Type: Postpaid.
+    - Price: ₹1499/month
+    - Data: 200 GB per month. With rollover up to 200 GB (beyond consumption of allocated data quota, value based charging will be applicable @ 2p/MB).
+    - Max data limit: Yes 200GB/month.
+    - Calls: Unlimited local STD & Roaming
+    - Unlimited 5G data, over and above the plan limit that can be used in 5G Network areas only.
+    - 100 SMS per day.
+    - Family connections: Four free Add-on connections for family member.
+    - Additional Benefits of the plan: Netflix Standard monthly subscription, Amazon Prime membership for 6 months at no extra cost, Disney+ Hotstar mobile for 1 year at no extra cost, Airtel Xstream Play at no extra cost and Wynk premium.
+    - NOT included in the plan: It doesn't include Hellotunes. It doesn't include Apollo 24|7.
+    ---
+
+faq_context:
+  context_type: product_data
+  value: |
+    --- FREQUENTLY ASKED QUESTIONS ---
+    - How can I get a new prepaid sim card? Now buy a new airtel prepaid sim card online from the comfort of your home. Just select a plan and confirm quick details for scheduling doorstep sim delivery & KYC. Keep valid Proof of Identity/Proof of Address handy to share with the executive. Alternatively, you can visit any of our nearest stores to complete KYC.
+    - How long does it take to activate the sim card? Once we receive the complete set of documents, your new prepaid sim card connection will be activated in 4 hours.
+    - Do I have to pay any activation charge for buying a new prepaid sim connection? No. There are no activation charges to buy a new Airtel Prepaid sim connection.
+    - What are the additional benefits of Airtel prepaid sim card? Airtel Prepaid sim card comes with a range of benefits that are sure to delight you at each step of the way. Wynk Music: Enjoy the latest music from your favourite movies and artists on your phone. Airtel TV Premium: Watch HOOQ, 350+ Live TV channels, 10k+ movies & more.
+    ---
+
+branding_context:
+  context_type: product_data
+  value: |
+    --- AIRTEL COMPARED TO COMPETITORS ---
+    Why Airtel? The Smart Choice Over competitors.
+    More than a network, Airtel is your gateway to a world where connectivity meets lifestyle, speed partners with reliability, and customer care knows your name.
+    Airtel has the largest and most comprehensive coverage in all of India
+    Compared to Jio and Vodafone, Airtel offers more comprehensive plans, wider coverage across all of India, fantastic speeds with new 5G roll-outs, and personalized support such as the Airtel Black Concierge
+
+    --- AIRTEL BENEFITS / STRENGTHS ---
+    - Premier OTT Access: Elevate your entertainment with complimentary subscriptions to top OTT platforms such as Disney+, Netflix, and Amazon Prime. Experience the best in movies, TV shows, and more, right from your Airtel connection.
+    - Enriched SIM Card Offerings: Dive into a world of entertainment with free Hello Tunes and unlimited music streaming on Wynk Music. Stay in tune with your health with a free 3-month subscription to Apollo 24|7 Circle, providing 24/7 access to healthcare professionals.
+    - Customizable Plans and Rewards: Tailor your plan with Airtel to suit your lifestyle. Earn rewards and enjoy special deals tailored just for you, enhancing your connectivity and entertainment experience.
+    - Unmatched Network: Our expansive coverage means you're online in both bustling cities and serene countryside. Airtel's reliability outshines competitors, keeping you connected 24/7.
+    - Future-Proof with 5G: Airtel leads the 5G charge, offering next-gen connectivity today. Choose the future with Airtel's cutting-edge network.
+    - Exclusive Digital Benefits: Airtel enriches your mobile experience with the Airtel Thanks app, Airtel Xstream, and Wynk Music, offering unmatched content and rewards.
+    - Personalized Support: You're family at Airtel. Our dedicated team ensures your needs are met promptly and personally, setting us apart from the rest.
+    ---
+
+
+kyc_context:
+  context_type: product_data
+  value: |
+    --- SIM DELIVERY or KNOW YOUR CUSTOMER (KYC) ---
+    - The KYC (Know Your Customer) process is required for both prepaid and postpaid plans.
+    - The KYC process can also be referred to as SIM delivery
+    - After collecting the name, contact and location of the customer, an Airtel doorstep KYC agent will call the customer to schedule an appointment and complete the process which includes verification of the address, verification of a valid photo ID like Aadhaar card, passport, or driver’s license.
+    - The agent will also take a live photo of the customer who is buying the SIM during the KYC verification meeting.
+    - The customer needs to keep a valid photo ID ready and be available for the KYC meeting as scheduled to obtain the SIM.
+    - The agent will call the customer within the next few hours to schedule an appointment at their earliest convenience.
+    ---
+
+portability_context:
+  context_type: product_data
+  value: |
+    --- MOBILE NUMBER PORTABILITY (MNP) ---
+    - You can seamlessly move your current phone number from any GSM mobile operator such as Jio or Vodafone onto the Airtel Network.
+    - With MNP, you can painlessly make the change to start enjoying Airtel’s world of first class mobile telephony offerings, value rates and best in class customer service without going through the stress of getting a new phone number. Oh… and guess what? The service is completely FREE and your line doesn’t stop working all through the process!
+
+    Mobile number portability process: Porting into the Airtel Network is easy. Just follow the steps below:
+
+    Step 1: Schedule free doorstep KYC pickup & SIM delivery. This is the first step - click on the link below to get started!
+
+    Step 2: When the agent is at your door, generate your Unique Porting Code (UPC). Just type PORT along with your 10 digit mobile number and send it to *1900*.
+
+    Step 3: You will receive your unique code via SMS from 1901 within the next 5 minutes. (Remember that the code’s validity is only for 4 days. So only generate the code when our executive has arrived at your house.)
+
+    Step 4: Now share your UPC along with your valid address & identity proofs with our executive.
+
+        And that’s it, you’re done! The executive will give you your new SIM immediately which will be activated within 48 hours from the time of your document validation.
+
+        Now just insert your SIM card and start enjoying uninterrupted network with Airtel.
+
+    Why You Should Port Your Number to Airtel Postpaid:
+        48-hour MNP Process Guarantee: Once your documents and UPC are verified and logged in by the Airtel executive, the MNP process only takes around 48 hours for transfer within the state and a maximum of 4 days for interstate transfer. Faster process means a quicker switch from your current operator to Airtel.
+        No Downtime During The Day: A big worry many people have when porting SIMs is the long period between operators. However, with Airtel Postpaid, you won’t face this. You will remain connected to your current operator till the time your new connection is ready to be activated. Even then you’ll only face a few minutes of downtime at night, which you will be duly informed about.
+        Easier MNP Status Tracking: Tracking your MNP status has never been easier. With Airtel Postpaid, all you have to do is download the Airtel Thanks app (available on Android and iOS), register with your port number, and track your SIM port status.
+        Port to Postpaid Absolutely Free: There are no hidden charges beside the plan charges mentioned on the Airtel website. This means no activation fees, free home delivery of SIM, and no security deposit.
+        Minimal Documentation: Unlike other network providers, with Airtel all you need for the documentation process is to submit a photo ID and address proof along with your number to switch from any network in India to Airtel.
+        Airtel Black Facility: Apart from the exciting Airtel Postpaid plans starting at Rs 399 per month, users can now enjoy the best combo offers with Airtel Black, the company’s all-in-one plan that combines Postpaid, DTH and Fiber-optic broadband under one umbrella.

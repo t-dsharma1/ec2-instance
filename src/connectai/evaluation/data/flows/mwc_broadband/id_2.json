@@ -1,0 +1,41 @@
+{
+    "id": "002",
+    "flow": "broadband",
+    "conversation": [
+        {
+            "interaction": 0,
+            "state": "FIRST REACH",
+            "assistant": "\nWe are reaching out to you as a valued Airtel customer! I am your commercial AI agent.\n\nAt Airtel we have a wide selection of broadband plans with endless entertainment options, which can complement your postpaid mobile plan.\nAirtel Xstream Fiber offers the fastest broadband connection with speed of up to 1 Gbps.\n\nDo you want me to help you find the best home connection for your needs?\n    "
+        },
+        {
+            "interaction": 1,
+            "state": "CUSTOMER INFORMATION DATA BROADBAND",
+            "user": "sure!",
+            "assistant": "I'm happy to help you find the perfect Airtel broadband plan. We have a range of plans that cater to different internet usage habits. Can you tell me a little bit about how you use the internet? Do you stream movies, play online games, or work from home? This will help me recommend the best plan for your needs."
+        },
+        {
+            "interaction": 2,
+            "state": "CUSTOMER INFORMATION DEVICES",
+            "user": "I play a lot of video games, specially league of legends",
+            "assistant": "Great to hear that you're a gamer!  League of Legends is an intense game that requires a fast and stable internet connection. \n\nHow many devices do you usually connect to the internet at home?  This will help me recommend the best broadband plan for your needs. "
+        },
+        {
+            "interaction": 3,
+            "state": "PRODUCT INFORMATION BROADBAND",
+            "user": "only one pc",
+            "assistant": "Based on your gaming needs, I recommend the **Entertainment ₹999/month** plan. It offers up to 200Mbps speed, perfect for seamless gaming and entertainment. Plus, you'll get access to Amazon Prime, Disney+ Hotstar, and VIP Service. Interested?"
+        },
+        {
+            "interaction": 4,
+            "state": "CONVERSION BROADBAND",
+            "user": "yes!",
+            "assistant": "To finalize your purchase, please provide the address where you'd like the new service installed. Our tech team will contact you within 24 hours to schedule a convenient installation appointment. Get ready to experience seamless entertainment with Airtel!\n\nPlease provide the address: "
+        },
+        {
+            "interaction": 5,
+            "state": "FINALIZATION STATE BROADBAND",
+            "user": "India, Mumbai, Street 111-111",
+            "assistant": "Thank you for choosing Airtel! We appreciate your loyalty and trust. You've made a great decision with the Rs. 999 plan. Our team will contact you for installation. Welcome to a seamless entertainment experience!\n\nIs there anything else I can assist you with?"
+        }
+    ]
+}

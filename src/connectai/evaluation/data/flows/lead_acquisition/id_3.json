@@ -1,0 +1,36 @@
+{
+    "id": "003",
+    "flow": "lead_acquisition",
+    "conversation": [
+        {
+            "interaction": 0,
+            "state": "FIRST_REACH",
+            "user": "hey!",
+            "assistant": "Thanks for showing interest in Airtel mobility plans!\nI'm your *Airtel AI Sales Assistant*.\n\nWould you like to schedule your SIM delivery?\n\nIf you have any questions, feel free to ask! I speak English and Hindi, just like ChatGPT!\n\n"
+        },
+        {
+            "interaction": 1,
+            "state": "CONVERSION",
+            "user": "sure",
+            "assistant": "Thank you for your interest in Airtel mobility plans! \n\nTo get started, I'll need some basic details from you. Please provide the following information:\n\n• Your Name\n• Your Address\n• Your Pin Code (Postal code)\n\nThis will help me process your request. A WhatsApp form will be displayed shortly. \n\nAfter submitting the details, our KYC agent will reach out to schedule a convenient time for verification. \n\nLooking forward to getting you connected with Airtel!"
+        },
+        {
+            "interaction": 2,
+            "state": "ENRICH_CONVERSION_DATA",
+            "user": "good form",
+            "assistant": "Thank you for providing the details! Our agent will reach out shortly to schedule the KYC visit. At Airtel, we offer a range of prepaid and postpaid plans to cater to your needs. Can you tell me a little bit about your data usage habits? Do you enjoy streaming, gaming, or surfing the internet? This will help me recommend the best mobility plan for you!"
+        },
+        {
+            "interaction": 3,
+            "state": "CONTINUE_ENRICHING_CONVERSION_DATA",
+            "user": "i don't use a lot of data",
+            "assistant": "Based on your data usage, I would recommend our ₹179 Prepaid Truly Unlimited Plan. It offers 2GB of data, unlimited calls, and 300 SMS over 28 days. Plus, you'll get free Hellotunes and Wynk Music. Would you like to know more about this plan or do you have any questions? How many lines or SIM cards do you need?"
+        },
+        {
+            "interaction": 4,
+            "state": "ORGANIC_END_CONVERSATION",
+            "user": "I need 199 connections",
+            "assistant": "Thank you for choosing Airtel! An agent will contact you soon to assist with your 199 connections. Join Airtel mobility plans for unmatched network, superior speeds, future-proof 5G, exclusive digital benefits, and personalized support. Experience the Airtel advantage!!"
+        }
+    ]
+}

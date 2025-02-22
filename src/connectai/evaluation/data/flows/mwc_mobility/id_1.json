@@ -1,0 +1,57 @@
+{
+    "id": "001",
+    "flow": "mobility",
+    "conversation": [
+        {
+            "interaction": 0,
+            "state": "FIRST REACH",
+            "user": "hello!",
+            "assistant": "Welcome! I'm your *Airtel AI Sales Assistant*.\n\nAirtel takes pride in offering the best plans with unlimited talk time and high-speed data, all within the market's most extensive coverage.\nOur flexible plans are designed to adapt to your unique needs, ensuring seamless connectivity and unbeatable value.\n\nReady to experience unparalleled service and stay connected like never before?\nLet me help you find the perfect plan!"
+        },
+        {
+            "interaction": 1,
+            "state": "CUSTOMER INFORMATION DATA",
+            "user": "sure",
+            "assistant": "Airtel offers a range of plans to fit your data usage habits. Do you stream videos, play games, or just browse social media? We have plans that cater to your needs. Let's find the perfect plan for you! \n\nWhat's your average data usage per month?"
+        },
+        {
+            "interaction": 2,
+            "state": "PRODUCT INFORMATION",
+            "user": "I watch a lot of Youtube videos!",
+            "assistant": "It sounds like you enjoy watching videos on YouTube. Our *₹479 Prepaid Truly Unlimited Plan* offers 1.5GB of data per day, which should be sufficient for your video streaming needs. Plus, it comes with a validity of 56 days, giving you plenty of time to enjoy your favorite content.\n\nWould you prefer a prepaid or postpaid plan?",
+            "customer_features": {
+                "data_needs": "watch a lot of Youtube videos"
+            }
+        },
+        {
+            "interaction": 3,
+            "state": "PRODUCT INFORMATION",
+            "user": "I would prefer prepaid",
+            "assistant": "Based on your interest in watching YouTube videos, I recommend the *₹479 Prepaid Truly Unlimited Plan*. It offers 1.5GB of data per day, which should be enough for your video streaming needs. Plus, it comes with a validity of 56 days. Would you like to go ahead and purchase this plan?",
+            "customer_features": {
+                "data_needs": "watch a lot of Youtube videos",
+                "type_of_plan": "prepaid"
+            }
+        },
+        {
+            "interaction": 4,
+            "state": "OBJECTIONS",
+            "user": "mmm this is too pricey for me",
+            "assistant": "I understand that the plan may seem pricey, but let me highlight the benefits of the *₹479 Prepaid Truly Unlimited Plan*. With this plan, you'll get 1.5GB of data per day, unlimited calls, and 100 SMS per day for 56 days. Plus, you'll get access to Wynk Music and Apollo 24|7 at no additional cost.\n\nAdditionally, Airtel offers a simple and hassle-free portability process, so you can easily switch to Airtel from your current provider. And with Airtel's strong network and reliable connectivity, you can trust that your data will be safe and secure.\n\nSo, are you interested in purchasing the *₹479 Prepaid Truly Unlimited Plan*?",
+            "customer_features": {
+                "data_needs": "watch a lot of Youtube videos",
+                "type_of_plan": "prepaid"
+            }
+        },
+        {
+            "interaction": 5,
+            "state": "CONVERSION",
+            "user": "yes!",
+            "assistant": "We're glad you're interested in the *₹479 Prepaid Truly Unlimited Plan*! To complete your purchase, we require some personal information. Please provide your Name, Address, and Postal code. Our KYC process is quick and easy. An agent will reach out to schedule a convenient time for you. Thank you for choosing Airtel!",
+            "customer_features": {
+                "data_needs": "watch a lot of Youtube videos",
+                "type_of_plan": "prepaid"
+            }
+        }
+    ]
+}

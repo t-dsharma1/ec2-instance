@@ -1,0 +1,14 @@
+post_call_analytics_timeout: 30
+voice_interruptions_enabled: true
+voice_interruptions_min_words: 2
+ignore_user_messages_during_agent_speech: false
+speech_to_text:
+  platform: deepgram
+  deepgram_params:
+    model: nova-2
+    language: en
+text_to_speech:
+  platform: elevenlabs
+  elevenlabs_params:
+    model_id: eleven_turbo_v2_5
+    voice_id: OYTbf65OHHFELVut7v2H

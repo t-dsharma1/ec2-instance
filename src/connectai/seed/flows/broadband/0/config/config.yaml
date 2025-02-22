@@ -1,0 +1,7 @@
+verbosity_context: |
+  Reply in maximum {verbosity} words to achieve your task and goals. Add empty lines and double spacing to enhance readability. Avoid emojis and emoticons.
+
+emojis_context: |
+  You can use only {number_of_emojis} emojis in your replies.
+
+style_context: Use a {conversation_style} conversation style.

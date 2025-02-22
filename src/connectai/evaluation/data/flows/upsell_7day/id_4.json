@@ -1,0 +1,41 @@
+{
+    "id": "004",
+    "flow": "upsell_7day",
+    "conversation": [
+        {
+            "interaction": 0,
+            "state": "FIRST_REACH",
+            "assistant": "Hi! I'm AI Bot (Beta). \n\nSave up to 5 TK/GB with our Super pack: 20 GB for 30 days plus FREE Chorki and Hoichoi - only 499 TK plus CASHBACK via myGP! To avail tap [here](https://www.grameenphone.com/).\n\nQuestions? Ask me! I speak English and Bangla, just like ChatGPT.\n"
+        },
+        {
+            "interaction": 1,
+            "state": "UPSELL_MESSAGE",
+            "user": "sure!",
+            "assistant": "Need just a bit of data and love watching videos? \uD83C\uDFAC✨\n\n\nThe Super pack perfectly fits your needs.\n\n\nUsers with similar data usage as you often choose this pack because it’s super value-for-money. Want to try it?"
+        },
+        {
+            "interaction": 2,
+            "state": "OBJECTION_WITH_REASON",
+            "user": "No, that sounds too expensive",
+            "assistant": "The leftover data carries over to the next month, so no data is wasted.\n\n\nDoes that help with your decision?"
+        },
+        {
+            "interaction": 3,
+            "state": "OBJECTION_NO_REASON",
+            "user": "no",
+            "assistant": "I see. You're not interested in our Super pack offer.\n\n\nMany of our customers with 7-day plans, similar to yours, have already switched to our 30-day plans.\n\n\nWhat's holding you back from making the switch?"
+        },
+        {
+            "interaction": 4,
+            "state": "UNRELATED_CONVERSATION",
+            "user": "I love cats",
+            "assistant": "Cats are known for their independence, but with our 30-day plans, you can have independence from frequent recharging too!\nWould you like to know more about our 30-day plans?"
+        },
+        {
+            "interaction": 5,
+            "state": "RELATED_CONVERSATION",
+            "user": "How do I change my simcard?",
+            "assistant": "Thank you for your inquiry! I'd be happy to refer you to customer support for assistance with changing your SIM card. Would you instead like to hear more about our 30-day plan offer?"
+        }
+    ]
+}

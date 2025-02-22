@@ -1,0 +1,17 @@
+verbosity_context: |
+  Use maximum {verbosity} words to achieve your task and goals.
+
+long_verbosity_context: |
+  Use maximum 50 words to achieve your task and goals.
+
+style_context: |
+  Use a {conversation_style} style.
+
+emojis_context: |
+  Use maximum {number_of_emojis} emojis.
+
+channel_context: |
+  Add empty lines to enhance readability.
+
+repetition_context: |
+  Use different variations to not sound repetitive.

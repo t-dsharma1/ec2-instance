@@ -1,0 +1,46 @@
+# Environment files and directories
+.env
+.env.local
+env/
+
+# IDE files and directories
+.vscode
+
+# Log files and directories
+log/
+
+# Project files and directories
+.file_cache/
+.json_cache/
+secrets.ini
+secrets-test.ini
+
+# Python temporary files and directories
+*.ddb
+*.py[cod]
+.hypothesis
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+__pycache__/
+.ruff_cache/
+
+# System files and directories
+.DS_Store
+
+# Temporary files and directories
+.tmp
+tmp/
+temp/
+/.idea/
+
+# localstack files
+*.db
+/notebooks/
+docker/localstack
+
+# testing output
+src/connectai/evaluation/results/*.json
+
+# coverage files
+.coverage

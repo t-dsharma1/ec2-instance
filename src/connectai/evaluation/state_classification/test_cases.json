@@ -1,0 +1,408 @@
+[
+   {
+        "conversation_id": "003",
+        "checkpoint": 0,
+        "user_input": "accept",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "CONVERSION"
+    },
+    {
+        "conversation_id": "003",
+        "checkpoint": 0,
+        "user_input": "rejection",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTIONS_WITHOUT_REASON"
+    },
+    {
+        "conversation_id": "003",
+        "checkpoint": 1,
+        "user_input": "good_form",
+        "from_state_name": "CONVERSION",
+        "ground_truth_state_name": "ENRICH_CONVERSION_DATA"
+    },
+    {
+        "conversation_id": "003",
+        "checkpoint": 1,
+        "user_input": "bad_form",
+        "from_state_name": "CONVERSION",
+        "ground_truth_state_name": "FORM_PROBLEM"
+    },
+    {
+        "conversation_id": "003",
+        "checkpoint": 2,
+        "user_input": "data_habits",
+        "from_state_name": "ENRICH_CONVERSION_DATA",
+        "ground_truth_state_name": "CONTINUE_ENRICHING_CONVERSION_DATA"
+    },
+    {
+        "conversation_id": "003",
+        "checkpoint": 3,
+        "user_input": "lines",
+        "from_state_name": "CONTINUE_ENRICHING_CONVERSION_DATA",
+        "ground_truth_state_name": "ORGANIC_END_CONVERSATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "accept",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UPSELL_MESSAGE"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "rejection",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_NO_REASON"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "customer_service",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "TALK_TO_AGENT"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "unrelated",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "question_current_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "question_30_day_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "PLAN_INFORMATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "political_content",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "rejection",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "OBJECTION_NO_REASON"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "objections",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "OBJECTION_WITH_REASON"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "objections_money",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_PRICE"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "accept",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "CONVERSION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "unrelated",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "related_conversation",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "RELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 0,
+        "user_input": "unrelated_extreme",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "INAPPROPRIATE_MESSAGE"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "question_current_plan",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "question_30_day_plan",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "PLAN_INFORMATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "question_switching",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "SWITCHING_PLAN"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 6,
+        "user_input": "customer_service",
+        "from_state_name": "RELATED_CONVERSATION",
+        "ground_truth_state_name": "TALK_TO_AGENT"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "unrelated",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 1,
+        "user_input": "unrelated_extreme",
+        "from_state_name": "UPSELL_MESSAGE",
+        "ground_truth_state_name": "INAPPROPRIATE_MESSAGE"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 2,
+        "user_input": "accept",
+        "from_state_name": "OBJECTION_WITH_REASON",
+        "ground_truth_state_name": "CONVERSION"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 3,
+        "user_input": "objections",
+        "from_state_name": "OBJECTION_NO_REASON",
+        "ground_truth_state_name": "OBJECTION_WITH_REASON"
+    },
+    {
+        "conversation_id": "004",
+        "checkpoint": 3,
+        "user_input": "objections_money",
+        "from_state_name": "OBJECTION_NO_REASON",
+        "ground_truth_state_name": "OBJECTION_PRICE"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "rejection",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_NO_REASON"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "objections",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_WITH_REASON"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "objections_money",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_WITH_REASON"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "customer_service",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "TALK_TO_AGENT"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "unrelated",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "unrelated_extreme",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "INAPPROPRIATE_MESSAGE"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "related_conversation",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "RELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "question_current_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "question_30_day_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "PLAN_INFORMATION"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "question_switching",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "RENEW_PLAN_FAQ"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 6,
+        "user_input": "customer_service",
+        "from_state_name": "RELATED_CONVERSATION",
+        "ground_truth_state_name": "TALK_TO_AGENT"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "other_products",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "RELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 0,
+        "user_input": "political_content",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 3,
+        "user_input": "objections",
+        "from_state_name": "OBJECTION_NO_REASON",
+        "ground_truth_state_name": "OBJECTION_WITH_REASON"
+    },
+    {
+        "conversation_id": "005",
+        "checkpoint": 1,
+        "user_input": "objections",
+        "from_state_name": "OBJECTION_NO_REASON",
+        "ground_truth_state_name": "OBJECTION_WITH_REASON"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "customer_service",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "TALK_TO_AGENT"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_money",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_PRICE_INITIAL"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_bigger",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_BIGGER"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 1,
+        "user_input": "objections_money",
+        "from_state_name": "OBJECTION_PRICE_INITIAL",
+        "ground_truth_state_name": "OBJECTION_PRICE_REPEATED"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_specific_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "SPECIFIC_PLAN_NAME"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_specific_feature",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "SPECIFIC_PLAN_SPEC"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "compare_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objection_competitor",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_NO_REASON"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objection_bad_service",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNHAPPY_CUSTOMER"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "nbo_current_plan_questions",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "nbo_plan_information",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "PLAN_INFORMATION"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "nbo_switching_questions",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "PLAN_INFORMATION"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "unrelated",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "NBO_political",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "POLITICAL_OR_RELIGIOUS_TOPIC"
+    }
+]

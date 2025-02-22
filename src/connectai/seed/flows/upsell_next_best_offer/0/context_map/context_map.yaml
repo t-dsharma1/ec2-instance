@@ -1,0 +1,479 @@
+user_context:
+  context_type: customer_data
+  value: |
+    --- USER INFORMATION ---
+    - The user used {tot_data_vol_mb_30days} GB this month.
+    - {last_pack_message}
+
+agent_style_context:
+  context_type: sales_flow_strategy
+  value: |
+    - You are a {conversation_style} sales agent. You are having a conversation with a Smart user.
+    - Your goal is to sell Smart's mobile data plans to customers that currently have a old data plan.
+    - You can only assist with Smart data plans.
+    - Each message you create can have at maximum one question. Never repeat an answer you have already given.
+    - Always reply in a way that is relevant to the user's last message.
+    - Do not us a greeting or introduce your message. Instead, strictly stick to the provided instructions.
+    - Your are in a direct conversation with a Smart customer.
+
+product_context:
+  context_type: product_data
+  value: |
+    --- PLAN INFORMATION ---
+    Overview:
+      - All plans are prepaid plans.
+      - There are no additional discounts or cashbacks available.
+      - Below five plans are recommended based on the user's usage behavior. Any other plan can be found at the [product catalogue](https://smart.com.ph/prepaid/promos)
+
+    --- initial recommendation - {top1_dpd_lm} plan ---
+      - Plan name: {top1_dpd_lm}
+      - Price {top1_price} PHP
+      - Validity: {top1_validity} days
+      - Voice: {top1_min} minutes
+      - SMS: {top1_sms} SMS
+      - Open access data: {top1_gb} GB
+      - App data: {top1_app} GB
+      - Link: [{top1_dpd_lm}]({top1_link})
+
+    --- bigger option - {top2_dpd_lm} plan ---
+      - Plan name: {top2_dpd_lm}
+      - Price {top2_price} PHP
+      - Validity: {top2_validity} days
+      - Voice: {top2_min} minutes
+      - SMS: {top2_sms} SMS
+      - Open access data: {top2_gb} GB
+      - App data: {top2_app} GB
+      - Link: [{top2_dpd_lm}]({top2_link})
+
+    --- budget option - {top3_dpd_lm} plan ---
+      - Plan name: {top3_dpd_lm}
+      - Price {top3_price} PHP
+      - Validity: {top3_validity} days
+      - Voice: {top3_min} minutes
+      - SMS: {top3_sms} SMS
+      - Open access data: {top3_gb} GB
+      - App data: {top3_app} GB
+      - Link: [{top3_dpd_lm}]({top3_link})
+
+    --- alternative option 1 - {top4_dpd_lm} plan ---
+      - Plan name: {top4_dpd_lm}
+      - Price {top4_price} PHP
+      - Validity: {top4_validity} days
+      - Voice: {top4_min} minutes
+      - SMS: {top4_sms} SMS
+      - Open access data: {top4_gb} GB
+      - App data: {top4_app} GB
+      - Link: [{top4_dpd_lm}]({top4_link})
+
+    --- alternative option 2 - {top5_dpd_lm} plan ---
+      - Plan name: {top5_dpd_lm}
+      - Price {top5_price} PHP
+      - Validity: {top5_validity} days
+      - Voice: {top5_min} minutes
+      - SMS: {top5_sms} SMS
+      - Open access data: {top5_gb} GB
+      - App data: {top5_app} GB
+      - Link: [{top5_dpd_lm}]({top5_link})
+
+product_faq:
+  context_type: product_data
+  value: |
+    --- PACK-SPECIFIC FAQ ---
+    MAGIC DATA/ALL DATA/ALLNET
+    - Data Sharing: The All Data plans allow sharing of open access data with other Smart/TNT users (but not the Magic Data plans).
+    - SIM Expiry: Magic Data plans have no data expiry, but SIMs require reloading every 120 days to stay active.
+    - AllNET Auto-renewal: If auto-renewal fails, an SMS will guide re-subscription through the Smart App.
+    - Charges Adjustment: Please contact customer service if charged incorrectly for calls or texts while registered to Allnet offers.
+
+    GIGA
+    - Packages: GIGA offers substantial open access data with daily app access, including specific packages like GIGA VIDEO, GIGA STORIES, and GIGA GAMES, some with Unlimited Allnet Calls and Texts.
+    - GIGA Video: Offers data and daily video streaming allocations, with unlimited calls and texts in certain packages.
+    - Data Cumulation: Daily data allocations for Video, Stories, or Games from multiple GIGA packages add up and refresh at midnight.
+    - Data Sharing: Any GIGA plan allows for open access data sharing with other Smart/TNT users.
+
+    POWER ALL
+    - Features: Provides open access data, unlimited TikTok access tailored for Smart Prepaid subscribers.
+    - Unlimited TikTok: Allows daily TikTok access without data depletion. Subscription confirmation via SMS.
+    - Subscription Limit: No limit to the number of subscriptions. Concurrent registrations with other offers are possible.
+    - TikTok Sharing: Unlimited TikTok data cannot be shared with others.
+    - Data Sharing: Any Power All plan allows open access data to be shared with other Smart/TNT users.
+
+    UCT (Unlimited Call and Text)
+    - Offer Details: Provides unlimited calls and texts within the Smart network and other local networks.
+    - Subscription Confirmation: A confirmation SMS is sent upon successful subscription.
+    - Subscription Issues: If problems occur, such as the offer not displaying, contact Smart support or try another subscription channel.
+    - Usage Limitations: Calls and texts are for personal, non-commercial use and can reach local mobile networks including Smart, TNT, Sun, Globe, and TM.
+    - Data Sharing: UTC plans have no open access data, so no sharing is possible.
+
+    UNLI DATA
+    - Offer Information: Teasers and invites about Unli Data offers are sent via SMS to selected customers.
+    - Subscription Access: Offers can be availed exclusively via the Smart App or *123#. You can find available plans in the product catalogue [here](https://smart.com.ph/prepaid/promos).
+    - Coverage: Available in any area with Smart data coverage.
+    - Access: Allows unrestricted access to all sites and apps.
+    - Subscription Restrictions: Customers cannot subscribe to the same or other Unli Data offers more than once during a promo period.
+    - Promo Usage: Can be used solely or in conjunction with other promos; Unli Data wallet (e.g., for specific apps like video) will be consumed before everyday wallet allocations. However, app-specific data will be consumed before Unli Data wallet data.
+    - Sharing: Unli Data offers are not shareable with other users.
+
+
+faq_context:
+  context_type: product_data
+  value: |
+    --- GENERAL FAQ ---
+    PACKAGE PURCHASING AND ACTIVATION:
+    - Packages can be purchased via the Smart App or by dialing *123#.
+    - To subscribe, select the desired package and follow the on-screen prompts.
+    - Package validity starts the day of activation.
+    - No pack/promo price changes are planned.
+
+    INTERNATIONAL ROAMING AND USAGE:
+    - Packages are strictly for domestic use and cannot be used internationally.
+
+    SUBSCRIPTION FLEXIBILITY:
+    - Multiple offers can be subscribed to concurrently; data allocations will stack, and the longest validity applies.
+
+    DATA MANAGEMENT:
+    - Unused data or inclusions will expire at the end of the validity period.
+    - Top up your data through the Smart App or by dialing *123# if your data runs out.
+    - Check your data balance using the Smart App or by dialing *123# and following instructions.
+    - Manage fast data depletion by restricting background app data usage via your smartphone's app settings.
+    - Tiktok uses about 1GB of data per hour. Youtube data usage ranges from 500 MB to 20 GB per hour, depending on video quality settings. Netflix usage is about 1 GB per hour for standard definition, 3 GB per hour for HD.
+    - Most data plans allow for sharing of open access data with other Smart/TNT users, except for the Magic Data and Unli data pack ranges. To pass data, text PASADATA <11-digit Smart/Smart Bro/TNT/PHW Prepaid No.> <MB Amount>MB to 808. Minimum 50 MB data to be shared at minimum.
+
+    SUPPORT AND TROUBLESHOOTING:
+    - If subscription issues arise, restart your device and check again or contact support via the Smart App or hotline.
+    - For unexpected changes in promo pricing or offer details, verify the current terms through the Smart App or contact support.
+
+    NOTIFICATIONS AND ALERTS:
+    - Receive SMS notifications when nearing or having depleted your data.
+    - Notifications are also sent upon offer expiry.
+
+    ACCOUNT MAINTENANCE REQUIREMENTS:
+    - A minimum balance of P1.00 is needed for Magic Data and Magic Data+ packs to keep the account active. For all other packs, no balance maintenance is required.
+
+    ADDITIONAL SERVICES AND INFORMATION:
+    - Upgrading to new packs does not change your phone number.
+    - To change your phone number, contact customer service.
+    - Full terms and conditions are available through customer service.
+
+    PAYMENT, ACTIVATION, AND RENEWALS:
+    - Upgrades and payments can be made via the Smart App, Smart website, or at retail stores.
+    - Pack validity is activated on the day of purchase.
+
+branding_context:
+  context_type: product_data
+  value: |
+    --- Smart strengths ---
+    1. Smart is Philippines' number 1 internet network
+    2. Wide coverage with many towers across the Philippines
+    3. Most of the network towers are connected with fiber
+    4. Buffer-free 4K video streaming with uninterrupted voice calls, high speed download and upload experience
+    ---
+
+human_agent_info:
+  context_type: product_data
+  value: | # todo: replace
+    --- CUSTOMER SERVICE INFORMATION ---
+    Customer Support: Inquiries can be made via hotline, social media, retail stores, Tech360, and Expert Care.
+    1. Call us at: (02) 8 888-1111
+    2. Drop us a private message via [facebook messenger](m.me/SmartCommunications)
+    3. Reach out on X [here](https://twitter.com/livesmart)
+
+#    Available through several channels, which include:
+#    - Smart App: Allows customers to purchase directly through their mobile device.
+#    - 123# USSD: Accessible by dialing a USSD code for quick subscription.
+#    - Retailer Channels (KPA, ELP, DMS, Retailer UMB): Used by retailers to facilitate transactions for customers.
+#    - iLoad: Another retail-based system for loading services.
+#    - Ka-Partner Portal: An online portal for partners to manage transactions and customer interactions.
+
+sensitive_names:
+  context_type: sales_flow_strategy
+  value: |
+    Ferdinand Marcos Sr.
+    Imelda Marcos
+    Benigno "Ninoy" Aquino Jr.
+    Corazon Aquino
+    Rodrigo Duterte
+    Ferdinand "Bongbong" Marcos Jr.
+    Joseph Estrada
+    Gloria Macapagal Arroyo
+
+
+all_plans:
+  context_type: product_data
+  value: |
+    ALL DATA 299
+    ALL DATA 399
+    ALL DATA 499
+    ALL DATA 50
+    ALL DATA 599
+    ALL DATA 99
+    ALL DATA+ 149
+    ALL DATA+ 499
+    ALL DATA+ 599
+    ALL DATA+ 699
+    ALL DATA+ 75
+    ALLNET 1999
+    ALLNET 299
+    ALLNET 30
+    ALLNET 499
+    ALLNET 50
+    ALLNET 599
+    ALLNET 99
+    ALLNET 999
+    AOS 20
+    AOS 30
+    AOS 50
+    AOS 99
+    CTS 109-15D
+    CTS 29
+    CTS 49
+    UCT 100
+    UCT 30
+    UCT 350
+    UCT 50
+    Big Brother ALLNET
+    Big Brother BIG TEXT
+    Big Brother TRINET
+    Big Brother VOICE
+    CTC 10
+    CTC 20
+    CTC 30
+    CTC 50
+    CTU 150
+    CTU 50
+    GIGA GAMES-2 50
+    GIGA GAMES-2 99
+    DOUBLE GIGA STORIES+ 299 UAT
+    GIGA GAMES-1 299
+    DOUBLE GIGA STORIES+ 130 UACT
+    DOUBLE GIGA STORIES+ 399 UACT
+    DOUBLE GIGA STORIES+ 65 UACT
+    DOUBLE GIGA STORIES+ 749
+    DOUBLE GIGA STORIES+ 899
+    DOUBLE GIGA VIDEO+ 130 UACT
+    DOUBLE GIGA VIDEO+ 399 UACT
+    DOUBLE GIGA VIDEO+ 65 UACT
+    DOUBLE GIGA VIDEO+ 749
+    DOUBLE GIGA VIDEO+ 899
+    Flexi Call & Text Abroad 100
+    Flexi Call & Text Abroad 300
+    Flexi Call & Text Abroad 50
+    GIGA GAMES-1 50
+    GIGA GAMES-1 99
+    GIGA GAMES-2 299
+    GIGA POWER 149
+    GIGA POWER 499
+    GIGA POWER 599
+    GIGA POWER 699
+    GIGA POWER 75
+    GIGA POWER 849
+    GIGA POWER 899
+    GIGA POWER 999
+    GIGA POWER+ 199
+    GIGA POWER+ 699
+    GIGA POWER+ 799
+    GIGA POWER+ 899
+    GIGA POWER+ 99
+    GIGA STORIES 99
+    GIGA VIDEO 120
+    GIGA STORIES 299
+    GIGA STORIES 50
+    GIGA STORIES+ 149
+    GIGA STORIES+ 449
+    GIGA STORIES+ 75
+    GIGA STUDY 299
+    GIGA STUDY 399
+    GIGA STUDY 499
+    GIGA STUDY 599
+    GIGA STUDY 799
+    GIGA STUDY 999
+    GIGA VIDEO 299
+    GIGA VIDEO 499
+    GIGA VIDEO 50
+    GIGA VIDEO 99
+    GIGA VIDEO+ 149
+    GIGA VIDEO+ 449
+    GIGA VIDEO+ 75
+    GIGA WORK+ ALLNET 549
+    GIGA WORK+ ALLNET 649
+    GIGA WORK+ ALLNET 749
+    International Call & Text Card 100
+    International Call & Text Card 300
+    International Call & Text Card 50
+    MAGIC DATA 199
+    MAGIC DATA 399
+    MAGIC DATA 499
+    MAGIC DATA 599
+    MAGIC DATA 99
+    MAGIC DATA+ 149
+    MAGIC DATA+ 299
+    MAGIC DATA+ 499
+    MAGIC DATA+ 649
+    MAGIC DATA+ 749
+    GIGA GAMES 120
+    GIGA GAMES 349
+    GIGA GAMES 60
+    GIGA STORIES 120
+    GIGA STORIES 349
+    GIGA STORIES 599
+    GIGA STORIES 60
+    GIGA STORIES 699
+    GIGA VIDEO 349
+    GIGA VIDEO 599
+    GIGA VIDEO 60
+    GIGA VIDEO 699
+    Non-Stop Surf 100
+    Non-Stop Surf 299
+    Non-Stop Surf 50
+    POWER ALL 149
+    POWER ALL 449
+    POWER ALL 499
+    POWER ALL 50
+    POWER ALL 749
+    POWER ALL 899
+    POWER ALL 99
+    GIGA Roam Plus USA 3 GB
+    Roam Call & Text 150
+    Roam Call & Text Lite
+    UAE 120
+    GIGA POWER 399 (DISCOUNTED)
+    SSP 20
+    SSP 249
+    SSP 50
+    SSP 99
+    Sulit 5
+    SULITIDD 100
+    SULITIDD 50
+    SULITIDD 500
+    TRIPLE DATA STORIES+ 149
+    TRIPLE DATA STORIES+ 449
+    TRIPLE DATA STORIES+ 75
+    TRIPLE DATA VIDEO+ 149
+    TRIPLE DATA VIDEO+ 449
+    TRIPLE DATA VIDEO+ 75
+    Todo IDD 100
+    Todo IDD 200
+    Todo IDD 50
+    TU 150
+    TU 200
+    TU 50
+    TxtTipid 100
+    TxtTipid 200
+    TxtTipid 300
+    UNLI 5G DATA 299-7D
+    UNLI 5G DATA 599-30D
+    UNLI 5G with Extra 4G 299
+    UNLI 5G with Extra 4G 599
+    UNLI 5G with Extra 4G 799
+    UNLI 5G w/ NSD 149
+    UNLI 5G w/ NSD 299
+    UNLI 5G w/ NSD 99
+    UNLI 5G w/ NSD 999
+    UNLI DATA 1199-90D
+    UNLI DATA 1699-60D
+    UNLI DATA 175-7D
+    UNLI DATA 199-7D
+    UNLI DATA 1999-90D
+    UNLI DATA 449-30D
+    UNLI DATA 499-30D
+    UNLI DATA 599-30D
+    UNLI DATA 899-30D
+    UNLI DATA 999-30D
+    UNLI DATA 999-60D
+    UNLI DATA+ 225-7D
+    UNLI DATA+ 249-7D
+    UNLI DATA+ 599-30D
+    UNLI DATA+ 649-30D
+    UNLI FAM 1299-30D
+    UNLI FAM 1999-60D
+    UNLI FAM 2599-90D
+
+all_plans_features:
+  context_type: product_data
+  value: |
+    --- PLAN FEATURES ---
+    (provided in format: "[PLAN NAME]: [Data], [SMS] and [voice], [Validity] days validity, for [Price] PHP"). Any features not listed here are not included in the plan. Do not use the plan name to infer what features the plan has. 'UNLI' refers to unlimited. All plans have the same internet speed.
+
+    --- ALL DATA (only data packs)---
+    ALL DATA 50: 2 GB data, 3 days validity, for 50 PHP.
+    ALL DATA 99: 6 GB data, 7 days validity, for 99 PHP.
+    ALL DATA 299: 24 GB data, 30 days validity, for 299 PHP.
+    ALL DATA 399: 36 GB data, 30 days validity, for 399 PHP.
+    ALL DATA 499: 48 GB data, 30 days validity, for 499 PHP.
+    ALL DATA 599: 72 GB data, 90 days validity, for 599 PHP.
+
+    --- ALLNET (Unlimited voice and SMS)---
+    ALLNET 30: 100 MB data, UNLI ALLNET voice and UNLI ALLNET SMS, 1 day validity, for 30 PHP.
+    ALLNET 50: 500 MB data, UNLI ALLNET voice and UNLI ALLNET SMS, 3 days validity, for 50 PHP.
+    ALLNET 99: 1 GB data, UNLI ALLNET voice and UNLI ALLNET SMS, 7 days validity, for 99 PHP.
+    ALLNET 299: 2 GB data, UNLI ALLNET voice and UNLI ALLNET SMS, 30 days validity, for 299 PHP.
+    ALLNET 499: 4 GB data, UNLI ALLNET voice and UNLI ALLNET SMS, 60 days validity, for 499 PHP.
+    ALLNET 599: 6 GB data, UNLI ALLNET voice and UNLI ALLNET SMS, 90 days validity, for 599 PHP.
+    ALLNET 999: 8 GB data, UNLI ALLNET voice and UNLI ALLNET SMS, 180 days validity, for 999 PHP.
+    ALLNET 1999: 12 GB data, UNLI ALLNET voice and UNLI ALLNET SMS, 360 days validity, for 1999 PHP.
+
+    --- AOS (packs for regular communication) ---
+    AOS 20: 150 MB data plus 100 MB/day for FB, 20 TRINET voice and 100 ALLNET/DAY SMS, 1 day validity, for 20 PHP.
+    AOS 30: 300 MB data plus 100 MB/day for FB, 30 TRINET voice and 100 ALLNET/DAY SMS, 2 days validity, for 30 PHP.
+    AOS 50: 500 MB data plus 100 MB/day for FB, 50 TRINET voice and UNLI ALLNET SMS, 3 days validity, for 50 PHP.
+    AOS 99: 1 GB data plus 100 MB/day for FB, 100 TRINET voice and 100 ALLNET/DAY SMS, 7 days validity, for 99 PHP.
+
+    --- CTS (packs for with unlimited voice) ---
+    CTS 29: 300 MB data plus 100 MB/day for FB, IG, UNLI TRINET voice and 100 ALLNET/DAY SMS, 2 days validity, for 29 PHP.
+    CTS 49: 500 MB data plus 100 MB/day for FB, IG, UNLI TRINET voice and UNLI ALLNET SMS, 3 days validity, for 49 PHP.
+    CTS 109-15D: 100 MB data plus 100 MB/day for FB, IG, UNLI TRINET voice and UNLI ALLNET SMS, 15 days validity, for 109 PHP.
+
+    --- UCT (packs with unlimited voice) ---
+    UCT 30: 100 MB for FB, WA, UNLI TRINET voice and 100 ALLNET/DAY SMS, 2 days validity, for 30 PHP.
+    UCT 50: 300 MB for FB, WA, UNLI TRINET voice and 100 ALLNET/DAY SMS, 3 days validity, for 50 PHP.
+    UCT 100: 500 MB for FB, WA, UNLI TRINET voice and 100 ALLNET/DAY SMS, 7 days validity, for 100 PHP.
+    UCT 350: 1 GB for FB, WA, UNLI TRINET voice and 100 ALLNET/DAY SMS, 30 days validity, for 350 PHP.
+
+    --- DOUBLE GIGA STORIES+ (extra data - but NOT Unlimited - for social media (TikTok, IG, FB, X, Kumu) and Unlimited voice/SMS) ---
+    DOUBLE GIGA STORIES+ 65 UACT: 2 GB data plus 2 GB/day for TikTok, IG, FB, X, Kumu, UNLI ALLNET voice and UNLI ALLNET SMS, 3 days validity, for 65 PHP.
+    DOUBLE GIGA STORIES+ 130 UACT: 3 GB data plus 2 GB/day for TikTok, IG, FB, X, Kumu, UNLI ALLNET voice and UNLI ALLNET SMS, 7 days validity, for 130 PHP.
+    DOUBLE GIGA STORIES+ 399 UACT: 4 GB data plus 2 GB/day for TikTok, IG, FB, X, Kumu, UNLI ALLNET voice and UNLI ALLNET SMS, 30 days validity, for 399 PHP.
+    DOUBLE GIGA STORIES+ 749: 12 GB data plus 2 GB/day for TikTok, IG, FB, X, Kumu, UNLI ALLNET voice and UNLI ALLNET SMS, 60 days validity, for 749 PHP.
+    DOUBLE GIGA STORIES+ 899: 18 GB data plus 2 GB/day for TikTok, IG, FB, X, Kumu, UNLI ALLNET voice and UNLI ALLNET SMS, 90 days validity, for 899 PHP.
+
+    --- DOUBLE GIGA VIDEO+ (extra data - but NOT Unlimited - for streaming videos and Unlimited voice/SMS) ---
+    DOUBLE GIGA VIDEO+ 65 UACT: 2 GB data plus 2 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, UNLI ALLNET voice and UNLI ALLNET SMS, 3 days validity, for 65 PHP.
+    DOUBLE GIGA VIDEO+ 130 UACT: 3 GB data plus 2 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, UNLI ALLNET voice and UNLI ALLNET SMS, 7 days validity, for 130 PHP.
+    DOUBLE GIGA VIDEO+ 399 UACT: 4 GB data plus 2 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, UNLI ALLNET voice and UNLI ALLNET SMS, 30 days validity, for 399 PHP.
+    DOUBLE GIGA VIDEO+ 749: 12 GB data plus 2 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, UNLI ALLNET voice and UNLI ALLNET SMS, 60 days validity, for 749 PHP.
+    DOUBLE GIGA VIDEO+ 899: 18 GB data plus 2 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, UNLI ALLNET voice and UNLI ALLNET SMS, 90 days validity, for 899 PHP.
+
+    --- GIGA STORIES (extra data for social media (TikTok, IG, FB, Twitter, Kumu) ---
+    GIGA STORIES 50: 1 GB data plus 1 GB/day for TikTok, IG, FB, Twitter, Kumu, 3 days validity, for 50 PHP.
+    GIGA STORIES 99: 2 GB data plus 1 GB/day for TikTok, IG, FB, Twitter, Kumu, 7 days validity, for 99 PHP.
+    GIGA STORIES 299: 4 GB data plus 1 GB/day for TikTok, IG, FB, X, Kumu, 30 days validity, for 299 PHP.
+
+    --- GIGA VIDEO (extra - but NOT Unlimited - data for streaming videos) ---
+    GIGA VIDEO 50: 1 GB data plus 1 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, 100 ALLNET/DAY SMS, 3 days validity, for 50 PHP.
+    GIGA VIDEO 99: 2 GB data plus 1 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, 7 days validity, for 99 PHP.
+    GIGA VIDEO 299: 4 GB data plus 1 GB/day for YT, Netflix, Smart LiveStream, iWantTFC, 30 days validity, for 299 PHP.
+    GIGA VIDEO 499: 8 GB data plus 1 GB/Day for YT, NBA TV, GigaPlay, iWantTFC, Cignal Play, 30 days validity, for 499 PHP.
+
+    --- MAGIC DATA (packs with endless days data validity) ---
+    MAGIC DATA 99: 2 GB data, endless days validity, for 99 PHP.
+    MAGIC DATA 199: 6 GB data, endless days validity, for 199 PHP.
+    MAGIC DATA 399: 24 GB data, endless days validity, for 399 PHP.
+    MAGIC DATA 499: 36 GB data, endless days validity, for 499 PHP.
+    MAGIC DATA 599: 48 GB data, endless days validity, for 599 PHP.
+
+    --- POWER ALL (Unlimited ALLNET, some with Unlimited Tiktok and Unlimited SMS)---
+    POWER ALL 50: 5 GB data, UNLI ALLNET SMS, 3 days validity, for 50 PHP.
+    POWER ALL 99: 8 GB data plus UNLI TikTok, UNLI ALLNET SMS, 7 days validity, for 99 PHP.
+    POWER ALL 149: 12 GB data plus UNLI TikTok, UNLI ALLNET voice and UNLI ALLNET SMS, 7 days validity, for 149 PHP.
+    POWER ALL 449: 20 GB data plus UNLI TikTok, UNLI ALLNET voice and UNLI ALLNET SMS, 30 days validity, for 449 PHP.
+    POWER ALL 749: 40 GB data plus UNLI TikTok, UNLI ALLNET voice and UNLI ALLNET SMS, 60 days validity, for 749 PHP.
+    POWER ALL 899: 60 GB data plus UNLI TikTok, UNLI ALLNET voice and UNLI ALLNET SMS, 90 days validity, for 899 PHP.
+
+    --- UNLI DATA (Unlimited data packs) ---
+    UNLI DATA 175-7D: UNLI DATA data, 7 days validity, for 175 PHP.
+    UNLI DATA 199-7D: UNLI DATA data, 7 days validity, for 199 PHP.
+    UNLI DATA 449-30D: UNLI DATA data, 30 days validity, for 449 PHP.
+    UNLI DATA 499-30D: UNLI DATA data, 30 days validity, for 499 PHP.
+    UNLI DATA 599-30D: UNLI DATA data, 30 days validity, for 599 PHP.
+    UNLI DATA 999-60D: UNLI DATA data, 60 days validity, for 999 PHP.
+    UNLI DATA 1199-90D: UNLI DATA data, 90 days validity, for 1199 PHP.

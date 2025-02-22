@@ -1,0 +1,352 @@
+FIRST_REACH:
+  state_description: Initial state for all conversations.
+  state_next_goal: Gather customer data usage information.
+  is_static_response: true
+  ai_state_type: FIRST_STATE
+  static_response: |
+    We are reaching out to you as a valued Airtel customer! I am your commercial AI agent.
+
+    At Airtel we have a wide selection of broadband plans with endless entertainment options, which can complement your postpaid mobile plan.
+    Airtel Xstream Fiber offers the fastest broadband connection with speed of up to 1 Gbps.
+
+    Do you want me to help you find the best home connection for your needs?
+  state_prompts:
+    RETRIEVERS:
+        - template:
+            name: STATE_CLASSIFIER
+            ai_model: "LLAMA3_1_70B"
+        - template:
+            name: SUMMARY
+            ai_model: "LLAMA3_1_8B"
+
+
+
+CUSTOMER_INFORMATION_DATA_BROADBAND:
+  state_description: |
+    User explicitly accepts, responds positively, or shows excitement to get help from the assistant to find the best home connection. Example responses from the user are: `sure!`, `yes!`, `great!`, `ok!`, `why not`, to the assistant question to help find the best home connection.
+  state_next_goal: Gather customer information about number of devices.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {product_context}
+        {user_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Ask about the user internet usage habits to recommend the best broadband plan. Don't ask about other topics.
+        At the beginning, briefly explain how Airtel has different plans that cater the user needs.
+        Use a selling, commercial and convincing style - always related to Airtel.
+        {verbosity_context}
+
+
+CUSTOMER_INFORMATION_DEVICES:
+  state_description:
+    User was asked and provided information about data habits or data usage such as streaming, video calls, gaming, browsing, watching movies.
+  state_next_goal: Provide information about plans and recommendation based on customer needs.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {product_context}
+        {user_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Ask about the user internet usage habits (number of devices used) to recommend the best broadband plan. Don't ask about other topics.
+        At the beginning, briefly explain how Airtel has different plans that cater the user nedds.
+        Use a selling, commercial and convincing style - always related to Airtel.
+        {verbosity_context}
+
+
+OBJECTIONS:
+  state_description: |
+    User expresses negatively objections about the price, too expensive plans or complains about Airtel, portability issues, or any disatisfaction with proposed plans. Customer disagrees to get help from the assistant to find the best plan.
+  state_next_goal: Convince customer about recommended plan. Aim for conversion.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {faq_context}
+        {user_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Your current task is to address the user objection and answer the question if any.
+        If the user is concerned about price, propose a less expensive alternative plan aligned with the USER INFORMATION and USER PERSONA. Otherwise do not mention anything about price.
+        If the user is concerned about portability, highlight how Airtel portability is a simple process with full support. Otherwise do not mention anything about portability.
+        If user is concerned about the speed, offer a more high-end alternative aligned with the USER INFORMATION and USER PERSONA.
+        If the user is hesitant mention the AIRTEL STRENGTHS to make the plan more appealing.
+        There are only five available plans: Basic ₹499/month, Standard ₹799/month, Entertainment ₹999/month, Professional ₹1498/month, Infinity ₹3999/month
+        End asking whether the user is interested in one specific plan. Narrow it down to one single plan. Remember you want to sell the plan.
+        Your resnpose should only contain the message to the user.
+        Use a selling, commercial and convicing style - always related to Airtel.
+        {verbosity_context}
+
+
+REJECT_FIRST_REACH_BROADBAND:
+  state_description: |
+    User says no or very explicitly rejects when asked "Do you want me to help you find the best home connection for your needs?" from the assistant.
+  state_next_goal: Check again whether customer is interested in Airtel Broadband plans.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {faq_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Your current task is to inform the user about the great advantages of having a broadband plan with Airtel using AIRTEL STRENGTHS.
+        End by asking whether the user would like to consider a broadband plan with Airtel.
+        Use a selling, commercial and convicing style - always related to Airtel.
+        {verbosity_context}
+
+
+GENERAL_UNRELATED_CONVERSATION:
+  state_description: |
+    User is discussing topics not related to the topic.
+  state_next_goal: Check again whether customer is interested in Airtel Broadband plans.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {faq_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Your current task is to inform the user about the great advantages of having a broadband plan with Airtel using AIRTEL STRENGTHS.
+        End by asking whether the user would like to consider a broadband plan with Airtel.
+        Use a selling, commercial and convicing style - always related to Airtel.
+        {verbosity_context}
+
+UNRELATED_CONVERSATION_AIRTEL:
+  state_description: |
+    User is discussing topics related to Airtel but not related to the sales operation.
+  state_next_goal: Check again whether customer is interested in Airtel Broadband plans.
+  ai_state_type: TELCO_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {faq_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Your current task is to inform the user about the great advantages of having a broadband plan with Airtel using AIRTEL STRENGTHS.
+        End by asking whether the user would like to consider a broadband plan with Airtel.
+        Use a selling, commercial and convicing style - always related to Airtel.
+        {verbosity_context}
+
+END_CONVERSATION:
+  state_description: |
+    The conversation has ended.
+  state_next_goal: End the conversation.
+  ai_state_type: END_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SUMMARY
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {faq_context}
+        ----------------
+
+        Only use the plans from the context information PLAN INFORMATION without altering the information provided in PLAN INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+        {SUMMARY}
+      user_command: |
+        Your current task is to close the conversation and thank the user for their time.
+        Use a selling, commercial and convicing style - always related to Airtel.
+        {verbosity_context}

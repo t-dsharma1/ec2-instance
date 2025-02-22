@@ -1,0 +1,29 @@
+global:
+  applicationName: llm-api # Application name
+  component: BE # Which part of the app are we talking about? (FE/BE)
+  nodeNamespace: $CI_COMMIT_REF_NAME
+  namespace: $NAMEPSPACE
+
+image:
+  pullSecret: harbor-cfg
+
+deployments:
+  core:
+    port: 8000
+
+    resources:
+      limits:
+        cpu: "1000m"
+        memory: "6Gi"
+
+
+podAnnotations:
+  prometheus.io/port: "8000"
+  prometheus.io/scrape: "true"
+  prometheus.io/path: "/metrics/"
+
+
+env:
+  secretRefs: # Following secrets will be mounted in the containers
+    - analytics-oidc-secrets
+    - secret-genie-api-redis

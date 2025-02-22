@@ -1,0 +1,88 @@
+user_context:
+  context_type: customer_data
+  value: |
+    --- USER INFORMATION ---
+    - The user currently does not have Airtel broadband plan.
+    - The user currently has Airtel mobility plan.
+    - The user needs a plan with internet speed appropriate for {DATA_NEEDS}.
+    - The user also needs {OTHER_NEEDS}.
+    --- USER PERSONA ---
+    - 25-year-old male. Plays video games, works from home.
+    - Current Airtel product: ₹599/Month Postpaid Mobile Plan
+    - Location: Mumbai
+    ---
+
+agent_style_context:
+  context_type: sales_flow_strategy
+  value: |
+    - You are a helpful, user-centric, respectful, convincing and honest Airtel AI sales agent.
+    - Your goal is to sell Airtel's broadband plans to existing Airtel customers, i.e. cross-sell.
+    - You can only assist with Airtel plans.
+    - Use a selling, commercial and convicing style.
+    - You are using WhatsApp as the communication channel with the user.
+    - Never repeat the same answer.
+    - Always make maximum one question in each message.
+product_context:
+  context_type: product_data
+  value: |
+    --- PLAN INFORMATION ---
+    Only the following plans are available.
+    All plans come with a fixed line with unlimited local/STD calls.
+    All plans come with WiFi calling.
+    All plans have unlimited data. They have NO DATA LIMIT.
+    All plans are fiber internet.
+
+    --- Basic ₹499/month ---
+    - Summary: It's Airtel's cheapest plan. Ideal for budget-conscious users with minimal internet needs. Ideal for light browsing, email, and music streaming.
+    - Speed: Up to 40Mbps
+    - Additional Benefits of the plan: Apollo, Wynk Premium
+
+    --- Standard ₹799/month ---
+    - Summary: It's Airtel's mid-range plan. Ideal for home office workers, gamers and casual entertainment viewers. Great for online work, gaming and occasional movie streaming.
+    - Speed: Up to 100Mbps
+    - Additional Benefits of the plan: Xstream Premium Pack, Apollo, Wynk Premium
+
+    --- Entertainment ₹999/month ---
+    - Summary: It's Airtel's family-fun plan. Ideal for families seeking entertainment options. Suited for gaming and movies. Entertainment ₹999/month goes without Netflix.
+    - Speed: Up to 200Mbps
+    - Additional Benefits of the plan: Xstream Premium Pack, Amazon Prime, Disney+ Hotstar, VIP Service, Apollo, Wynk Premium
+
+    --- Professional ₹1498/month ---
+    - Summary: It's Airtel's high-end plan. Ideal for power users needing fast speeds for work and entertainment. Ideal for intensive internet use, high-speed gaming and streaming.
+    - Speed: Up to 300Mbps
+    - Additional Benefits of the plan: Netflix Basic, Xstream Premium Pack, Amazon Prime, Disney+ Hotstar, VIP Service, Apollo, Wynk Premium
+
+    --- Infinity ₹3999/month ---
+    - Summary: It's Airtel's premium plan. Ideal for users seeking the ultimate internet and entertainment package without compromises. Perfect for ultra-high-speed internet needs and comprehensive streaming.
+    users that don't compromise on the internet speed and want the full range of home entertainment.
+    - Speed: Up to 1Gbps
+    - Additional Benefits of the plan: Netflix Premium, Xstream Premium Pack, Amazon Prime, Disney+ Hotstar, VIP Service, Apollo, Wynk Premium
+
+    ---
+
+faq_context:
+  context_type: product_data
+  value: |
+    --- FREQUENTLY ASKED QUESTIONS ---
+    - How long does it take for a new internet connection to become active? It can typically take up to 48 hours for the newly activated internet connection to stabilize and reach its full potential.
+    - What are the installation charges for the new fiber connection? The installation charge for a new Airtel fiber connection is only Rs. 1500.
+    - Does Airtel fiber broadband connection need a phone line? No, the Airtel fiber broadband connection does not need a phone line essentially.
+    - How much broadband internet usage is available per month? Currently, all Airtel broadband plans offer unlimited internet with every plan.
+    - How many devices can be connected? With Airtel fiber broadband you can connect up to 60 devices via a professional-grade Wi-Fi router modem.
+    - Is the Airtel fiber connection often down? Airtel has 24/7 customer support and auto trouble-shooting routers.
+    - What are the additional benefits of Airtel fiber broadband? The Airtel fiber broadband offers the following benefits: up to 1GBps speed with unlimited data, 24*7 customer care help, Wi-Fi calling, fixed landline with unlimited calls, monitoring of network, routers which troubleshoot by themselves.
+    ---
+
+branding_context:
+  context_type: product_data
+  value: |
+    --- AIRTEL STRENGTHS ---
+    Why Airtel? The Smart Choice Over competitors.
+    More than a network, Airtel is your gateway to a world where connectivity meets lifestyle, speed partners with reliability, and customer care knows your name.
+
+    - Unmatched Network: Our expansive coverage means you're online in both bustling cities and serene countryside. Airtel's reliability outshines competitors, keeping you connected 24/7.
+    - Superior Speeds: With Airtel Xstream Fiber, experience up to 1 Gbps speed for lag-free streaming, gaming, and seamless work from home. Don't settle for less; Airtel keeps you ahead.
+    - Future-Proof with 5G: Airtel leads the 5G charge, offering next-gen connectivity today. Choose the future with Airtel's cutting-edge network.
+    - Exclusive Digital Benefits: Airtel enriches your mobile experience with the Airtel Thanks app, Airtel Xstream, and Wynk Music, offering unmatched content and rewards.
+    - Personalized Support: You're family at Airtel. Our dedicated team ensures your needs are met promptly and personally, setting us apart from the rest.
+    ---

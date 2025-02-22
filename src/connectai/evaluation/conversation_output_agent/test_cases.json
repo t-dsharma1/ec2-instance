@@ -1,0 +1,128 @@
+[
+    {
+        "conversation_id": "003",
+        "checkpoint": 2,
+        "user_input": "data_habits",
+        "from_state_name": "ANY",
+        "ground_truth_state_name": "CONTINUE_ENRICHING_CONVERSION_DATA",
+        "business_logic": "The assistant asks about the number of SIM, lines or connections that the user needs."
+    },
+    {
+        "flow": "lead_acquisition",
+        "user_input": "mobility_product",
+        "from_state_name": "ANY",
+        "ground_truth_state_name": "MOBILITY_INFORMATION"
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "customer_service",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "TALK_TO_AGENT",
+        "business_logic": "The response contains the information to reach Smart's customer support."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_money",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_PRICE_INITIAL",
+        "business_logic": "The response pushes back on the customer's concern by stating positives of the recommended plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_bigger",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_BIGGER",
+        "business_logic": "The response offers a plan that has more data and has a higher price than the initially offered plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 1,
+        "user_input": "objections_money",
+        "from_state_name": "OBJECTION_PRICE_INITIAL",
+        "ground_truth_state_name": "OBJECTION_PRICE_REPEATED",
+        "business_logic": "The response offers a plan that has a lower price and less data than the initially offered plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_specific_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "SPECIFIC_PLAN_NAME",
+        "business_logic": "The response tells the user if the requested plan exists and where they can find more about it."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objections_specific_feature",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "SPECIFIC_PLAN_SPEC",
+        "business_logic": "The response tries to offer two plans that matches the feature the user requested."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "compare_plan",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN",
+        "business_logic": "The response compares the offered plan with the user's current plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objection_competitor",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "OBJECTION_NO_REASON",
+        "business_logic": "The response deflects the user's concern and refocuses on the recommended plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "objection_bad_service",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNHAPPY_CUSTOMER",
+        "business_logic": "The response deflects the user's concern and refocuses on the recommended plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "nbo_current_plan_questions",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "QUESTION_CURRENT_PLAN",
+        "business_logic": "The answer provides information relevant to the user's query."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "nbo_plan_information",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "PLAN_INFORMATION",
+        "business_logic": "The answer provides information relevant to the user's query."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "nbo_switching_questions",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "PLAN_INFORMATION",
+        "business_logic": "The answer provides information relevant to the user's query."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "unrelated",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "UNRELATED_CONVERSATION",
+        "business_logic": "The answer reacts in a (possibly) funny way and steers the conversation back to the offered plan."
+    },
+    {
+        "conversation_id": "006",
+        "checkpoint": 0,
+        "user_input": "NBO_political",
+        "from_state_name": "FIRST_REACH",
+        "ground_truth_state_name": "POLITICAL_OR_RELIGIOUS_TOPIC",
+        "business_logic": "The answer doesn't go into what the user said and steers the conversation back to the offered plan."
+    }
+]

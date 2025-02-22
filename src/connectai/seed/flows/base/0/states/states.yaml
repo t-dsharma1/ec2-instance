@@ -1,0 +1,126 @@
+FIRST_REACH:
+  state_description: Initial state for all conversations.
+  state_next_goal: Gather customer data usage information.
+  ai_state_type: FIRST_STATE
+  state_prompts:
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {product_context}
+        ----------------
+
+        Only use the product from the context information PRODUCT INFORMATION without altering the information provided in PRODUCT INFORMATION.
+        If you don't know the answer to a question, don't share false information.
+      user_command: |
+        Your current task is to greet the user and inform them about the great advantages of having the product.
+        End by asking whether the user would like to consider buying The Product.
+        {verbosity_context}
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+
+REJECT:
+  state_description: |
+    User says no or very explicitly rejects when asked whether the user would like to consider buying The Product from the assistant.
+  state_next_goal: Check again whether customer is interested in The Product.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: DATA_NEEDS
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: OTHER_NEEDS
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {product_context}
+        ----------------
+
+        Only use the product from the context information PRODUCT INFORMATION without altering the information provided in PRODUCT INFORMATION.
+        If you don't know the answer to a question, don't share false information.
+      user_command: |
+        Your current task is to inform the user about the great advantages of having a product.
+        End by asking whether the user would like to consider buying a product.
+        {verbosity_context}
+
+
+ACCEPT:
+  state_description: |
+    User explicitly accepts, responds positively, or shows excitement to get help from the assistant to find the best product. Example responses from the user are: `sure!`, `yes!`, `great!`, `ok!`, `why not`, to the assistant question whether the user would like to consider buying The Product.
+  state_next_goal: Gather customer information about number of devices.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_8B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_8B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {product_context}
+        {user_context}
+        ----------------
+
+        Only use the products from the context information PRODUCT INFORMATION without altering the information provided in PRODUCT INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+      user_command: |
+        Thank the user for choosing the product and end the conversation
+        Use a selling, commercial and convincing style
+        {verbosity_context}
+
+
+
+END_CONVERSATION:
+  state_description: |
+    The conversation has ended.
+  state_next_goal: End the conversation.
+  ai_state_type: END_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: TONE
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: "LLAMA3_1_70B"
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+      user_command: |
+        Your current task is to close the conversation and thank the user for their time.
+        Use a selling, commercial and convincing style.
+        {verbosity_context}

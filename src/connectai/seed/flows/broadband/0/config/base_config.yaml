@@ -1,0 +1,15 @@
+verbosity: 30
+number_of_emojis: 5
+flow_max_conversation_history: 500
+classifier_max_conversation_history: 500
+utility_max_conversation_history: 500
+flow_temperature: 0.5
+classifier_temperature: 0.01
+utility_temperature: 0.01
+flow_top_p: 0.5
+classifier_top_p: 0.01
+utility_top_p: 0.01
+flow_frequency_penalty: 0
+classifier_frequency_penalty: 0
+utility_frequency_penalty: 0
+conversation_style: 'convincing and honest'

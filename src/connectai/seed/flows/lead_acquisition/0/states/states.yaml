@@ -1,0 +1,2131 @@
+FIRST_REACH:
+  state_description: Initial state for all conversations.
+  state_next_goal: |
+    Please click on the link below to schedule your SIM delivery.
+
+    If you have any questions, feel free to ask! I speak English and Hindi, just like ChatGPT!
+  is_static_response: true
+  ai_state_type: FIRST_STATE
+  static_response: |
+    Thanks for your interest in Airtel! I'm your *Airtel AI Sales Assistant*.
+
+    {state_next_goal}
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+
+CONVERSION:
+  state_description: |
+    User explicitly accepts, responds positively, or shows excitement to schedule a SIM delivery, buy a SIM card or contract a mobility plan, or if the user provides name, address or pin code, or if the user has questions about the form they need to fill or does not know their pincode. User's message contains a 4-8 digit number.
+  state_next_goal: |
+    Ask the user to click the link below to schedule SIM delivery. Use different variations to not sound repetitive for example: "Click below to book your SIM delivery", "Tap the link below to welcome your new SIM at home", "To schedule your SIM delivery, hit the link below" or "Get your new Airtel SIM now - click below!"
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        If the user has provided name or address on a message, thank them for sharing their details and remind them that they need to do so through the "WhatsApp Form" instead.
+        If the user provides a number that looks like a pincode, acknowledge that they are trying to share their pincode, advise them that the pincode needs to be a 6-digit number and request that they click the link below to fill out the Form
+        If the user has questions about the form and why those details are needed, answer them as precisely as possible.
+        If the user does not know their pin code, direct them to https://pincode.app/my-area-pincode to get the pincode of their current location. Tell the user to "Allow" location access for their browser for this site to work.
+        If asked about how to provide the information, explain that a link to a "WhatsApp Form" will be displayed for the user to provide *Name*, *Address* and *Pin Code* (Postal code).
+        If asked why this information is needed, explain that it is needed to schedule the SIM delivery for their new Airtel SIM!
+        Use bullet points to list the 3 required items.
+        {state_next_goal}
+        Don't create or provide a form.
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 20 words unless to provide critical information the user explicitly asked for
+
+ENRICH_CONVERSION_DATA:
+  state_description: |
+    User message contains exactly `---good form---`. Only choose this state when the exact keywords `---good form---` are provided.
+  state_next_goal: |
+    If not yet provided, ask the user for information about their internet data usage and number of plans needed.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, thank the user for providing the details and mention that an agent will reach out shortly about SIM delivery
+
+        If the user is most interested in Unknown AND user's internet data needs assessment is Unknown, ask the user how much internet data do they use and what they use it on such as streaming videos, playing games or on video calls.
+        Say that this information is helpful for the plan selection during SIM delivery.
+        If interested plan or data usage is known, do not ask anything
+
+        If number of lines the user wants is Unknown, ask the user how many lines are needed and whether they should be prepaid or postpaid.
+        If number of lines are known, do not ask anything
+
+        Finally, {state_next_goal}.
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+CONTINUE_ENRICHING_CONVERSION_DATA:
+  state_description: |
+    User provided complete or partial information about their data usage needs or number of plans needed. Or user has questions about why information about data usage and number of plans is required.
+  state_next_goal: |
+    If not yet provided, ask the user for information about their internet data usage and number of plans needed.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, thank the user for providing the details and mention that an agent will reach out shortly about SIM delivery.
+
+        If the user asked about why this information is needed, share that it is helpful for the SIM delivery agent to understand their needs to select a good plan for them.
+
+        If the user is most interested in Unknown AND Users internet data need assessment is Unknown, ask the user how much internet data do they use and what they use it on such as streaming videos, playing games or on video calls.
+        Say that this information is helpful for the plan selection during SIM delivery.
+        If interested plan or data usage is known, do not ask anything
+
+        If number of lines the user wants is Unknown, ask the user how many lines are needed and whether they should be prepaid or postpaid.
+        If number of lines are known, do not ask anything
+
+        Finally, ask the user if there is anything else you can help with.
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+ORGANIC_END_CONVERSATION:
+  state_description: |
+    User says there is nothing else you can help them with or no other questions they have.
+  state_next_goal: |
+    Politely and cleverly end the conversation.
+  ai_state_type: END_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {kyc_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, thank the user for their time.
+
+        Then use some aspect of the information about the user below to say something funny or pleasant to make them feel like you have heard them. If they have complained about existing services, make mention that you apologize for their bad experience. Ensure to make absolutely no reference to any political, religious, race-related, harmful, toxic, sexual, or vice related topics even if they have come up in the conversation.
+
+        {user_context}
+
+        Lastly, thank the user for choosing Airtel and mention that an agent will reach out soon.
+
+        DO NOT ASK ANY QUESTIONS TO THE USER
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+FORCED_END_CONVERSATION:
+  state_description: |
+    Supervisor has decided to forcefully close this conversation.
+  state_next_goal: |
+    Let the user know to reach out if they have questions about or want to proceed with buying an Airtel SIM in a servicable area.
+  ai_state_type: FORCED_END_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {kyc_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, politely end the conversation.
+        Then, {state_next_goal}
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+KYC_INFORMATION:
+  state_description: |
+    User asks questions, or wants more information related to the KYC process or about SIM delivery, about when will the agent come, or what is needed for the KYC or SIM delivery.
+  state_next_goal: |
+    Ask the user to click the link below to schedule SIM delivery. Use different variations to not sound repetitive for example: "Click below to book your SIM delivery", "Tap the link below to welcome your new SIM at home", "To schedule your SIM delivery, hit the link below" or "Get your new Airtel SIM now - click below!"
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, answer the user question using KYC CONTEXT information.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+MOBILITY_INFORMATION:
+  state_description: |
+    User asks a general question about prepaid plans, postpaid plans, prepaid/postpaid SIM cards, OTTs or Apps. Excluding Airtel Family Plan.
+  state_next_goal: |
+    Ask the user to click the link below to schedule SIM delivery. Use different variations to not sound repetitive for example: "Click below to book your SIM delivery", "Tap the link below to welcome your new SIM at home", "To schedule your SIM delivery, hit the link below" or "Get your new Airtel SIM now - click below!"
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {prepaid_context}
+        {faq_context}
+        {general_product_context}
+        {specific_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, answer the user question using CONTEXT INFORMATION.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, always {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+PORTABILITY_INFORMATION:
+  state_description: |
+    User asks a question, wants more information or asks about portability, MNP or how to convert phone number from mobile operator such as Jio or Vodafone to Airtel.
+  state_next_goal: |
+    Ask the user to click the link below to schedule SIM delivery. Use different variations to not sound repetitive for example: "Click below to book your SIM delivery", "Tap the link below to welcome your new SIM at home", "To schedule your SIM delivery, hit the link below" or "Get your new Airtel SIM now - click below!"
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {portability_context}
+        {branding_context}
+        {faq_context}
+        {general_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, answer the user question using MOBILE NUMBER PORTABILITY (MNP) information provided.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 20 words unless to provide critical information the user explicitly asked for.
+
+TELCO_INFORMATION:
+  state_description: |
+    User inquires about Airtel coverage, network, services or benefits in general or compares Airtel to competitors like Jio or Vodafone. User complains about current service with competitiors like Jio and Vodafone. Excludes questions or statements about Airtel employees, sensitive topics or abusive comments.
+  state_next_goal: |
+    Ask the user to click the link below to schedule SIM delivery. Use different variations to not sound repetitive for example: "Click below to book your SIM delivery", "Tap the link below to welcome your new SIM at home", "To schedule your SIM delivery, hit the link below" or "Get your new Airtel SIM now - click below!"
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {specific_product_context}
+        {portability_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, if the user complains about existing services at a competitior, acknowledge their frustration and then share relevat information about Airtel from CONTEXT INFORMATION to show that Airtel can serve them better
+        Then, answer any question the user may have using the CONTEXT INFORMATION.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, always {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+OTHER_PRODUCT_INFORMATION:
+  state_description: |
+    User makes a question about Airtel Black, Airtel Family (Plan), Broadband, Fiber, DTH or other services not related to mobility/SIM card or OTT/Apps. User wants to recharge their current plan.
+  state_next_goal: |
+    Ask whether the user is still interested in scheduling the SIM delivery, use different variations to not sound repetitive for example: "Still eager to book your SIM delivery?", "Still ready to welcome your new SIM at home?", "How does scheduling your SIM delivery now sound?" or "Still interested in scheduling your SIM home delivery?"
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {faq_context}
+        {general_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and direct the user to the correct website for more information.
+      user_command: |
+        Fristly, acknowledge the user comment and answer the question of the user while highlighting the benefits of the most relevant product.
+        Then, say you can only assist with mobility plans but the user can check the URL provided for more information and further assistance about their inquiry.
+        Use any context about the user to show that you have heard them and understand their needs.
+
+        Provide the most relevant single URL using a new line.
+
+        Inquires about Airtel Black: https://www.airtel.in/airtel-black/
+        Inquires about Airtel Broadband: https://www.airtel.in/new-connection/broadband/
+        Inquires about Airtel DTH: https://www.airtel.in/dth/
+        Inquires about SIM recharge: https://www.airtel.in/recharge/prepaid/
+        Inquires about Airtel Family: https://www.airtel.in/mobile/terms-conditions/postpaid
+        Other inquires: https://www.airtel.in/
+
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+DISCOUNT_INFORMATION:
+  state_description: |
+    User asks for more information or wants to get offers, discounts, free trials, free plans or free campaign such as 1 year free plan, student discounts, seasonal offers.
+  state_next_goal: |
+    Ask whether the user is still interested in scheduling the SIM delivery, use different variations to not sound repetitive for example: "Still eager to book your SIM delivery?", "Still ready to welcome your new SIM at home?", "How does scheduling your SIM delivery now sound?" or "Still interested in scheduling your SIM home delivery?"
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {specific_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, apologize and say you do not currently offer any discount, offer or free trial.
+        Then, propose a relevant prepaid or postpaid plan.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+UNSERVICEABLE_PIN_CODE:
+  state_description: |
+    User message contains exactly `---bad form---`. Only choose this state when the exact keywords `---bad form---` are provided.
+  state_next_goal: |
+    State that the "WhatsApp Form" link will be displayed again for the user to provide again Name, Address and Pin Code (Postal code).
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, inform the user that Airtel services are not available in the area provided - for example 'Sorry, unfortunately we don't service your area'.
+        Politely ask the user to provide a different location where they would like to use Airtel services in the WhatsApp Form.
+        Lastly, {state_next_goal}
+        Don't provide a form and don't ask to manually input.
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+OBJECTIONS_WITHOUT_REASON:
+  state_description: |
+    User expresses negatively objections about the SIM card delivery or complains about Airtel, portability issues, or any disatisfaction with proposed plans without providing a reason. User disagrees to get help from the assistant to buy a sim, schedule a sim delivery or says sim card not needed.
+  state_next_goal: |
+    Briefly ask to understand more details about the users's hesitation or concern to get an Airtel SIM card.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, while being understanding, {state_next_goal}.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, mention at least one benefit of Airtel to the user to convince them, for example great plans, wide coverage and extensive OTT partnerships.
+        Smartly choose one of the Airtel strengths and benefits to convince the user.
+        Do not repeat yourself, use different approaches, strengths and wording.
+        Don't say that it is ok not to buy a SIM.
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 30 words
+
+OBJECTIONS_WITH_REASON:
+  state_description: |
+    User expresses negatively reacts or objects regarding a specific mobility plans or getting a SIM card, providing a specific reason such as price, network, connectivity.
+  state_next_goal: |
+    Ask whether the user is still interested in scheduling the SIM delivery, use different variations to not sound repetitive for example: "Still eager to book your SIM delivery?", "Still ready to welcome your new SIM at home?", "How does scheduling your SIM delivery now sound?" or "Still interested in scheduling your SIM home delivery?"
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {specific_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, acknowledge the user objection and use the CONTEXT INFORMATION to positively address the objection.
+        Use any context about the user to show that you have heard them and understand their needs.
+        If the user is objecting about a specific plan, try to provide an alternative plan that covers the users concern.
+        When the user mentions the same objection repeteadly, or you are unable to convince the user say that the KYC process can help address your concerns and provide all details.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+UNRELATED_CONVERSATION:
+  state_description: |
+    User is talking about topics NOT related to mobility, data, prepaid or postpaid plans, telecomunications or when talking about other companies that are not Airtel. Examples: `I am going on vacation`, `i love you`, `i love cats`, `Who is the CEO of Vodafone?`
+  state_next_goal: |
+    Ask whether the user is still interested in scheduling the SIM delivery, use different variations to not sound repetitive for example: "Still eager to book your SIM delivery?", "Still ready to welcome your new SIM at home?", "How does scheduling your SIM delivery now sound?" or "Still interested in scheduling your SIM home delivery?"
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {user_context}
+        ----------------
+
+        Only use the plans from the context information CONTEXT INFORMATION without altering the information provided in CONTEXT INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+      user_command: |
+        Firstly, briefly acknowledge the user response or make a funny comment but do not answer to questions. Do not engage with topics such as politics (Modi or Gandhi included), religion, or sensitive topics.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Then, reconduct the conversation to be about Airtel specific plans and benefits.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+TOXIC_CONVERSATION:
+  state_description: |
+    User speaks about toxic, harmful, politics, religion, Indian politics India (specially Modi), sensitive topics, inappropriate content, uses offensive language or talks about death, killing, murder, rape, torture, race, racists, sex, gender or anything similar.
+  state_next_goal: |
+    Ask whether the user is still interested in scheduling the SIM delivery. Be brief and neutral in your tone.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Do not engage with anything toxic that the user says. Do not respond, do not tell them it is not appropriate and do not tell them it is not viable.
+        Only say "I cannot help you with that." Use those words exactly and nothing else
+        Then, reconduct the conversation to be about Airtel specific plans and benefits. Be brief, do not reference any part of the user's statement.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 20 words unless to provide critical information the user explicitly asked for
+
+TALK_TO_AGENT:
+  state_description: |
+    User asks to talk to an agent, human, connect with support team or get support somewhere else.
+  state_next_goal: |
+    Ask whether there is something else you could help the user with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, say that you are sorry you could not help them.
+        Then, direct the user to these phone numbers. Use bullet points
+
+        If the user is currently using any Airtel mobility product (prepaid or postpaid), ask them to dial *121*
+        If the user is not using any Airtel mobility service or the user is currently using Unknown, ask them to dial *9810198101*
+
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+FRUSTRATED_EXISTING_USER:
+  state_description: |
+    User complains about an existing Airtel service such that could be related to mobility, broadband, dth, or about bad connection, billing problems, payment problems.
+  state_next_goal: |
+    Ask politely and smoothly whether the user would be still interested in scheduling the SIM delivery.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, apologize for the issue that the user is facing and make the user feel reassured that the assistant understood the user's complaint.
+        Mention that you cannot help with current services and ask the user to call *121*.
+
+        Choose (A) or (B) to finalize your message:
+        (A) If user first complain:  {state_next_goal}
+        (B) If user second complain: Thank them for their time. Don't ask anything else.
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+DUPLICATED_PIN_CODE:
+  state_description: |
+    User message contains exactly `---good form---` or `---bad form---` in the user last message.
+    Only choose this state when the exact keywords `---good form---` or `---bad form---` or if the user is sending a 4-8 digit number which looks like a postal code in the user last message.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {product_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, thank the user for providing their pin code details.
+        Then mention, that their details were already registered and mention that an agent will reach out very shortly about SIM delivery.
+
+        Finally, {state_last_goal}.
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+TELCO_INFORMATION_ENRICH:
+  state_description: |
+    User inquires about Airtel coverage, network, services or benefits in general or compares Airtel to competitors like Jio or Vodafone. User complains about current service with competitiors like Jio and Vodafone. Excludes questions or statements about Airtel employees, sensitive topics or abusive comments.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {specific_product_context}
+        {portability_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, if the user complains about existing services at a competitior, acknowledge their frustration and then share relevat information about Airtel from CONTEXT INFORMATION to show that Airtel can serve them better
+        Then, answer any question the user may have using the CONTEXT INFORMATION.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, always {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+KYC_INFORMATION_ENRICH:
+  state_description: |
+    User asks questions, or wants more information related to the KYC process or about SIM delivery, about when will the agent come, or what is needed for the KYC or SIM delivery.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {kyc_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, answer the user question using KYC CONTEXT information.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+MOBILITY_INFORMATION_ENRICH:
+  state_description: |
+    User asks a general question about prepaid plans, postpaid plans, prepaid/postpaid SIM cards, OTTs or Apps. Excluding Airtel Family Plan.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {prepaid_context}
+        {faq_context}
+        {general_product_context}
+        {specific_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, answer the user question using CONTEXT INFORMATION.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, always {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+OTHER_PRODUCT_INFORMATION_ENRICH:
+  state_description: |
+    User makes a question about Airtel Black, Airtel Family (Plan), Broadband, Fiber, DTH or other services not related to mobility/SIM card or OTT/Apps. User wants to recharge their current plan.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {faq_context}
+        {general_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and direct the user to the correct website for more information.
+      user_command: |
+        Fristly, acknowledge the user comment and answer the question of the user while highlighting the benefits of the most relevant product.
+        Then, say you can only assist with mobility plans but the user can check the URL provided for more information and further assistance about their inquiry.
+        Use any context about the user to show that you have heard them and understand their needs.
+
+        Provide the most relevant single URL using a new line.
+
+        Inquires about Airtel Black: https://www.airtel.in/airtel-black/
+        Inquires about Airtel Broadband: https://www.airtel.in/new-connection/broadband/
+        Inquires about Airtel DTH: https://www.airtel.in/dth/
+        Inquires about SIM recharge: https://www.airtel.in/recharge/prepaid/
+        Inquires about Airtel Family: https://www.airtel.in/mobile/terms-conditions/postpaid
+        Other inquires: https://www.airtel.in/
+
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}
+
+PORTABILITY_INFORMATION_ENRICH:
+  state_description: |
+    User asks a question, wants more information or asks about portability, MNP or how to convert phone number from mobile operator such as Jio or Vodafone to Airtel.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {portability_context}
+        {branding_context}
+        {faq_context}
+        {general_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, answer the user question using MOBILE NUMBER PORTABILITY (MNP) information provided.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 20 words unless to provide critical information the user explicitly asked for.
+
+DISCOUNT_INFORMATION_ENRICH:
+  state_description: |
+    User asks for more information or wants to get offers, discounts, free trials, free plans or free campaign such as 1 year free plan, student discounts, seasonal offers.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {specific_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, apologize and say you do not currently offer any discount, offer or free trial.
+        Then, propose a relevant prepaid or postpaid plan.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+OBJECTIONS_WITHOUT_REASON_ENRICH:
+  state_description: |
+    User expresses negatively objections about the SIM card delivery or complains about Airtel, portability issues, or any disatisfaction with proposed plans without providing a reason. User disagrees to get help from the assistant to buy a sim, schedule a sim delivery or says sim card not needed.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, while being understanding, {state_next_goal}.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Lastly, mention at least one benefit of Airtel to the user to convince them, for example great plans, wide coverage and extensive OTT partnerships.
+        Smartly choose one of the Airtel strengths and benefits to convince the user.
+        Do not repeat yourself, use different approaches, strengths and wording.
+        Don't say that it is ok not to buy a SIM.
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 30 words
+
+OBJECTIONS_WITH_REASON_ENRICH:
+  state_description: |
+    User expresses negatively reacts or objects regarding a specific mobility plans or getting a SIM card, providing a specific reason such as price, network, connectivity.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {general_product_context}
+        {specific_product_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, acknowledge the user objection and use the CONTEXT INFORMATION to positively address the objection.
+        Use any context about the user to show that you have heard them and understand their needs.
+        If the user is objecting about a specific plan, try to provide an alternative plan that covers the users concern.
+        When the user mentions the same objection repeteadly, or you are unable to convince the user say that the KYC process can help address your concerns and provide all details.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+UNRELATED_CONVERSATION_ENRICH:
+  state_description: |
+    User is talking about topics NOT related to mobility, data, prepaid or postpaid plans, telecomunications or when talking about other companies that are not Airtel. Examples: `I am going on vacation`, `i love you`, `i love cats`, `Who is the CEO of Vodafone?`
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {user_context}
+        ----------------
+
+        Only use the plans from the context information CONTEXT INFORMATION without altering the information provided in CONTEXT INFORMATION.
+        If you don't know the answer to a question, please don't share false information.
+      user_command: |
+        Firstly, briefly acknowledge the user response or make a funny comment but do not answer to questions. Do not engage with topics such as politics (Modi or Gandhi included), religion, or sensitive topics.
+        Use any context about the user to show that you have heard them and understand their needs.
+        Then, reconduct the conversation to be about Airtel specific plans and benefits.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+TOXIC_CONVERSATION_ENRICH:
+  state_description: |
+    User speaks about toxic, harmful, politics, religion, Indian politics India (specially Modi), sensitive topics, inappropriate content, uses offensive language or talks about death, killing, murder, rape, torture, race, racists, sex, gender or anything similar.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Do not engage with anything toxic that the user says. Do not respond, do not tell them it is not appropriate and do not tell them it is not viable.
+        Only say "I cannot help you with that." Use those words exactly and nothing else
+        Then, reconduct the conversation to be about Airtel specific plans and benefits. Be brief, do not reference any part of the user's statement.
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        Be as brief as possible without affecting the tone or politeness of your response; do not exceed 20 words unless to provide critical information the user explicitly asked for
+
+TALK_TO_AGENT_ENRICH:
+  state_description: |
+    User asks to talk to an agent, human, connect with support team or get support somewhere else.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, say that you are sorry you could not help them.
+        Then, direct the user to these phone numbers. Use bullet points
+
+        If the user is currently using any Airtel mobility product (prepaid or postpaid), ask them to dial *121*
+        If the user is not using any Airtel mobility service or the user is currently using Unknown, ask them to dial *9810198101*
+
+        Lastly, {state_next_goal}
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {verbosity_context}
+
+FRUSTRATED_EXISTING_USER_ENRICH:
+  state_description: |
+    User complains about an existing Airtel service such that could be related to mobility, broadband, dth, or about bad connection, billing problems, payment problems.
+  state_next_goal: |
+    Ask the user if there is anything else you can help with.
+  ai_state_type: GENERAL_UNRELATED_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: LLAMA3_1_70B
+      - template:
+          name: DATA_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PLAN_TYPE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: NUMBER_OF_LINES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTTS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: PIN_CODE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: EXISTING_SERVICES
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: DISCUSSED_PLANS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: OTHER_NEEDS
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: TONE
+          ai_model: LLAMA3_1_8B
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: LLAMA3_1_70B
+      instructions: |
+        {agent_style_context}
+
+        CONTEXT INFORMATION
+        ----------------
+        {branding_context}
+        {user_context}
+        ----------------
+
+        Only use the CONTEXT INFORMATION without altering the information provided.
+        If you don't know the answer to a question, please don't share false information and say that the KYC agent can help share more details.
+      user_command: |
+        Firstly, apologize for the issue that the user is facing and make the user feel reassured that the assistant understood the user's complaint.
+        Mention that you cannot help with current services and ask the user to call *121*.
+
+        Choose (A) or (B) to finalize your message:
+        (A) If user first complain:  {state_next_goal}
+        (B) If user second complain: Thank them for their time. Don't ask anything else.
+
+        {repetition_context}
+        {emojis_context}
+        {style_context}
+        {long_verbosity_context}

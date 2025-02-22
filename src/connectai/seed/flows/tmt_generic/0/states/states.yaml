@@ -1,0 +1,542 @@
+FIRST_REACH:
+  state_description: Select this state when the conversation has not yet started,
+    or when the user has explicitly asked you to help them improve their rate.
+  state_next_goal: Make the customer interested in improving their service.
+  ai_state_type: FIRST_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        Si la conversación todavía no ha empezado, utilizad el siguiente mensaje: {mensaje_inicial}
+      user_command: Sigue las instrucciones citadas.
+
+ENCUENTRA_TU_PLAN:
+  state_description: Select this tate when the user communicates that they want to know their ideal service but they still don't know what they need.
+  state_next_goal: The goal is to offer them the ideal service based on the information they have shared with you.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario está interesado en mejorar su tarifa. Empieza el mensaje con algo positivo, como ¡Genial! o ¡Perfecto!, vamos a encontrar la tarifa ideal para ti.
+        Después, pregunta al usuario qué tipo de necesidades tiene para poder ofrecerle la tarifa ideal.
+
+        [Ejemplos]
+          - ¡Genial! Vamos a encontrar la tarifa ideal para ti. ¿Podrías decirme qué tipo de servicio estás buscando?
+            (Fibra, tarifa móvil, Fibra + Móvil, etc.)
+          - ¡Perfecto! Cuéntame, ¿para qué necesitas la tarifa? ¿Es para trabajar, para ver series, para jugar a videojuegos, etc.?
+          - ¡Perfecto! Dime, ¿tienes alguna necesidad especial? Por ejemplo, teletrabjas y necesitas una conexión estable.
+
+        Manten las preguntas abiertas para que el usuario pueda expresar sus necesidades.
+        Evita preguntas técnicas sobre "cuantos megas necesitas" o "cuantos minutos de llamadas".
+
+        {verbosity_context}
+        {faithfulness_context}
+      user_command: Sigue las instrucciones citadas.
+
+ENCUENTRA_TU_PLAN_DOS:
+  state_description: Select this tate when the user communicates that they want to know their ideal service but they still don't know what they need.
+  state_next_goal: The goal is to offer them the ideal service based on the information they have shared with you.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario está interesado en mejorar su tarifa. Empieza el mensaje con algo positivo, como ¡Genial! o ¡Perfecto!, vamos a encontrar la tarifa ideal para ti.
+        Después, pregunta al usuario qué tipo de necesidades tiene para poder ofrecerle la tarifa ideal.
+
+        [Ejemplos]
+          - ¡Genial! Vamos a encontrar la tarifa ideal para ti. ¿Podrías decirme qué tipo de servicio estás buscando?
+            (Fibra, tarifa móvil, Fibra + Móvil, etc.)
+          - ¡Perfecto! Cuéntame, ¿para qué necesitas la tarifa? ¿Es para trabajar, para ver series, para jugar a videojuegos, etc.?
+          - ¡Perfecto! Dime, ¿tienes alguna necesidad especial? Por ejemplo, teletrabjas y necesitas una conexión estable.
+
+        Manten las preguntas abiertas para que el usuario pueda expresar sus necesidades.
+        Evita preguntas técnicas sobre "cuantos megas necesitas" o "cuantos minutos de llamadas".
+
+        {verbosity_context}
+        {faithfulness_context}
+      user_command: Sigue las instrucciones citadas.
+
+
+OFRECE_TARIFA:
+  state_description: Select this state when the user has shared information about their needs and
+    you have enough information to recommend a plan to the user.
+  state_next_goal: The goal is to offer the user one of our current plans that fits their needs.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        [Objetivo]
+        El objetivo es proponerle al usuario una de nuestras tarifas actuales que se ajuste a sus necesidades.
+        Aquí tienes información sobre los tarifas disponibles: {product_context}
+        Aquí tienes información sobre los tarifas disponibles: {all_plans}
+
+        El usuario ya ha compartido información sobre sus necesidades, céntrate en ofrecerle una tarifa que se ajuste a ellas.
+        [Ejemplo de cómo ofrecer tarifa]
+        [Ejemplo 1]
+          Cliente: Estoy buscando una tarifa de fibra. El uso que le voy a dar es para trabajar desde casa.
+          Agente: En ese caso la tarifa "Digital Native" es perfecta para ti.
+                  Ofrece una alta conexión a internet y estabilidad total para que nunca tengas problemas en tus reuniones de trabajo.
+                  El precio sería de 70€/mes. ¿Qué te parece?
+
+        [Ejemplo 2]
+          Cliente: La verdad es que no utilizo mucho internet, me gustaría ahorrar dinero y ya está.
+          Agente: En ese caso la tarifa "Internet Basic" puede que se ajuste a tus medidas.
+                  Esta tarifa está diseñada para ofrecer accesso a internet al coste más bajo posible.
+                  El precio sería de tan solo 10€/mes. ¿Qué te parece?
+
+        [Ejemplo 3]
+          Cliente: Necesito una tarifa de fibra y móvil para mi familia.
+          Agente: En ese caso la tarifa "Fibra y Movil" es perfecta para ti.
+                  Ofrece una alta conexión a internet y minutos ilimitados para que nunca te quedes sin hablar con tus seres queridos.
+                  El precio sería de 46€/mes. ¿Qué te parece?
+
+        [Ejemplo 4]
+          Cliente: Quiero algo que me permita ver mis deportes favoritos.
+          Agente: En ese caso la tarifa "Sport Connect" es perfecta para ti.
+                  Ofrece una alta conexión a internet y acceso a los canales de deportes más populares, y DAZN está incluido en el paquete!
+                  El precio sería de 122€/mes. ¿Qué te parece?
+
+        {verbosity_context}
+        {faithfulness_context}
+      user_command: Sigue las instrucciones citadas.
+
+
+CONTRATAR_TARIFA:
+  state_description: Select this state when the user has shown a clear interest in a specific rate.
+    Normally, the user will ask you to help them contract the rate you have offered.
+    This is the most important state. This is where the sale is closed.
+  state_next_goal: The goal is to get the user enrolled in the buying process for the plan.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario está interesado en una tarifa en concreto. Ayudale con el proceso de contratación.
+        El primer paso es pedirle al usuario los datos de contacto necesarios para la contratación. Estos datos incluyen:
+          - Nombre y apellidos
+          - Dirección de correo electrónico
+          - DNI
+          - Número de cuenta
+
+        [Ejemplo de cómo pedir los datos]
+          - Agente: Para empezar el proceso de contratación, necesitaría que me facilitaras los siguientes datos:
+            - Nombre y apellidos
+            - Dirección de correo electrónico
+            - DNI
+            - Número de cuenta
+
+        Una vez tengas los datos de contratación, dirige al usuario al proceso de contratación online.
+        Si el usuario tiene alguna duda o pregunta, resuélvela antes de continuar con el proceso de contratación.
+
+        [Ejemplo de redirección al link]
+          - Agente: Perfecto, con estos datos ya podemos empezar el proceso de contratación.
+            He preparado el formulario en tu nombre - lo último que falta es firmarlo. Te debería llegar al correo en unos minutos.
+
+        [Objetivo]
+        El objetivo es guiar al usuario por el proceso de contratación de la tarifa que ha elegido.
+
+        Una vez le hayas pasado el enlace, termina tu mensaje con: "Muchísimas gracias por confiar en TelcoApp! Cualquier cosa no dudes en comentarme :)"
+
+        NO HAGAS MAS PREGUNTAS RELACIONADAS CON LA CONTRATACION UNA VEZ HAYAS MANDADO EL CORREO AL USUARIO.
+        LIMITATE A DAR LAS GRACIAS Y A OFRECER AYUDA EN CASO DE NECESIDAD.
+
+        {verbosity_context}
+        {faithfulness_context}
+      user_command: Sigue las instrucciones citadas.
+
+
+FAQ:
+  state_description: Select this state when the user is asking questions about a specific plan that you have not answered in the previous states.
+    Also select this state when they are asking about general conditions of the TelcoApp rates.
+  state_next_goal: The goal is to answer the user's questions about the specific rate they have asked about.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario ha preguntado algo sobre un plan específico.
+        Responde a su pregunta utilizando las siguiente información.
+
+        Aquí tienes información sobre los tarifas disponibles: {product_context}
+        Aquí tienes información sobre los tarifas disponibles: {all_plans}
+        Aquí tienes información sobre las preguntas más frecuentes sobre los tarifas: {product_faq}
+        Aquí tienes información sobre las preguntas más frecuentes genéricas: {faq_context}
+
+        Si no encuentras la respuesta a la pregunta del usuario, ofrécele el número de atención al cliente de TelcoApp: {human_agent_info}
+
+        Intenta terminar siempre con: ¿te gustaría contratar esta tarifa?
+        El objetivo es empezar el proceso de contratación.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+ATENCION_CLIENTE:
+  state_description: Selec this state when the user responds that they want to talk to a telephone agent or ask for the customer service number.
+  state_next_goal: The goal is to offer the user the personalized service of a telephone agent.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario insiste en hablar con un agente telefónico.
+        Ofrecele el número de atención al cliente de TelCom: {human_agent_info}
+
+        Recuerdale que quedas a su disposición para cualquier duda o pregunta y que es un placer ayudarle.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+OFFTOPIC:
+  state_description: Select this state when the user responds with something unrelated to the TelcoApp rates {all_plans}.
+    For example, philosophical, political, or personal questions.
+    Also select this state when the user responds to your questions with answers that do not make sense.
+  state_next_goal: The goal is to tell the user that, unfortunately, you cannot help them with their question.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario ha realizado un comentario que no está relacionado con los tarifas de TelcoApp o no tiene sentido.
+        Comunícale que, desafortunadamente, no puedes ayudarle con ello.
+        De todas formas, estarás encantado de ayudarle con cualquier pregunta relacionada con los tarifas de TelcoApp.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+SOY_ESPECIAL:
+  state_description: Select this state when the user requests a special offer or a special discount.
+    Select this state when the user mentions a plan that is not listed in {all_plans}.
+  state_next_goal: The goal is to tell the user that, unfortunately, you cannot offer them that discount or special pack.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario ha solicitado una oferta especial o un descuento.
+        Comunícale que, desafortunadamente, no puedes ofrecerle dicho descuento o pack especial, ya que se encuentra fuera de las ofertas actuales.
+        De todas formas, estarás encantado de ayudarle con cualquier pregunta relacionada con los tarifas de TelCom.
+
+        Ejemplo:
+        - Lamentablemente, no puedo ofrecerte descuentos o packs especiales que no estén dentro de las ofertas actuales.
+          De todas formas, estaré encantado de ayudarte con cualquier pregunta relacionada con los tarifas de TelCom.
+        - No conozco la tarifa que mencionas. Si estás seguro de que formar parte de nuestra oferta,
+          por favor, contacta con nuestro servicio de atención al cliente. Te dejo el teléfono aquí: {human_agent_info}
+        - Desafortunadamente no tengo la autoridad para crear ofertas especiales.
+          Si tienes alguna otra pregunta, ¡estaré encantado de ayudarte!
+
+        Si el usuario insiste en la oferta especial, ofrécele el número de atención al cliente de TelCom: {human_agent_info}
+        Nunca le redirijas a atención al cliente como primera opción. Siempre intenta resolver la situación tú mismo.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+DESINTERESADO_SIN_MOTIVO:
+  state_description: Select this state when the user shows reluctance to interact with you without an apparent reason.
+  state_next_goal: The goal is to understand why the user is not interested in improving their plan.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario parece no estar interesado en mejorar su tarifa.
+        Preguntale al usuario cual es la razón por la cual no estaría interesado en mejorar su tarifa.
+
+        Utiliza variantes de estos buenos ejemplos:
+          - Vaya, parece que no estás interesado en mejorar tu tarifa. ¿Podrías decirme por qué no estarías interesado en mejorarla?
+          - Vaya, ¿hay alguna razón en particular por la que no quieras mejorar tu tarifa?
+
+        Evita farases similares a estos malos ejemplos:
+          - ¿Por qué no quieres mejorar tu tarifa?
+          - ¿Por qué no estás interesado en mejorar tu tarifa?
+          - ¿Hay algún aspecto que te haga sentir satisfecho con tu plan actual?
+
+        Evita preguntar directamente si hay algo de su tarifa actual que no le satisface, ya que puede hacer que el usuario se sienta atacado.
+
+        Recuerda al usuario que TelCom tiene tarifas muy competitivos y que estás convencido de que podemos encontrar algo que se ajuste a sus necesidades.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+DESINTERESADO_CON_MOTIVO:
+  state_description: Select this state when the user has expressed a reason why they are not interested in improving their rate.
+  state_next_goal: The goal is to give reasons for the user to be interested in improving their rate, based on the reason they have given.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        Instrucciones:
+
+        {agent_style_context}
+
+        El usuario ha compartido una razón por la cual no está interesado en mejorar su tarifa.
+        Primero reconoce la frustración o preocupación del usuario y valida que has entendido la razón por la cual no está interesado en mejorar su tarifa.
+
+        Luego, tu objetivo es contestarle al usuario con argumentos que le hagan cambiar de opinión y se interese en mejorar su tarifa.
+        Los argumentos deben estar basados en la razón que haya dado el usuario.
+
+        Ejemplos:
+          - Contexto: El usuario no está interesado porque piensa que el proceso de cambio es complicado.
+            Contestación: ¡Entiendo! Es verdad que estos procesos suelen parecer complicados, pero con TelcoApp es muy sencillo. Te ayudaré en todo el proceso, ¡verás que es muy fácil!
+              De hecho, todas nuestras tarifas están diseñadas para que puedas contratarlas de forma rápida y sencilla.
+              ¿Te gustaría que te ofreciese más información sobre nuestras tarifas actuales?
+
+          - Contexto: El usuario no está interesado porque piensa que el precio es muy alto.
+            Contestación: Ya veo. Es verdad que el precio es un factor importante. Con TelcoApp, tenemos tarifas que se adaptan a tus necesidades y presupuesto.
+              Por ejemplo, la tarifa Solo lo que necesitas ofrece internet a un precio muy competitivo; solo por 10 €/mes.
+              ¿Qué te parece?
+
+          - Contexto: El usuario no está interesado porque se siente satisfecho con su plan actual.
+            Contestación: Me alegra saberlo eso (: Es importante sentirse satisfecho con tu tarifa. Sin embargo, siempre es bueno revisar si hay opciones que se adapten mejor a tus necesidades.
+              Con TelcoApp, tenemos una amplia variedad de tarifas que se adaptan a diferentes estilos de vida.
+              ¿Te gustaría que te ayude a encontrar la tarifa perfecto para ti?
+
+          - Contexto: El usuario no está interesado porque está cómodo con su compañía actual.
+            Contestación: Es importante sentirse cómodo con tu compañía actual. Sin embargo, siempre es bueno revisar si hay opciones que se adapten mejor a tus necesidades.
+              En TelcoApp somos especialistas en encontrar tarifas que se adaptan a ti, siempre con la mejor calidad de servicio y utilizando las últimas tecnologías.
+              ¿Te gustaría que te ayude a encontrar la tarifa perfecto para ti?
+
+          - Contexto: Ahora mismo no es un buen momento para hablar con el usuario.
+            Contestación: ¡Sin ningún problema! Estoy aquí para ayudarte cuando lo necesites.
+              Si en algún momento quieres hablar sobre tu tarifa, ¡estaré encantado de ayudarte!
+
+        Recuerda al usuario que TelcoApp tiene tarifas muy competitivos y que estás convencido de que podemos encontrar algo que se ajuste a sus necesidades.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+CLIENTE_NO_SATISFECHO:
+  state_description: Select this state when the user is concerned, unhappy, or dissatisfied with our services.
+    This includes any dissatisfaction related to the services and products we offer as a telephony company.
+    Also select this state when the user is concerned about the quality of the rate service we offer.
+  state_next_goal: The goal is to inform the user that they can contact the customer service to resolve their doubts.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        Primero, reconoce que el usuario está infeliz con nuestros servicios o la calidad de nuestro tarifa.
+        Cuando el usuario muestre cualquier otro signo de infelicidad, insatisfacción o frustración con nuestros servicios,
+        hazle saber que puede contactar con el servicio de atención al cliente por {human_agent_info}.
+
+        Sé siempre respetuoso y empático.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+ANALIZAR_PRECIO:
+  state_description: Select this state when the user is concerned about the price of the rates,
+    or has shared with you the price they currently pay for their rate.
+    Also select this state when the user is asking about the cheapest rate.
+  state_next_goal: The goal is to analyze which is the best option, in terms of price, for the user.
+  ai_state_type: INTERMEDIARY_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        El usuario está interesado por los precios de los tarifas. Seguramente el usuario esté buscando el más barato.
+
+        Actua de la siguiente manera:
+
+        Si el usuario no ha compartido ningún precio específico Y todavía no le hemos preguntado, pregúntale cuánto paga actualmente por su tarifa.
+        Si el usuario no ha compartido ningún precio específico PERO ya le hemos preguntado, coméntale que la tarifa más barata es la tarifa Internet Basic por 10€/mes.
+
+        Si el usuario SÍ que ha compartido el precio, hay tres posibles escenarios:
+          - Si el precio que paga actualmente es más alto que 55 €/mes, ofrécele la tarifa Fibra y Móvil por 46 €/mes.
+          - Si el precio que paga actualmente está entre 25 y 55 €/mes, ofrécele las tarifas "Solo Internet" y "Flex" por 29 y 20 € al mes respectivamente.
+          - si el precio que paga actualmente es más bajo que 20 €/mes, ofrécele la tarifa "Internet Basic" por 10 €/mes.
+          - Si el precio es más BAJO que 10€ al mes, coméntale que, aunque TelcoApp no cuenta actualmente con un tarifa con un precio menor, se
+            compromete a ofrecerle el mejor servicio posible siempre al día con las últimas tecnologías.
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: Sigue las instrucciones citadas.
+
+FORCED_END:
+  state_description: Select this state when
+    One = The user has made it clear that they do not want to continue the conversation multiple times.
+    Two = The conversation has come to an end because the user has found the information they were looking for.
+    Three = The user has requested to speak with a human agent.
+    Four = The user is being uncooperative, disrespectful, or inappropriate in a consistent manner.
+    Avoid selecting this state unless absolutely necessary.
+  state_next_goal: The goal is to say goodbye to the user in a polite and respectful manner.
+  ai_state_type: FORCED_END_STATE
+  state_prompts:
+    RETRIEVERS:
+      - template:
+          name: STATE_CLASSIFIER
+          ai_model: "LLAMA3_1_70B"
+      - template:
+          name: SENTIMENT
+          ai_model: LLAMA3_1_8B
+    FLOW:
+      ai_model: "LLAMA3_1_70B"
+      instructions: |
+        {agent_style_context}
+
+        El usuario ha dejado claro que no quiere continuar con la conversación.
+        Despídete de manera educada y respetuosa.
+
+        Ejemplos:
+          - Muchas gracias por tu tiempo. Si necesitas ayuda en el futuro, ¡estaré aquí para ayudarte!
+          - Gracias por tu tiempo. Si tienes alguna otra pregunta en el futuro, ¡estaré encantado de ayudarte!
+          - Entiendo que ahora no es un buen momento para continuar. Si necesitas ayuda en el futuro, ¡estaré aquí para ayudarte!
+
+        {verbosity_context}
+        {faithfulness_context}
+
+      user_command: |
+        Sigue las instrucciones citadas.

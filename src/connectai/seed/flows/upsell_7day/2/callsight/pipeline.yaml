@@ -1,0 +1,20 @@
+name: sales_agent
+steps:
+  - name: summarize_transcript
+    extension: summary
+    run_input:
+      text:
+          input: transcript
+    build_input:
+      llm: gpt-3.5-turbo
+      text_type: customer interaction transcript
+      text_type_specifics: >
+        This transcript captures a dialogue between a customer and a service representative.
+      style_hints:
+        - Keep sentences concise and clear.
+        - Compile a comprehensive overview of the discussion. Pinpoint the customer's primary concerns about the service.
+        - Detail any mentioned competitor services, focusing on why the customer finds them appealing, such as more comprehensive coverage or advanced features.
+        - Include any references to competitor services and their perceived advantages over current offerings.
+        - Summarize any solutions or alternatives offered by the representative.
+      keywords:
+        Gbps: gigabits per second
