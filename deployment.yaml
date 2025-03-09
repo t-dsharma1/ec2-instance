@@ -1,0 +1,212 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genie-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: genie-api
+  template:
+    metadata:
+      labels:
+        app: genie-api
+    spec:
+      containers:
+        - name: genie-api
+          image: 863518457201.dkr.ecr.us-east-1.amazonaws.com/ecr_for_eks:genie-api
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+               name: genie-config
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: genie-api-service
+spec:
+  selector:
+    app: genie-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genie-db-init-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: genie-db-init
+  template:
+    metadata:
+      labels:
+        app: genie-db-init
+    spec:
+      containers:
+        - name: genie-db-init
+          image: 863518457201.dkr.ecr.us-east-1.amazonaws.com/ecr_for_eks:genie-db_init
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+               name: genie-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: genie-db-init-service
+spec:
+  selector:
+    app: genie-db-init
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: genie-keycloak-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: genie-keycloak
+  template:
+    metadata:
+      labels:
+        app: genie-keycloak
+    spec:
+      containers:
+        - name: genie-keycloak
+          image: 863518457201.dkr.ecr.us-east-1.amazonaws.com/ecr_for_eks:genie-keycloak
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak
+spec:
+  selector:
+    app: keycloak
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aaronshaf-dynamodb-admin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aaronshaf-dynamodb-admin
+  template:
+    metadata:
+      labels:
+        app: aaronshaf-dynamodb-admin
+    spec:
+      containers:
+        - name: aaronshaf-dynamodb-admin
+          image: 863518457201.dkr.ecr.us-east-1.amazonaws.com/ecr_for_eks:aaronshaf-dynamodb-admin
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aaronshaf-dynamodb-admin-service
+spec:
+  selector:
+    app: aaronshaf-dynamodb-admin
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: ClusterIP
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: 863518457201.dkr.ecr.us-east-1.amazonaws.com/ecr_for_eks:redis
+          ports:
+            - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+spec:
+  selector:
+    app: redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+  type: ClusterIP
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: localstack-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: localstack
+  template:
+    metadata:
+      labels:
+        app: localstack
+    spec:
+      containers:
+        - name: localstack
+          image: 863518457201.dkr.ecr.us-east-1.amazonaws.com/ecr_for_eks:localstack
+          ports:
+            - containerPort: 4566
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: localstack-service
+spec:
+  selector:
+    app: localstack
+  ports:
+    - protocol: TCP
+      port: 4566
+      targetPort: 4566
+  type: ClusterIP
+

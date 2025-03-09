@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  # Name of the ClusterRoleBinding
+  name: my-cluster-admin-binding
+subjects:
+- kind: User
+  # Replace this with the IAM user ARN or service account name
+  name: arn:aws:iam::863518457201:user/kubectl-user
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: eks-role
+  apiGroup: rbac.authorization.k8s.io
+
