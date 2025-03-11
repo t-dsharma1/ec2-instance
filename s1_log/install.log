@@ -1,0 +1,20 @@
+[02-02-25 20:41:01.200] Starting installation 24.2.2.20
+[02-02-25 20:41:01.202] Read from environment variables.
+[02-02-25 20:41:01.231] Creating group sentinelone
+[02-02-25 20:41:01.280] Creating user sentinelone
+[02-02-25 20:41:01.327] User sentinelone created successfully
+[02-02-25 20:41:07.847] Read from environment variables.
+[02-02-25 20:41:07.859] Setting permissions
+[02-02-25 20:41:07.888] Permissions set successfully
+[02-02-25 20:41:07.890] Disabling sentinelone account login
+[02-02-25 20:41:07.908] sentinelone account login disabled successfully
+[02-02-25 20:41:07.909] Registering agent service
+[02-02-25 20:41:07.912] systemctl was found, enabling service file
+[02-02-25 20:41:08.126] Agent service registered successfully
+[02-02-25 20:41:08.127] Adding SentinelCTL to $PATH...
+[02-02-25 20:41:08.135] SentinelCTL added to $PATH successfully
+[02-02-25 20:41:08.137] Fixing files to root
+[02-02-25 20:41:08.163] Enable crash dumps functionality
+[02-02-25 20:41:08.168] crash dumps enabled
+[02-02-25 20:41:08.170] Done fixing files to root
+[02-02-25 20:41:08.174] Installation finished successfully

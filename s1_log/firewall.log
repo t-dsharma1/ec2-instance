@@ -1,0 +1,78 @@
+[2025-02-02 20:41:14.347916] [23985] [info] Configuration successfully loaded
+[2025-02-02 20:41:46.466153] [23985] [info] Calling process main
+[2025-02-02 20:41:46.466160] [23985] [info] starting reactor
+[2025-02-27 16:04:02.256084] [668] [info] Configuration successfully loaded
+[2025-02-27 16:05:07.217321] [668] [info] Calling process main
+[2025-02-27 16:05:07.217335] [668] [info] starting reactor
+[2025-02-27 16:05:08.238464] [668] [info] process exit with code 0
+[2025-02-27 16:05:27.860256] [677] [info] Configuration successfully loaded
+[2025-02-27 16:06:13.658101] [677] [info] Calling process main
+[2025-02-27 16:06:13.658114] [677] [info] starting reactor
+[2025-02-27 16:07:50.152921] [742] [info] Configuration successfully loaded
+[2025-02-27 16:08:25.878771] [742] [info] Calling process main
+[2025-02-27 16:08:25.878778] [742] [info] starting reactor
+[2025-02-27 19:36:33.325169] [760] [info] Configuration successfully loaded
+[2025-02-27 19:37:08.118973] [760] [info] Calling process main
+[2025-02-27 19:37:08.118985] [760] [info] starting reactor
+[2025-03-11 15:00:07.856380] [760] [info] Reloading agent config
+[2025-03-11 15:00:19.519316] [760] [info] Reloading agent config
+[2025-03-11 15:00:19.519336] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:00:19.519903] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:00:19.519935] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:00:19.519948] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:00:31.030930] [760] [info] process exit with code 0
+[2025-03-11 15:00:34.320552] [171251] [debug] Creating logger for process firewall, max file size: 1048576 bytes
+[2025-03-11 15:00:34.320570] [171251] [debug] Setting termination handler
+[2025-03-11 15:00:34.320572] [171251] [debug] Creating crash reporter for process firewall
+[2025-03-11 15:00:34.320603] [171251] [debug] Creating orchestrator ipc protocol for process firewall
+[2025-03-11 15:00:34.320644] [171251] [debug] Initializing process firewall
+[2025-03-11 15:00:34.320928] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:00:34.321722] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:00:34.321741] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:00:34.321753] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:00:34.327270] [171251] [debug] agent_config: successfully initialized instance
+[2025-03-11 15:00:34.327384] [171251] [info] Configuration successfully loaded
+[2025-03-11 15:01:06.754992] [171251] [info] Calling process main
+[2025-03-11 15:01:06.755003] [171251] [info] starting reactor
+[2025-03-11 15:01:06.798689] [171251] [debug] firewall control configured with enabled: off, interval: 30, report_log: off, report_mgmt: off, network_quarantine: off, network_quarantine_control_enabled: off
+[2025-03-11 15:01:06.798823] [171251] [debug] received firewall rules to update
+[2025-03-11 15:01:06.798882] [171251] [debug] received network quarantine rules to update
+[2025-03-11 15:01:22.510592] [171251] [info] Reloading agent config
+[2025-03-11 15:01:22.510613] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:01:22.512796] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:01:22.512827] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:01:22.512840] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:01:41.260267] [171251] [info] process exit with code 0
+[2025-03-11 15:01:44.527047] [171420] [debug] Creating logger for process firewall, max file size: 1048576 bytes
+[2025-03-11 15:01:44.527062] [171420] [debug] Setting termination handler
+[2025-03-11 15:01:44.527063] [171420] [debug] Creating crash reporter for process firewall
+[2025-03-11 15:01:44.527091] [171420] [debug] Creating orchestrator ipc protocol for process firewall
+[2025-03-11 15:01:44.527128] [171420] [debug] Initializing process firewall
+[2025-03-11 15:01:44.527407] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:01:44.528168] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:01:44.528195] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:01:44.528212] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:01:44.529101] [171420] [debug] agent_config: successfully initialized instance
+[2025-03-11 15:01:44.529108] [171420] [info] Configuration successfully loaded
+[2025-03-11 15:02:16.752811] [171420] [info] Calling process main
+[2025-03-11 15:02:16.752821] [171420] [info] starting reactor
+[2025-03-11 15:02:16.787437] [171420] [debug] firewall control configured with enabled: off, interval: 30, report_log: off, report_mgmt: off, network_quarantine: off, network_quarantine_control_enabled: off
+[2025-03-11 15:02:16.788464] [171420] [debug] received firewall rules to update
+[2025-03-11 15:02:16.788521] [171420] [debug] received network quarantine rules to update
+[2025-03-11 15:02:19.086568] [171420] [info] process exit with code 0
+[2025-03-11 15:02:22.332240] [171550] [debug] Creating logger for process firewall, max file size: 1048576 bytes
+[2025-03-11 15:02:22.332249] [171550] [debug] Setting termination handler
+[2025-03-11 15:02:22.332250] [171550] [debug] Creating crash reporter for process firewall
+[2025-03-11 15:02:22.332273] [171550] [debug] Creating orchestrator ipc protocol for process firewall
+[2025-03-11 15:02:22.337387] [171550] [debug] Initializing process firewall
+[2025-03-11 15:02:22.337521] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:02:22.337878] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:02:22.337888] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:02:22.337896] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:02:22.338598] [171550] [debug] agent_config: successfully initialized instance
+[2025-03-11 15:02:22.338606] [171550] [info] Configuration successfully loaded
+[2025-03-11 15:02:54.269553] [171550] [info] Calling process main
+[2025-03-11 15:02:54.269562] [171550] [info] starting reactor
+[2025-03-11 15:02:54.297429] [171550] [debug] firewall control configured with enabled: off, interval: 30, report_log: off, report_mgmt: off, network_quarantine: off, network_quarantine_control_enabled: off
+[2025-03-11 15:02:54.306630] [171550] [debug] received firewall rules to update
+[2025-03-11 15:02:54.306686] [171550] [debug] received network quarantine rules to update

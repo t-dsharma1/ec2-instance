@@ -1,0 +1,4 @@
+{
+    "PACKAGE_TYPE": "rpm",
+    "SERVICE_TYPE": "systemd"
+}

@@ -1,0 +1,33 @@
+[Unit]
+Description=Monitor SentinelOne Agent
+After=uptrack-prefetch.service uptrack.service
+RefuseManualStop=yes
+
+[Service]
+WorkingDirectory=/opt/sentinelone/bin
+Type=forking
+ExecStart=/opt/sentinelone/bin/sentinelctl control run
+WatchdogSec=5s
+Restart=on-failure
+
+# NOTICE:
+# 1) prefer StartLimitInterval on StartLimitIntervalSec since the last
+#   is supported from systemd v230 and above.
+# 2) following options are synchronized with similar parameters at sysvinit watchdog
+#   this is to ensure similar behavior of systemd and sysvinit watcgdogs
+StartLimitInterval=90
+StartLimitBurst=4
+RestartSec=4
+
+# Default memory limit (unlimited) to create the cgroup files
+MemoryLimit=9223372036854771712
+
+ExecStop=/opt/sentinelone/bin/sentinelctl control stop
+NotifyAccess=all
+
+# Dont limit the maximum number of tasks that may be created
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
+

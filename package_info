@@ -1,0 +1,9 @@
+{
+    "agent_arch": "x86_64",
+    "agent_type": "host",
+    "branch_id": "ngF0VTXjDeDkD0C25FyPOJncvnYZvyE1tOYbp7OQ4Cg=",
+    "git_hash": "c6c2e1cce9b638ffd8549337c9d98c8c61a67368",
+    "package_type": "rpm",
+    "source": "sentinelctl",
+    "version": "24.2.2.20"
+}

@@ -1,0 +1,274 @@
+
+==================================================
+Full report
+==================================================
+Log Start: [2025-02-02 20:41:13.834228]
+Log End:   [2025-03-11 15:04:17.591648]
+=============================
+Computer Names: ec2ttgabastion01.mgmt.onecloud.local
+SentinelCTL version: 24.2.2.20
+Git hash: c6c2e1cce9b638ffd8549337c9d98c8c61a67368
+OS Version: Linux ec2ttgabastion01.mgmt.onecloud.local 5.14.0-503.26.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Feb 10 05:23:56 EST 2025 x86_64 x86_64 x86_64 GNU/Linux
+
+==================================================
+Lines Analyzed
+==================================================
+DEBUG:    13725 (1.81%)
+INFO:     494648 (65.38%)
+WARNING:  32896 (4.35%)
+ERROR:    213309 (28.20%)
+CRITICAL: 0 (0.00%)
+Total:    756518 (100.00%)
+
+==================================================
+Unique Critical Log Lines
+==================================================
+No Critical Log Lines Found.
+
+==================================================
+Agent Starts (8)
+==================================================
+2025-02-02 20:41:14 version: 24.2.2.20
+2025-02-27 16:04:02 version: 24.2.2.20
+2025-02-27 16:05:27 version: 24.2.2.20
+2025-02-27 16:07:50 version: 24.2.2.20
+2025-02-27 19:36:33 version: 24.2.2.20
+2025-03-11 15:00:34 version: 24.2.2.20
+2025-03-11 15:01:44 version: 24.2.2.20
+2025-03-11 15:02:22 version: 24.2.2.20
+
+==================================================
+Process Crashes
+==================================================
+No crashes detected.
+
+==================================================
+Process Uptime
+==================================================
+s1-orchestrator uptime:       01:58
+s1-network uptime:            01:58
+s1-scanner uptime:            01:58
+s1-agent uptime:              01:58
+s1-firewall uptime:           01:58
+
+==================================================
+Process orchestrator Lines Analyzed
+==================================================
+Log Start: [2025-02-02 20:41:13.834228]
+Log End:   [2025-03-11 15:02:22.328532]
+=============================
+DEBUG:    176 (40.74%)
+INFO:     230 (53.24%)
+WARNING:  26 (6.02%)
+ERROR:    0 (0.00%)
+CRITICAL: 0 (0.00%)
+Total:    432 (100.00%)
+
+==================================================
+Process network Lines Analyzed
+==================================================
+Log Start: [2025-02-02 20:41:14.350349]
+Log End:   [2025-03-11 15:04:15.351413]
+=============================
+DEBUG:    454 (2.64%)
+INFO:     15421 (89.54%)
+WARNING:  14 (0.08%)
+ERROR:    1333 (7.74%)
+CRITICAL: 0 (0.00%)
+Total:    17222 (100.00%)
+
+==================================================
+Process scanner Lines Analyzed
+==================================================
+Log Start: [2025-02-02 20:41:14.352706]
+Log End:   [2025-03-11 15:04:18.424810]
+=============================
+DEBUG:    94 (28.57%)
+INFO:     168 (51.06%)
+WARNING:  67 (20.36%)
+ERROR:    0 (0.00%)
+CRITICAL: 0 (0.00%)
+Total:    329 (100.00%)
+
+==================================================
+Process agent Lines Analyzed
+==================================================
+Log Start: [2025-02-02 20:41:14.353839]
+Log End:   [2025-03-11 15:04:20.056773]
+=============================
+DEBUG:    3098 (1.40%)
+INFO:     5443 (2.47%)
+WARNING:  200 (0.09%)
+ERROR:    211976 (96.04%)
+CRITICAL: 0 (0.00%)
+Total:    220717 (100.00%)
+
+==================================================
+Process firewall Lines Analyzed
+==================================================
+Log Start: [2025-02-02 20:41:14.347916]
+Log End:   [2025-03-11 15:02:54.306686]
+=============================
+DEBUG:    47 (60.26%)
+INFO:     31 (39.74%)
+WARNING:  0 (0.00%)
+ERROR:    0 (0.00%)
+CRITICAL: 0 (0.00%)
+Total:    78 (100.00%)
+
+==================================================
+Event Overview
+==================================================
+374981 Entries | Event type: file_close_write
+254379 Entries | Event type: file_create
+245414 Entries | Event type: file_move
+100333 Entries | Event type: mount
+ 96202 Entries | Event type: exit
+ 96163 Entries | Event type: fork
+ 73731 Entries | Event type: execv
+ 44877 Entries | Event type: umount
+ 42797 Entries | Event type: tcp_connect
+ 39417 Entries | Event type: file_read
+ 30977 Entries | Event type: file_chmod
+ 28533 Entries | Event type: dns
+ 23822 Entries | Event type: shell_unset_env
+ 17147 Entries | Event type: file_delete
+ 12017 Entries | Event type: shell_set_env
+ 10363 Entries | Event type: unshare
+  9158 Entries | Event type: python_exec
+  9133 Entries | Event type: shell_command
+  3466 Entries | Event type: chroot
+   865 Entries | Event type: piped_execv
+    13 Entries | Event type: pam_login
+     5 Entries | Event type: socket_filter_attachment
+     5 Entries | Event type: kernel_module_load
+     2 Entries | Event type: tcp_accept
+     0 Entries | Event type: user_login_attempt
+     0 Entries | Event type: agent_kill_attempt
+     0 Entries | Event type: finit_module
+     0 Entries | Event type: cron_modification
+     0 Entries | Event type: software_packing
+     0 Entries | Event type: kill
+     0 Entries | Event type: remote_brute_force_attempt
+     0 Entries | Event type: file_chattr
+     0 Entries | Event type: python27_script_content
+     0 Entries | Event type: memory_protection
+     0 Entries | Event type: agent_start
+     0 Entries | Event type: readdir
+     0 Entries | Event type: smb_connect
+     0 Entries | Event type: pam_modification
+     0 Entries | Event type: user_login
+     0 Entries | Event type: ransomware_decoy
+     0 Entries | Event type: memory_dump
+     0 Entries | Event type: commit_creds_pe
+     0 Entries | Event type: local_brute_force_attempt
+     0 Entries | Event type: python27_readline
+     0 Entries | Event type: ransomware_fs_activity
+     0 Entries | Event type: pivot_root
+     0 Entries | Event type: setns
+     0 Entries | Event type: file_open_inline
+     0 Entries | Event type: unauthorized_splice
+     0 Entries | Event type: remote_brute_force_access
+     0 Entries | Event type: ransomware_verdict
+     0 Entries | Event type: user_modify
+     0 Entries | Event type: elf_scan
+     0 Entries | Event type: bash_set_signal
+     0 Entries | Event type: disarm_kprobes
+     0 Entries | Event type: file_chown
+     0 Entries | Event type: setuid_root
+     0 Entries | Event type: chdir
+     0 Entries | Event type: system_call_hook
+     0 Entries | Event type: file_scanned
+
+Overall Events: 1513800
+
+==================================================
+Most Common Paths
+==================================================
+Top files:
+617701 Entries | Event path: /var/ossec/var/run/wazuh-agentd.state.temp
+205901 Entries | Event path: /var/ossec/var/run/wazuh-agentd.state
+ 17100 Entries | Event path: /var/ossec/var/run/wazuh-logcollector.state
+ 16829 Entries | Event path: /sys/devices/system/cpu/online
+ 16028 Entries | Event path: /var/ossec/queue/logcollector/file_status.json
+ 13169 Entries | Event path: /etc/passwd
+ 10945 Entries | Event path: /var/ossec/logs/ossec.log
+  6818 Entries | Event path: /sys/fs/cgroup/system.slice/nm-cloud-setup.service/cgroup.procs
+  4494 Entries | Event path: /etc/hosts
+  2256 Entries | Event path: /sys/fs/cgroup/system.slice/nm-cloud-setup.service/cpu.idle
+  1414 Entries | Event path: /var/lib/rsyslog/imjournal.state
+   998 Entries | Event path: /var/lib/rsyslog/imjournal.state.tmp
+   633 Entries | Event path: /etc/resolv.conf
+   534 Entries | Event path: /proc/stat
+   340 Entries | Event path: /var/lib/rpm/rpmdb.sqlite-shm
+   249 Entries | Event path: /proc/cpuinfo
+   219 Entries | Event path: /var/lib/certmonger/cas/20250227093513-3.tmp
+   186 Entries | Event path: /var/lib/certmonger/cas/20250227093513-2.tmp
+    76 Entries | Event path: /proc/irq/26/smp_affinity
+    24 Entries | Event path: /run/systemd/users/0
+
+Top sub-directories:
+837824 Entries | Event path: /var/ossec/var/run/
+837824 Entries | Event path: /var/ossec/var/
+ 63457 Entries | Event path: /sys/fs/cgroup/
+ 63077 Entries | Event path: /sys/fs/cgroup/system.slice/
+ 51150 Entries | Event path: /sys/fs/cgroup/system.slice/nm-cloud-setup.service/
+ 26339 Entries | Event path: /var/lib/selinux/
+ 26243 Entries | Event path: /var/lib/selinux/targeted/
+ 22299 Entries | Event path: /var/lib/selinux/targeted/tmp/
+ 22070 Entries | Event path: /var/lib/selinux/targeted/tmp/modules/
+ 21964 Entries | Event path: /var/lib/selinux/targeted/tmp/modules/100/
+ 21152 Entries | Event path: /run/systemd/journal/streams/
+ 21152 Entries | Event path: /run/systemd/journal/
+ 20436 Entries | Event path: /root/aws/dist/
+ 20028 Entries | Event path: /root/aws/dist/awscli/
+ 19890 Entries | Event path: /usr/lib/python3.9/
+ 19890 Entries | Event path: /usr/lib/python3.9/site-packages/
+ 16708 Entries | Event path: /sys/devices/system/
+ 16649 Entries | Event path: /sys/devices/system/cpu/
+ 16373 Entries | Event path: /usr/lib/firmware/
+ 15356 Entries | Event path: /var/ossec/queue/logcollector/
+  6245 Entries | Event path: /usr/share/doc/
+  5550 Entries | Event path: /usr/share/doc/git/
+  3705 Entries | Event path: /usr/share/perl5/
+  2730 Entries | Event path: /usr/share/perl5/unicore/
+  2510 Entries | Event path: /usr/share/doc/git/RelNotes/
+  2460 Entries | Event path: /usr/share/perl5/unicore/lib/
+  1960 Entries | Event path: /usr/share/man/
+  1010 Entries | Event path: /usr/share/man/man3/
+   635 Entries | Event path: /var/cache/dnf/
+   280 Entries | Event path: /var/cache/man/
+   140 Entries | Event path: /sys/fs/cgroup/user.slice/
+   114 Entries | Event path: /sys/fs/cgroup/user.slice/user-0.slice/
+    63 Entries | Event path: /run/systemd/sessions/
+    60 Entries | Event path: /run/systemd/users/
+    57 Entries | Event path: /var/ossec/queue/
+
+Top binaries:
+622127 Entries | Source path: /var/ossec/bin/wazuh-agentd
+244010 Entries | Source path: /usr/lib/systemd/systemd
+130319 Entries | Source path: /usr/bin/bash
+112022 Entries | Source path: /usr/bin/python3.9
+ 50442 Entries | Source path: /usr/bin/ps
+ 35474 Entries | Source path: /usr/bin/ssm-agent-worker
+ 34210 Entries | Source path: /usr/bin/hostname
+ 21134 Entries | Source path: /usr/sbin/semodule
+ 20647 Entries | Source path: /usr/bin/sed
+ 20447 Entries | Source path: /usr/bin/unzip
+ 19771 Entries | Source path: /usr/bin/amazon-ssm-agent
+ 18971 Entries | Source path: /usr/libexec/nm-cloud-setup
+ 18053 Entries | Source path: /usr/bin/mandb
+ 10621 Entries | Source path: /usr/lib/systemd/systemd-journald
+  4718 Entries | Source path: /usr/bin/rm
+  4510 Entries | Source path: /usr/bin/dirname
+  2991 Entries | Source path: /usr/lib/dracut/dracut-install
+   459 Entries | Source path: /usr/sbin/irqbalance
+   305 Entries | Source path: /usr/bin/grep
+   204 Entries | Source path: /usr/bin/rpmkeys
+   159 Entries | Source path: /usr/local/aws-cli/v2/2.13.15/dist/aws
+   124 Entries | Source path: /usr/lib/systemd/systemd-logind
+    95 Entries | Source path: /home/ssm-user/terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/5.89.0/linux_amd64/terraform-provider-aws_v5.89.0_x5
+    78 Entries | Source path: /usr/libexec/vi
+    76 Entries | Source path: /usr/bin/terraform
+    70 Entries | Source path: /usr/bin/sudo
+    27 Entries | Source path: /usr/sbin/rsyslogd

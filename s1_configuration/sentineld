@@ -1,0 +1,40 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:             sentineld
+# Required-Start:       $local_fs $network $syslog
+# Required-Stop:        $local_fs $network $syslog
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    SentinelOne Linux Agent
+# Description:          SentinelOne Linux Agent
+### END INIT INFO
+
+# Directories and details
+agent_control="/opt/sentinelone/bin/sentinelctl"
+
+# Agent control command
+status="control status"
+start="control start"
+stop="control shutdown"
+
+case "$1" in
+	start)
+	"${agent_control}" ${start}
+	;;
+	stop)
+	"${agent_control}" ${stop}
+	;;
+	restart)
+	$0 stop
+	$0 start
+	;;
+	status)
+	"${agent_control}" ${status}
+	;;
+	*)
+	echo "Usage: $0 {start|stop|restart|status}"
+	exit 1
+	;;
+esac
+
+exit 0

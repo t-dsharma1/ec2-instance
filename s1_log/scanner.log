@@ -1,0 +1,321 @@
+[2025-02-02 20:41:14.352706] [23985] [info] Configuration successfully loaded
+[2025-02-02 20:41:14.352726] [23985] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-02-02 20:41:14.352859] [23985] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-02-02 20:41:14.352874] [23985] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-02-02 20:41:14.352900] [23985] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-02-02 20:41:14.352913] [23985] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-02-02 20:41:14.356263] [23985] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-02-02 20:41:14.356283] [23985] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-02-02 20:41:14.356293] [23985] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-02-02 20:41:14.356313] [23985] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-02-02 20:41:14.356324] [23985] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-02-02 20:41:14.356333] [23985] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-02-02 20:41:14.356356] [23985] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-02-02 20:41:14.488426] [23985] [info] loading default global yara rules
+[2025-02-02 20:41:14.488453] [23985] [info] Loading global yara rules
+[2025-02-02 20:41:14.488460] [23985] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-02-02 20:41:14.489255] [23985] [info] yara filetype artifact python.compiled loaded successfully
+[2025-02-02 20:41:14.489420] [23985] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-02-02 20:41:14.489517] [23985] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-02-02 20:41:46.466428] [23985] [info] Calling process main
+[2025-02-27 16:04:02.255167] [668] [info] Configuration successfully loaded
+[2025-02-27 16:04:02.255193] [668] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-02-27 16:04:02.321298] [668] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-02-27 16:04:02.321358] [668] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-02-27 16:04:02.321386] [668] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-02-27 16:04:02.321402] [668] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-02-27 16:04:02.321422] [668] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-02-27 16:04:02.321442] [668] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-02-27 16:04:02.321455] [668] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-02-27 16:04:02.321482] [668] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-02-27 16:04:02.321504] [668] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-02-27 16:04:02.321516] [668] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-02-27 16:04:02.321558] [668] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-02-27 16:04:04.728731] [668] [info] loading default global yara rules
+[2025-02-27 16:04:04.729474] [668] [info] Loading global yara rules
+[2025-02-27 16:04:04.729553] [668] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-02-27 16:04:04.729901] [668] [info] yara filetype artifact python.compiled loaded successfully
+[2025-02-27 16:04:04.730216] [668] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-02-27 16:04:04.730366] [668] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-02-27 16:05:07.217670] [668] [info] Calling process main
+[2025-02-27 16:05:08.247766] [668] [info] process exit with code 0
+[2025-02-27 16:05:27.871306] [677] [info] Configuration successfully loaded
+[2025-02-27 16:05:27.871357] [677] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-02-27 16:05:27.875479] [677] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-02-27 16:05:27.875526] [677] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-02-27 16:05:27.875556] [677] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-02-27 16:05:27.875572] [677] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-02-27 16:05:27.875711] [677] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-02-27 16:05:27.875746] [677] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-02-27 16:05:27.875798] [677] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-02-27 16:05:27.875827] [677] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-02-27 16:05:27.875850] [677] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-02-27 16:05:27.875866] [677] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-02-27 16:05:27.875907] [677] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-02-27 16:05:28.127529] [677] [info] loading default global yara rules
+[2025-02-27 16:05:28.128245] [677] [info] Loading global yara rules
+[2025-02-27 16:05:28.128281] [677] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-02-27 16:05:28.128751] [677] [info] yara filetype artifact python.compiled loaded successfully
+[2025-02-27 16:05:28.129037] [677] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-02-27 16:05:28.129259] [677] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-02-27 16:06:13.658424] [677] [info] Calling process main
+[2025-02-27 16:07:23.414985] [677] [info] process exit with code 0
+[2025-02-27 16:07:50.143198] [742] [info] Configuration successfully loaded
+[2025-02-27 16:07:50.151102] [742] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-02-27 16:07:50.157626] [742] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-02-27 16:07:50.157677] [742] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-02-27 16:07:50.157774] [742] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-02-27 16:07:50.157799] [742] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-02-27 16:07:50.157832] [742] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-02-27 16:07:50.157861] [742] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-02-27 16:07:50.157888] [742] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-02-27 16:07:50.157926] [742] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-02-27 16:07:50.157959] [742] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-02-27 16:07:50.157987] [742] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-02-27 16:07:50.158190] [742] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-02-27 16:07:50.986588] [742] [info] loading default global yara rules
+[2025-02-27 16:07:50.989004] [742] [info] Loading global yara rules
+[2025-02-27 16:07:50.989059] [742] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-02-27 16:07:50.989573] [742] [info] yara filetype artifact python.compiled loaded successfully
+[2025-02-27 16:07:50.993574] [742] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-02-27 16:07:50.993867] [742] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-02-27 16:08:25.878958] [742] [info] Calling process main
+[2025-02-27 17:34:38.201185] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso01.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.202377] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso01.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.202767] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso01.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.204507] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso02.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.205245] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso02.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.206030] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso02.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.207196] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso03.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.208000] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso03.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.208391] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso03.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.210081] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso04.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.210492] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso04.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.211230] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso04.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.212071] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso05.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.212813] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso05.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.213560] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso05.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.214311] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso06.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.215095] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso06.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.215871] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso06.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.216641] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso07.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.217379] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso07.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.219475] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso08.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.220380] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso08.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.220762] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso08.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.221614] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso09.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.223666] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso09.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.224073] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso09.16.gz failed because of scanner error 7
+[2025-02-27 17:34:38.224881] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso10.08.gz failed because of scanner error 7
+[2025-02-27 17:34:38.225667] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso10.14.gz failed because of scanner error 7
+[2025-02-27 17:34:38.226422] [742] [warning] Scanning file /usr/lib/kbd/consolefonts/iso10.16.gz failed because of scanner error 7
+[2025-02-27 17:34:44.908101] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:34:51.152128] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:35:21.326645] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:35:52.892240] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:35:59.076036] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:36:00.435433] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:36:10.813862] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:36:17.700671] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 17:36:27.242143] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso01.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.245401] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso01.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.249057] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso01.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.255850] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso02.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.259021] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso02.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.262225] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso02.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.265454] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso03.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.268690] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso03.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.272509] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso03.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.274996] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso04.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.278136] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso04.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.281228] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso04.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.284183] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso05.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.287120] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso05.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.289955] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso05.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.292846] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso06.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.295852] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso06.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.299423] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso06.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.302711] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso07.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.306833] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso07.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.311736] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso08.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.315980] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso08.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.317622] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso08.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.320635] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso09.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.323608] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso09.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.326759] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso09.16.gz failed because of scanner error 7
+[2025-02-27 17:36:27.330517] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso10.08.gz failed because of scanner error 7
+[2025-02-27 17:36:27.332915] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso10.14.gz failed because of scanner error 7
+[2025-02-27 17:36:27.335872] [742] [warning] Scanning file /var/tmp/dracut.B07N4d/initramfs/usr/lib/kbd/consolefonts/iso10.16.gz failed because of scanner error 7
+[2025-02-27 17:37:18.538813] [742] [warning] Unexpected static scan type 'none', aborting scan
+[2025-02-27 19:36:06.711717] [742] [info] process exit with code 0
+[2025-02-27 19:36:33.320187] [760] [info] Configuration successfully loaded
+[2025-02-27 19:36:33.320212] [760] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-02-27 19:36:33.325159] [760] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-02-27 19:36:33.325189] [760] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-02-27 19:36:33.325219] [760] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-02-27 19:36:33.325233] [760] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-02-27 19:36:33.325248] [760] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-02-27 19:36:33.325266] [760] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-02-27 19:36:33.325284] [760] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-02-27 19:36:33.325336] [760] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-02-27 19:36:33.325358] [760] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-02-27 19:36:33.325372] [760] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-02-27 19:36:33.325407] [760] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-02-27 19:36:34.109596] [760] [info] loading default global yara rules
+[2025-02-27 19:36:34.115386] [760] [info] Loading global yara rules
+[2025-02-27 19:36:34.115407] [760] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-02-27 19:36:34.118070] [760] [info] yara filetype artifact python.compiled loaded successfully
+[2025-02-27 19:36:34.118379] [760] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-02-27 19:36:34.118537] [760] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-02-27 19:37:08.119368] [760] [info] Calling process main
+[2025-03-11 15:00:07.856429] [760] [info] Reloading agent config
+[2025-03-11 15:00:19.521700] [760] [info] Reloading agent config
+[2025-03-11 15:00:19.521720] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:00:19.525450] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:00:19.525488] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:00:19.525500] [760] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:00:19.526611] [760] [debug] agent_config: executing handler id: 1
+[2025-03-11 15:00:19.526614] [760] [debug] agent_config: executing handler id: 2
+[2025-03-11 15:00:31.031460] [2128] [debug] Express reactor has stopped
+[2025-03-11 15:00:31.031596] [760] [info] process exit with code 0
+[2025-03-11 15:00:34.321091] [171251] [debug] Creating logger for process scanner, max file size: 2097152 bytes
+[2025-03-11 15:00:34.321104] [171251] [debug] Setting termination handler
+[2025-03-11 15:00:34.321106] [171251] [debug] Creating crash reporter for process scanner
+[2025-03-11 15:00:34.321128] [171251] [debug] Creating orchestrator ipc protocol for process scanner
+[2025-03-11 15:00:34.321168] [171251] [debug] Initializing process scanner
+[2025-03-11 15:00:34.321532] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:00:34.322212] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:00:34.322228] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:00:34.322239] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:00:34.323202] [171251] [debug] agent_config: successfully initialized instance
+[2025-03-11 15:00:34.323209] [171251] [info] Configuration successfully loaded
+[2025-03-11 15:00:34.323229] [171251] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-03-11 15:00:34.323409] [171251] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-03-11 15:00:34.323426] [171251] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-03-11 15:00:34.323455] [171251] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-03-11 15:00:34.323470] [171251] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-03-11 15:00:34.323487] [171251] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-03-11 15:00:34.323504] [171251] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-03-11 15:00:34.323523] [171251] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-03-11 15:00:34.323547] [171251] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-03-11 15:00:34.323571] [171251] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-03-11 15:00:34.323588] [171251] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-03-11 15:00:34.323624] [171251] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:00:34.323636] [171251] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-03-11 15:00:34.509397] [171251] [info] loading default global yara rules
+[2025-03-11 15:00:34.509451] [171251] [debug] no default global_yara_rules file
+[2025-03-11 15:00:34.509462] [171251] [info] Loading global yara rules
+[2025-03-11 15:00:34.509476] [171251] [debug] no global_yara_rules file
+[2025-03-11 15:00:34.509487] [171251] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-03-11 15:00:34.510212] [171251] [info] yara filetype artifact python.compiled loaded successfully
+[2025-03-11 15:00:34.510812] [171251] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-03-11 15:00:34.511100] [171251] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-03-11 15:01:06.755169] [171251] [info] Calling process main
+[2025-03-11 15:01:08.471907] [171251] [debug] Static scanning /usr/bin/ps
+[2025-03-11 15:01:08.486208] [171251] [debug] Static scanning /usr/bin/telnet
+[2025-03-11 15:01:08.524385] [171251] [debug] Static scanning /usr/bin/bash
+[2025-03-11 15:01:08.626790] [171251] [debug] Static scanning /usr/bin/basename
+[2025-03-11 15:01:08.632623] [171251] [debug] Static scanning /usr/bin/logger
+[2025-03-11 15:01:08.640494] [171251] [debug] Static scanning /usr/bin/sed
+[2025-03-11 15:01:08.650566] [171251] [debug] Static scanning /etc/cron.hourly/0anacron
+[2025-03-11 15:01:08.652981] [171251] [debug] Static scanning /usr/bin/cat
+[2025-03-11 15:01:08.659604] [171251] [debug] Static scanning /usr/bin/date
+[2025-03-11 15:01:22.511225] [171251] [info] Reloading agent config
+[2025-03-11 15:01:22.511236] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:01:22.511859] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:01:22.511880] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:01:22.511892] [171251] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:01:22.512630] [171251] [debug] agent_config: executing handler id: 1
+[2025-03-11 15:01:22.512633] [171251] [debug] agent_config: executing handler id: 2
+[2025-03-11 15:01:22.658740] [171251] [debug] Static scanning /usr/bin/sudo
+[2025-03-11 15:01:22.670358] [171251] [debug] Static scanning /usr/sbin/unix_chkpwd
+[2025-03-11 15:01:22.785715] [171251] [debug] Static scanning /usr/bin/tr
+[2025-03-11 15:01:22.794387] [171251] [debug] Static scanning /usr/bin/grep
+[2025-03-11 15:01:22.806861] [171251] [debug] Static scanning /usr/bin/head
+[2025-03-11 15:01:22.815675] [171251] [debug] Static scanning /usr/bin/gawk
+[2025-03-11 15:01:37.072016] [171251] [debug] Static scanning /usr/libexec/nm-cloud-setup
+[2025-03-11 15:01:44.530724] [171420] [debug] Creating logger for process scanner, max file size: 2097152 bytes
+[2025-03-11 15:01:44.530742] [171420] [debug] Setting termination handler
+[2025-03-11 15:01:44.530743] [171420] [debug] Creating crash reporter for process scanner
+[2025-03-11 15:01:44.530769] [171420] [debug] Creating orchestrator ipc protocol for process scanner
+[2025-03-11 15:01:44.530809] [171420] [debug] Initializing process scanner
+[2025-03-11 15:01:44.530994] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:01:44.531762] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:01:44.531780] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:01:44.531792] [171420] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:01:44.532810] [171420] [debug] agent_config: successfully initialized instance
+[2025-03-11 15:01:44.532816] [171420] [info] Configuration successfully loaded
+[2025-03-11 15:01:44.532835] [171420] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-03-11 15:01:44.533015] [171420] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-03-11 15:01:44.533032] [171420] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-03-11 15:01:44.533059] [171420] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-03-11 15:01:44.533075] [171420] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-03-11 15:01:44.533090] [171420] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-03-11 15:01:44.533108] [171420] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-03-11 15:01:44.533126] [171420] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-03-11 15:01:44.533157] [171420] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-03-11 15:01:44.533181] [171420] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-03-11 15:01:44.533197] [171420] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-03-11 15:01:44.533230] [171420] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:01:44.533238] [171420] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-03-11 15:01:44.705590] [171420] [info] loading default global yara rules
+[2025-03-11 15:01:44.705620] [171420] [debug] no default global_yara_rules file
+[2025-03-11 15:01:44.705622] [171420] [info] Loading global yara rules
+[2025-03-11 15:01:44.705626] [171420] [debug] no global_yara_rules file
+[2025-03-11 15:01:44.705630] [171420] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-03-11 15:01:44.706135] [171420] [info] yara filetype artifact python.compiled loaded successfully
+[2025-03-11 15:01:44.706451] [171420] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-03-11 15:01:44.706624] [171420] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-03-11 15:02:16.753064] [171420] [info] Calling process main
+[2025-03-11 15:02:17.824900] [171420] [debug] Static scanning /usr/bin/sudo
+[2025-03-11 15:02:17.854157] [171420] [debug] Static scanning /usr/sbin/unix_chkpwd
+[2025-03-11 15:02:17.896630] [171420] [debug] Static scanning /usr/bin/bash
+[2025-03-11 15:02:18.057150] [171420] [debug] Static scanning /usr/bin/grep
+[2025-03-11 15:02:18.081353] [171420] [debug] Static scanning /usr/bin/gawk
+[2025-03-11 15:02:18.133791] [171420] [debug] Static scanning /usr/bin/tr
+[2025-03-11 15:02:18.142757] [171420] [debug] Static scanning /usr/bin/head
+[2025-03-11 15:02:19.087320] [171528] [debug] Express reactor has stopped
+[2025-03-11 15:02:19.087455] [171420] [info] process exit with code 0
+[2025-03-11 15:02:22.336059] [171550] [debug] Creating logger for process scanner, max file size: 2097152 bytes
+[2025-03-11 15:02:22.336068] [171550] [debug] Setting termination handler
+[2025-03-11 15:02:22.336069] [171550] [debug] Creating crash reporter for process scanner
+[2025-03-11 15:02:22.336088] [171550] [debug] Creating orchestrator ipc protocol for process scanner
+[2025-03-11 15:02:22.336122] [171550] [debug] Initializing process scanner
+[2025-03-11 15:02:22.336273] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:02:22.336666] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:02:22.336678] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:02:22.336686] [171550] [debug] agent_config: loading configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:02:22.337223] [171550] [debug] agent_config: successfully initialized instance
+[2025-03-11 15:02:22.337229] [171550] [info] Configuration successfully loaded
+[2025-03-11 15:02:22.337243] [171550] [info] Initializing asset_manager in config dir: /opt/sentinelone/assets
+[2025-03-11 15:02:22.337355] [171550] [info] failed loading asset blacklist: failed to load asset /opt/sentinelone/assets/blacklist.data: No such file or directory
+[2025-03-11 15:02:22.337366] [171550] [info] failed loading asset whitelist: failed to load asset /opt/sentinelone/assets/whitelist.data: No such file or directory
+[2025-03-11 15:02:22.337386] [171550] [info] failed loading asset sha256_blacklist: Failed to open /opt/sentinelone/assets/sha256_blacklist.data for reading: No such file or directory
+[2025-03-11 15:02:22.337395] [171550] [info] failed loading asset sha256_whitelist: Failed to open /opt/sentinelone/assets/sha256_whitelist.data for reading: No such file or directory
+[2025-03-11 15:02:22.337405] [171550] [info] failed loading asset pathExclusion: failed to load asset /opt/sentinelone/assets/pathExclusion.data: No such file or directory
+[2025-03-11 15:02:22.337419] [171550] [info] failed loading asset firewall: failed to load /opt/sentinelone/assets/firewall.metadata: No such file or directory
+[2025-03-11 15:02:22.337429] [171550] [info] failed loading asset network_quarantine: failed to load /opt/sentinelone/assets/network_quarantine.metadata: No such file or directory
+[2025-03-11 15:02:22.337444] [171550] [info] failed loading asset global_data: failed to parse global data asset, keeping previous: Failed to open /opt/sentinelone/assets/global_data.data for reading: No such file or directory
+[2025-03-11 15:02:22.337458] [171550] [info] failed loading asset scope_details: failed to parse scope_id asset, keeping previous: Failed to open /opt/sentinelone/assets/scope_details.data for reading: No such file or directory
+[2025-03-11 15:02:22.337468] [171550] [info] failed loading asset cmdline_exclusion: failed to load asset /opt/sentinelone/assets/cmdline_exclusion.data: No such file or directory
+[2025-03-11 15:02:22.337497] [171550] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:02:22.337503] [171550] [info] Loading main dfi library: /opt/sentinelone/lib/libdfi.so
+[2025-03-11 15:02:22.515823] [171550] [info] loading default global yara rules
+[2025-03-11 15:02:22.515879] [171550] [debug] no default global_yara_rules file
+[2025-03-11 15:02:22.515890] [171550] [info] Loading global yara rules
+[2025-03-11 15:02:22.515903] [171550] [debug] no global_yara_rules file
+[2025-03-11 15:02:22.515915] [171550] [info] DFI scanner initialized successfully: version 24.2.101.4, git hash 7feeffe1e6df44c93a334fa0063f2eb0a42234ae-Release.x64
+[2025-03-11 15:02:22.516468] [171550] [info] yara filetype artifact python.compiled loaded successfully
+[2025-03-11 15:02:22.516764] [171550] [info] agent_config: register handler id 1 for key: sha256_enabled
+[2025-03-11 15:02:22.516944] [171550] [info] agent_config: register handler id 2 for key: static-scan_max-file-size
+[2025-03-11 15:02:54.269748] [171550] [info] Calling process main
+[2025-03-11 15:02:56.034681] [171550] [debug] Static scanning /usr/bin/ps
+[2025-03-11 15:03:00.678127] [171550] [debug] Static scanning /usr/bin/sudo
+[2025-03-11 15:03:00.696966] [171550] [debug] Static scanning /usr/sbin/unix_chkpwd
+[2025-03-11 15:03:00.829425] [171550] [debug] Static scanning /usr/bin/bash
+[2025-03-11 15:03:00.934613] [171550] [debug] Static scanning /usr/bin/grep
+[2025-03-11 15:03:00.956015] [171550] [debug] Static scanning /usr/bin/head
+[2025-03-11 15:03:00.963349] [171550] [debug] Static scanning /usr/bin/gawk
+[2025-03-11 15:03:01.019907] [171550] [debug] Static scanning /usr/bin/tr
+[2025-03-11 15:03:21.478501] [171550] [debug] Static scanning /usr/bin/hostname
+[2025-03-11 15:03:47.078187] [171550] [debug] Static scanning /usr/bin/mkdir

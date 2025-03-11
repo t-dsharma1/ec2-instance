@@ -1,0 +1,432 @@
+[2025-02-02 20:41:13.834228] [23985] [info] Agent type: host
+[2025-02-02 20:41:13.834298] [23985] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-02-02 20:41:13.834300] [23985] [info] FIPS mode is: disabled
+[2025-02-02 20:41:13.834487] [23985] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-02-02 20:41:13.834494] [23985] [warning] Percentage memory limit is below the minimum threshold (410136985B < 838860800B), setting to minimum
+[2025-02-02 20:41:13.834507] [23985] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-02-02 20:41:13.835093] [23985] [info] Generated new UUID 209b2ebf-ac21-3644-df3f-f1631bb109bc
+[2025-02-02 20:41:13.835106] [23985] [info] Performance telemetry enabled: true
+[2025-02-02 20:41:13.835115] [23985] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-02-02 20:41:14.336230] [23985] [info] clean startup, didn't find any previous s1 process
+[2025-02-02 20:41:14.340074] [23985] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-02-02 20:41:14.340278] [23985] [info] Updating performance telemetry process list
+[2025-02-02 20:41:14.340283] [23985] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 23985, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-02 20:41:14.340286] [23985] [info] Creating process network
+[2025-02-02 20:41:14.340829] [23985] [info] Updating performance telemetry process list
+[2025-02-02 20:41:14.340846] [23985] [info] Performance telemetry process list updated successfully, name: network , pid: 23986, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-02 20:41:14.340858] [23985] [info] Creating process scanner
+[2025-02-02 20:41:14.341610] [23985] [info] Updating performance telemetry process list
+[2025-02-02 20:41:14.341620] [23985] [info] Performance telemetry process list updated successfully, name: scanner , pid: 23987, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-02 20:41:14.341627] [23985] [info] Creating process agent
+[2025-02-02 20:41:14.342001] [23985] [info] Updating performance telemetry process list
+[2025-02-02 20:41:14.342024] [23985] [info] Performance telemetry process list updated successfully, name: agent , pid: 23988, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-02-02 20:41:14.342033] [23985] [info] Creating process firewall
+[2025-02-27 16:04:01.087913] [668] [info] Agent type: host
+[2025-02-27 16:04:01.089102] [668] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-02-27 16:04:01.089109] [668] [info] FIPS mode is: disabled
+[2025-02-27 16:04:01.089367] [668] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-02-27 16:04:01.089378] [668] [warning] Percentage memory limit is below the minimum threshold (821941862B < 838860800B), setting to minimum
+[2025-02-27 16:04:01.162453] [668] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-02-27 16:04:01.327665] [668] [info] Performance telemetry enabled: true
+[2025-02-27 16:04:01.327691] [668] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-02-27 16:04:02.096444] [668] [info] clean startup, didn't find any previous s1 process
+[2025-02-27 16:04:02.229261] [668] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-02-27 16:04:02.232906] [668] [info] Updating performance telemetry process list
+[2025-02-27 16:04:02.232918] [668] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 668, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:04:02.232922] [668] [info] Creating process network
+[2025-02-27 16:04:02.233505] [668] [info] Updating performance telemetry process list
+[2025-02-27 16:04:02.233525] [668] [info] Performance telemetry process list updated successfully, name: network , pid: 682, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:04:02.233542] [668] [info] Creating process scanner
+[2025-02-27 16:04:02.234362] [668] [info] Updating performance telemetry process list
+[2025-02-27 16:04:02.234386] [668] [info] Performance telemetry process list updated successfully, name: scanner , pid: 683, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:04:02.234395] [668] [info] Creating process agent
+[2025-02-27 16:04:02.234991] [668] [info] Updating performance telemetry process list
+[2025-02-27 16:04:02.235038] [668] [info] Performance telemetry process list updated successfully, name: agent , pid: 685, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-02-27 16:04:02.235046] [668] [info] Creating process firewall
+[2025-02-27 16:04:02.235580] [668] [info] Updating performance telemetry process list
+[2025-02-27 16:04:02.235609] [668] [info] Performance telemetry process list updated successfully, name: firewall , pid: 686, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:05:07.217356] [668] [info] Performance telemetry timer interval enabled
+[2025-02-27 16:05:07.217420] [668] [info] Received eBPFs status ipc
+[2025-02-27 16:05:07.534372] [668] [info] Received status request
+[2025-02-27 16:05:08.238371] [668] [info] Received shutdown command
+[2025-02-27 16:05:08.238421] [668] [info] Stopping reactor
+[2025-02-27 16:05:08.338629] [668] [warning] Child process network exited with code 0
+[2025-02-27 16:05:08.338739] [668] [warning] Child process scanner exited with code 0
+[2025-02-27 16:05:08.338800] [668] [warning] Child process firewall exited with code 0
+[2025-02-27 16:05:08.338930] [668] [info] Orchestrator main finished with exit code 0
+[2025-02-27 16:05:27.294025] [677] [info] Agent type: host
+[2025-02-27 16:05:27.295028] [677] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-02-27 16:05:27.295035] [677] [info] FIPS mode is: disabled
+[2025-02-27 16:05:27.295360] [677] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-02-27 16:05:27.295371] [677] [warning] Percentage memory limit is below the minimum threshold (821941862B < 838860800B), setting to minimum
+[2025-02-27 16:05:27.296022] [677] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-02-27 16:05:27.302367] [677] [info] Performance telemetry enabled: true
+[2025-02-27 16:05:27.302387] [677] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-02-27 16:05:27.815447] [677] [info] clean startup, didn't find any previous s1 process
+[2025-02-27 16:05:27.821879] [677] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-02-27 16:05:27.825011] [677] [info] Updating performance telemetry process list
+[2025-02-27 16:05:27.825021] [677] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 677, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:05:27.825025] [677] [info] Creating process network
+[2025-02-27 16:05:27.825661] [677] [info] Updating performance telemetry process list
+[2025-02-27 16:05:27.825682] [677] [info] Performance telemetry process list updated successfully, name: network , pid: 678, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:05:27.825700] [677] [info] Creating process scanner
+[2025-02-27 16:05:27.826374] [677] [info] Updating performance telemetry process list
+[2025-02-27 16:05:27.826609] [677] [info] Performance telemetry process list updated successfully, name: scanner , pid: 679, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:05:27.826628] [677] [info] Creating process agent
+[2025-02-27 16:05:27.827364] [677] [info] Updating performance telemetry process list
+[2025-02-27 16:05:27.827393] [677] [info] Performance telemetry process list updated successfully, name: agent , pid: 681, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-02-27 16:05:27.827408] [677] [info] Creating process firewall
+[2025-02-27 16:05:27.827977] [677] [info] Updating performance telemetry process list
+[2025-02-27 16:05:27.828013] [677] [info] Performance telemetry process list updated successfully, name: firewall , pid: 682, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:06:13.659084] [677] [info] Performance telemetry timer interval enabled
+[2025-02-27 16:06:13.659164] [677] [info] Received eBPFs status ipc
+[2025-02-27 16:07:22.816084] [677] [info] Received status request
+[2025-02-27 16:07:23.414506] [677] [info] Received shutdown command
+[2025-02-27 16:07:23.414563] [677] [info] Stopping reactor
+[2025-02-27 16:07:23.514751] [677] [warning] Child process network exited with code 0
+[2025-02-27 16:07:23.514850] [677] [warning] Child process scanner exited with code 0
+[2025-02-27 16:07:23.514910] [677] [warning] Child process firewall exited with code 0
+[2025-02-27 16:07:23.515021] [677] [info] Orchestrator main finished with exit code 0
+[2025-02-27 16:07:49.563503] [742] [info] Agent type: host
+[2025-02-27 16:07:49.564526] [742] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-02-27 16:07:49.564533] [742] [info] FIPS mode is: disabled
+[2025-02-27 16:07:49.564922] [742] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-02-27 16:07:49.564934] [742] [warning] Percentage memory limit is below the minimum threshold (821941452B < 838860800B), setting to minimum
+[2025-02-27 16:07:49.565585] [742] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-02-27 16:07:49.568987] [742] [info] Performance telemetry enabled: true
+[2025-02-27 16:07:49.569009] [742] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-02-27 16:07:50.080016] [742] [info] clean startup, didn't find any previous s1 process
+[2025-02-27 16:07:50.090018] [742] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-02-27 16:07:50.094120] [742] [info] Updating performance telemetry process list
+[2025-02-27 16:07:50.094135] [742] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 742, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:07:50.094140] [742] [info] Creating process network
+[2025-02-27 16:07:50.095208] [742] [info] Updating performance telemetry process list
+[2025-02-27 16:07:50.095230] [742] [info] Performance telemetry process list updated successfully, name: network , pid: 811, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:07:50.095247] [742] [info] Creating process scanner
+[2025-02-27 16:07:50.095955] [742] [info] Updating performance telemetry process list
+[2025-02-27 16:07:50.095975] [742] [info] Performance telemetry process list updated successfully, name: scanner , pid: 812, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:07:50.095982] [742] [info] Creating process agent
+[2025-02-27 16:07:50.096689] [742] [info] Updating performance telemetry process list
+[2025-02-27 16:07:50.096716] [742] [info] Performance telemetry process list updated successfully, name: agent , pid: 814, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-02-27 16:07:50.096729] [742] [info] Creating process firewall
+[2025-02-27 16:07:50.099941] [742] [info] Updating performance telemetry process list
+[2025-02-27 16:07:50.099986] [742] [info] Performance telemetry process list updated successfully, name: firewall , pid: 816, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 16:08:25.878649] [742] [info] Performance telemetry timer interval enabled
+[2025-02-27 16:08:25.878707] [742] [info] Received eBPFs status ipc
+[2025-02-27 19:36:05.890971] [742] [info] Received status request
+[2025-02-27 19:36:06.709865] [742] [info] Received shutdown command
+[2025-02-27 19:36:06.709913] [742] [info] Stopping reactor
+[2025-02-27 19:36:06.810139] [742] [warning] Child process network exited with code 0
+[2025-02-27 19:36:06.810224] [742] [warning] Child process scanner exited with code 0
+[2025-02-27 19:36:06.810288] [742] [warning] Child process firewall exited with code 0
+[2025-02-27 19:36:06.810513] [742] [info] Orchestrator main finished with exit code 0
+[2025-02-27 19:36:32.662120] [760] [info] Agent type: host
+[2025-02-27 19:36:32.663449] [760] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-02-27 19:36:32.663457] [760] [info] FIPS mode is: disabled
+[2025-02-27 19:36:32.663838] [760] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-02-27 19:36:32.663848] [760] [warning] Percentage memory limit is below the minimum threshold (821941862B < 838860800B), setting to minimum
+[2025-02-27 19:36:32.664339] [760] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-02-27 19:36:32.670243] [760] [info] Performance telemetry enabled: true
+[2025-02-27 19:36:32.670397] [760] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-02-27 19:36:33.190745] [760] [info] clean startup, didn't find any previous s1 process
+[2025-02-27 19:36:33.219644] [760] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-02-27 19:36:33.222327] [760] [info] Updating performance telemetry process list
+[2025-02-27 19:36:33.222338] [760] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 760, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 19:36:33.222342] [760] [info] Creating process network
+[2025-02-27 19:36:33.222966] [760] [info] Updating performance telemetry process list
+[2025-02-27 19:36:33.222985] [760] [info] Performance telemetry process list updated successfully, name: network , pid: 860, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 19:36:33.223003] [760] [info] Creating process scanner
+[2025-02-27 19:36:33.223557] [760] [info] Updating performance telemetry process list
+[2025-02-27 19:36:33.223574] [760] [info] Performance telemetry process list updated successfully, name: scanner , pid: 861, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 19:36:33.223584] [760] [info] Creating process agent
+[2025-02-27 19:36:33.224073] [760] [info] Updating performance telemetry process list
+[2025-02-27 19:36:33.224094] [760] [info] Performance telemetry process list updated successfully, name: agent , pid: 862, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-02-27 19:36:33.224106] [760] [info] Creating process firewall
+[2025-02-27 19:36:33.224589] [760] [info] Updating performance telemetry process list
+[2025-02-27 19:36:33.224618] [760] [info] Performance telemetry process list updated successfully, name: firewall , pid: 863, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-02-27 19:37:08.119021] [760] [info] Performance telemetry timer interval enabled
+[2025-02-27 19:37:08.119080] [760] [info] Received eBPFs status ipc
+[2025-03-04 12:47:56.312432] [760] [info] Received status request
+[2025-03-04 12:47:56.358736] [760] [info] Received status request
+[2025-03-11 14:41:48.388956] [760] [info] Received status request
+[2025-03-11 14:41:48.466924] [760] [info] Received status request
+[2025-03-11 14:44:38.590768] [760] [info] Received status request
+[2025-03-11 14:58:35.584531] [760] [info] Received status request
+[2025-03-11 15:00:07.727648] [760] [info] Received status request
+[2025-03-11 15:00:07.856325] [760] [info] Received config reload request
+[2025-03-11 15:00:07.856388] [760] [info] Received set log min level request. level: debug
+[2025-03-11 15:00:07.861036] [760] [debug] Successfully handled process message
+[2025-03-11 15:00:19.352742] [760] [debug] Got process event
+[2025-03-11 15:00:19.352753] [760] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:00:19.352755] [760] [debug] Receiving process message
+[2025-03-11 15:00:19.352783] [760] [debug] Received process message
+[2025-03-11 15:00:19.352786] [760] [info] Received status request
+[2025-03-11 15:00:19.352789] [760] [debug] Sending status response to agent
+[2025-03-11 15:00:19.352801] [760] [debug] Successfully handled process message
+[2025-03-11 15:00:19.519150] [760] [debug] Got process event
+[2025-03-11 15:00:19.519161] [760] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:00:19.519165] [760] [debug] Receiving process message
+[2025-03-11 15:00:19.519190] [760] [debug] Received process message
+[2025-03-11 15:00:19.519192] [760] [info] Received config reload request
+[2025-03-11 15:00:19.519195] [760] [debug] Sending config reload command to firewall process
+[2025-03-11 15:00:19.519228] [760] [debug] Sending config reload command to scanner process
+[2025-03-11 15:00:19.521638] [760] [debug] Sending config reload command to network process
+[2025-03-11 15:00:19.521658] [760] [debug] Successfully handled process message
+[2025-03-11 15:00:30.180156] [760] [debug] Got process event
+[2025-03-11 15:00:30.180162] [760] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:00:30.180165] [760] [debug] Receiving process message
+[2025-03-11 15:00:30.180197] [760] [debug] Received process message
+[2025-03-11 15:00:30.180198] [760] [info] Received status request
+[2025-03-11 15:00:30.180202] [760] [debug] Sending status response to agent
+[2025-03-11 15:00:30.180228] [760] [debug] Successfully handled process message
+[2025-03-11 15:00:31.030791] [760] [debug] Got process event
+[2025-03-11 15:00:31.030804] [760] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:00:31.030808] [760] [debug] Receiving process message
+[2025-03-11 15:00:31.030824] [760] [debug] Received process message
+[2025-03-11 15:00:31.030827] [760] [info] Received shutdown command
+[2025-03-11 15:00:31.030829] [760] [debug] Sending shutdown to firewall process
+[2025-03-11 15:00:31.030850] [760] [debug] Sending shutdown to scanner process
+[2025-03-11 15:00:31.030865] [760] [debug] Sending shutdown to network process
+[2025-03-11 15:00:31.030881] [760] [info] Stopping reactor
+[2025-03-11 15:00:31.030886] [760] [debug] Waiting for child process waiter to die
+[2025-03-11 15:00:31.131085] [760] [warning] Child process network exited with code 0
+[2025-03-11 15:00:31.131175] [760] [warning] Child process scanner exited with code 0
+[2025-03-11 15:00:31.131240] [760] [warning] Child process firewall exited with code 0
+[2025-03-11 15:00:31.131248] [760] [debug] Sending shutdown to agent process
+[2025-03-11 15:00:31.131424] [760] [debug] Successfully handled process message
+[2025-03-11 15:00:31.131481] [760] [info] Orchestrator main finished with exit code 0
+[2025-03-11 15:00:31.143338] [760] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:00:31.143755] [760] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:00:33.793874] [171251] [info] Agent type: host
+[2025-03-11 15:00:33.794285] [171251] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-03-11 15:00:33.794378] [171251] [info] FIPS mode is: disabled
+[2025-03-11 15:00:33.794384] [171251] [debug] agent_config: writing 1 configurations in level: 1000
+[2025-03-11 15:00:33.794389] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:00:33.794639] [171251] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-03-11 15:00:33.794649] [171251] [warning] Percentage memory limit is below the minimum threshold (821941862B < 838860800B), setting to minimum
+[2025-03-11 15:00:33.794677] [171251] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-03-11 15:00:33.794712] [171251] [debug] agent_config: resetting instance
+[2025-03-11 15:00:33.794714] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/defaults.conf
+[2025-03-11 15:00:33.795101] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:00:33.795519] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:00:33.795636] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:00:33.795680] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:00:33.795716] [171251] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/global.conf
+[2025-03-11 15:00:33.795828] [171251] [info] Performance telemetry enabled: true
+[2025-03-11 15:00:33.795843] [171251] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-03-11 15:00:33.795867] [171251] [debug] Setting termination handler
+[2025-03-11 15:00:34.297457] [171251] [info] clean startup, didn't find any previous s1 process
+[2025-03-11 15:00:34.297528] [171251] [debug] Trying to clear cgroup configuration
+[2025-03-11 15:00:34.297797] [171251] [debug] Couldn't mount a cgroups v1 mount, errno: Device or resource busy. Trying to mount cgroups v2
+[2025-03-11 15:00:34.297928] [171251] [debug] Trying to remove agent memory cgroup
+[2025-03-11 15:00:34.297956] [171251] [debug] Failed removing agent memory cgroup: rmdir failed on path: /opt/sentinelone/cgroups//agent: No such file or directory
+[2025-03-11 15:00:34.297991] [171251] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-03-11 15:00:34.298016] [171251] [debug] Creating crash dump file for process orchestrator
+[2025-03-11 15:00:34.298120] [171251] [info] Updating performance telemetry process list
+[2025-03-11 15:00:34.298125] [171251] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 171251, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:00:34.298127] [171251] [debug] Creating all processes
+[2025-03-11 15:00:34.298128] [171251] [info] Creating process network
+[2025-03-11 15:00:34.298130] [171251] [debug] Creating crash dump file for process network
+[2025-03-11 15:00:34.298584] [171251] [debug] Creating ipc context with spawned process: network 
+[2025-03-11 15:00:34.298957] [171251] [info] Updating performance telemetry process list
+[2025-03-11 15:00:34.298968] [171251] [info] Performance telemetry process list updated successfully, name: network , pid: 171252, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:00:34.298977] [171251] [info] Creating process scanner
+[2025-03-11 15:00:34.298979] [171251] [debug] Creating crash dump file for process scanner
+[2025-03-11 15:00:34.299988] [171251] [debug] Creating ipc context with spawned process: scanner 
+[2025-03-11 15:00:34.300122] [171251] [info] Updating performance telemetry process list
+[2025-03-11 15:00:34.300133] [171251] [info] Performance telemetry process list updated successfully, name: scanner , pid: 171253, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:00:34.300138] [171251] [info] Creating process agent
+[2025-03-11 15:00:34.300140] [171251] [debug] Creating crash dump file for process agent
+[2025-03-11 15:00:34.300751] [171251] [debug] Creating ipc context with spawned process: agent 
+[2025-03-11 15:00:34.300860] [171251] [info] Updating performance telemetry process list
+[2025-03-11 15:00:34.300873] [171251] [info] Performance telemetry process list updated successfully, name: agent , pid: 171254, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-03-11 15:00:34.300885] [171251] [info] Creating process firewall
+[2025-03-11 15:00:34.300887] [171251] [debug] Creating crash dump file for process firewall
+[2025-03-11 15:00:34.302894] [171251] [debug] Creating ipc context with spawned process: firewall 
+[2025-03-11 15:00:34.302977] [171251] [info] Updating performance telemetry process list
+[2025-03-11 15:00:34.302992] [171251] [info] Performance telemetry process list updated successfully, name: firewall , pid: 171255, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:00:34.303012] [171251] [debug] Sending agent pids to spawned processes
+[2025-03-11 15:01:06.754885] [171251] [debug] Sending process_start message to spawned processes
+[2025-03-11 15:01:06.754974] [171251] [debug] Creating new reactor for event listening
+[2025-03-11 15:01:06.755065] [171251] [info] Performance telemetry timer interval enabled
+[2025-03-11 15:01:06.755074] [171251] [debug] Got process event
+[2025-03-11 15:01:06.755075] [171251] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:01:06.755076] [171251] [debug] Receiving process message
+[2025-03-11 15:01:06.755103] [171251] [debug] Received process message
+[2025-03-11 15:01:06.755110] [171251] [info] Received eBPFs status ipc
+[2025-03-11 15:01:06.755112] [171251] [debug] Successfully handled process message
+[2025-03-11 15:01:13.158509] [171251] [debug] Got process event
+[2025-03-11 15:01:13.158525] [171251] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:01:13.158528] [171251] [debug] Receiving process message
+[2025-03-11 15:01:13.158547] [171251] [debug] Received process message
+[2025-03-11 15:01:13.158549] [171251] [debug] Received get telemetry request
+[2025-03-11 15:01:13.159637] [171251] [debug] Successfully handled process message
+[2025-03-11 15:01:22.400239] [171251] [debug] Got process event
+[2025-03-11 15:01:22.400248] [171251] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:01:22.400251] [171251] [debug] Receiving process message
+[2025-03-11 15:01:22.400271] [171251] [debug] Received process message
+[2025-03-11 15:01:22.400273] [171251] [info] Received status request
+[2025-03-11 15:01:22.400276] [171251] [debug] Sending status response to agent
+[2025-03-11 15:01:22.400307] [171251] [debug] Successfully handled process message
+[2025-03-11 15:01:22.510504] [171251] [debug] Got process event
+[2025-03-11 15:01:22.510512] [171251] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:01:22.510515] [171251] [debug] Receiving process message
+[2025-03-11 15:01:22.510532] [171251] [debug] Received process message
+[2025-03-11 15:01:22.510534] [171251] [info] Received config reload request
+[2025-03-11 15:01:22.510538] [171251] [debug] Sending config reload command to firewall process
+[2025-03-11 15:01:22.510557] [171251] [debug] Sending config reload command to scanner process
+[2025-03-11 15:01:22.510572] [171251] [debug] Sending config reload command to network process
+[2025-03-11 15:01:22.510588] [171251] [debug] Successfully handled process message
+[2025-03-11 15:01:40.416603] [171251] [debug] Got process event
+[2025-03-11 15:01:40.416610] [171251] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:01:40.416613] [171251] [debug] Receiving process message
+[2025-03-11 15:01:40.416631] [171251] [debug] Received process message
+[2025-03-11 15:01:40.416633] [171251] [info] Received status request
+[2025-03-11 15:01:40.416636] [171251] [debug] Sending status response to agent
+[2025-03-11 15:01:40.416655] [171251] [debug] Successfully handled process message
+[2025-03-11 15:01:41.260048] [171251] [debug] Got process event
+[2025-03-11 15:01:41.260058] [171251] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:01:41.260061] [171251] [debug] Receiving process message
+[2025-03-11 15:01:41.260130] [171251] [debug] Received process message
+[2025-03-11 15:01:41.260135] [171251] [info] Received shutdown command
+[2025-03-11 15:01:41.260139] [171251] [debug] Sending shutdown to firewall process
+[2025-03-11 15:01:41.260166] [171251] [debug] Sending shutdown to scanner process
+[2025-03-11 15:01:41.260180] [171251] [debug] Sending shutdown to network process
+[2025-03-11 15:01:41.260191] [171251] [info] Stopping reactor
+[2025-03-11 15:01:41.260222] [171251] [debug] Waiting for child process waiter to die
+[2025-03-11 15:01:41.360441] [171251] [warning] Child process network exited with code 0
+[2025-03-11 15:01:41.360541] [171251] [warning] Child process scanner exited with code 0
+[2025-03-11 15:01:41.360715] [171251] [warning] Child process firewall exited with code 0
+[2025-03-11 15:01:41.360724] [171251] [debug] Sending shutdown to agent process
+[2025-03-11 15:01:41.360762] [171251] [debug] Successfully handled process message
+[2025-03-11 15:01:41.360816] [171251] [info] Orchestrator main finished with exit code 0
+[2025-03-11 15:01:41.369309] [171251] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:01:41.369620] [171251] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:01:44.005763] [171420] [info] Agent type: host
+[2025-03-11 15:01:44.005837] [171420] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-03-11 15:01:44.005840] [171420] [info] FIPS mode is: disabled
+[2025-03-11 15:01:44.005845] [171420] [debug] agent_config: writing 1 configurations in level: 1000
+[2025-03-11 15:01:44.005851] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:01:44.006105] [171420] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-03-11 15:01:44.006114] [171420] [warning] Percentage memory limit is below the minimum threshold (821941862B < 838860800B), setting to minimum
+[2025-03-11 15:01:44.006139] [171420] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-03-11 15:01:44.006172] [171420] [debug] agent_config: resetting instance
+[2025-03-11 15:01:44.006174] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/defaults.conf
+[2025-03-11 15:01:44.006506] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:01:44.006984] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:01:44.007028] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:01:44.007059] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:01:44.007094] [171420] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/global.conf
+[2025-03-11 15:01:44.007202] [171420] [info] Performance telemetry enabled: true
+[2025-03-11 15:01:44.007217] [171420] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-03-11 15:01:44.007241] [171420] [debug] Setting termination handler
+[2025-03-11 15:01:44.508761] [171420] [info] clean startup, didn't find any previous s1 process
+[2025-03-11 15:01:44.508834] [171420] [debug] Trying to clear cgroup configuration
+[2025-03-11 15:01:44.509116] [171420] [debug] Couldn't mount a cgroups v1 mount, errno: Device or resource busy. Trying to mount cgroups v2
+[2025-03-11 15:01:44.511675] [171420] [debug] Trying to remove agent memory cgroup
+[2025-03-11 15:01:44.511730] [171420] [debug] Failed removing agent memory cgroup: rmdir failed on path: /opt/sentinelone/cgroups//agent: No such file or directory
+[2025-03-11 15:01:44.513739] [171420] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-03-11 15:01:44.513798] [171420] [debug] Creating crash dump file for process orchestrator
+[2025-03-11 15:01:44.513947] [171420] [info] Updating performance telemetry process list
+[2025-03-11 15:01:44.513952] [171420] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 171420, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:01:44.513955] [171420] [debug] Creating all processes
+[2025-03-11 15:01:44.513958] [171420] [info] Creating process network
+[2025-03-11 15:01:44.513960] [171420] [debug] Creating crash dump file for process network
+[2025-03-11 15:01:44.514507] [171420] [debug] Creating ipc context with spawned process: network 
+[2025-03-11 15:01:44.514664] [171420] [info] Updating performance telemetry process list
+[2025-03-11 15:01:44.514672] [171420] [info] Performance telemetry process list updated successfully, name: network , pid: 171421, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:01:44.514685] [171420] [info] Creating process scanner
+[2025-03-11 15:01:44.514687] [171420] [debug] Creating crash dump file for process scanner
+[2025-03-11 15:01:44.515488] [171420] [debug] Creating ipc context with spawned process: scanner 
+[2025-03-11 15:01:44.515625] [171420] [info] Updating performance telemetry process list
+[2025-03-11 15:01:44.515635] [171420] [info] Performance telemetry process list updated successfully, name: scanner , pid: 171423, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:01:44.515644] [171420] [info] Creating process agent
+[2025-03-11 15:01:44.515646] [171420] [debug] Creating crash dump file for process agent
+[2025-03-11 15:01:44.516325] [171420] [debug] Creating ipc context with spawned process: agent 
+[2025-03-11 15:01:44.516463] [171420] [info] Updating performance telemetry process list
+[2025-03-11 15:01:44.516478] [171420] [info] Performance telemetry process list updated successfully, name: agent , pid: 171424, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-03-11 15:01:44.516497] [171420] [info] Creating process firewall
+[2025-03-11 15:01:44.516499] [171420] [debug] Creating crash dump file for process firewall
+[2025-03-11 15:01:44.517515] [171420] [debug] Creating ipc context with spawned process: firewall 
+[2025-03-11 15:01:44.517624] [171420] [info] Updating performance telemetry process list
+[2025-03-11 15:01:44.517642] [171420] [info] Performance telemetry process list updated successfully, name: firewall , pid: 171425, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:01:44.517669] [171420] [debug] Sending agent pids to spawned processes
+[2025-03-11 15:02:16.752730] [171420] [debug] Sending process_start message to spawned processes
+[2025-03-11 15:02:16.752805] [171420] [debug] Creating new reactor for event listening
+[2025-03-11 15:02:16.752840] [171420] [info] Performance telemetry timer interval enabled
+[2025-03-11 15:02:16.752846] [171420] [debug] Got process event
+[2025-03-11 15:02:16.752848] [171420] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:02:16.752849] [171420] [debug] Receiving process message
+[2025-03-11 15:02:16.752874] [171420] [debug] Received process message
+[2025-03-11 15:02:16.752881] [171420] [info] Received eBPFs status ipc
+[2025-03-11 15:02:16.752883] [171420] [debug] Successfully handled process message
+[2025-03-11 15:02:17.086578] [171420] [debug] Got process event
+[2025-03-11 15:02:17.086589] [171420] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:02:17.086592] [171420] [debug] Receiving process message
+[2025-03-11 15:02:17.086619] [171420] [debug] Received process message
+[2025-03-11 15:02:17.086621] [171420] [info] Received status request
+[2025-03-11 15:02:17.086626] [171420] [debug] Sending status response to agent
+[2025-03-11 15:02:17.086650] [171420] [debug] Successfully handled process message
+[2025-03-11 15:02:19.086381] [171420] [debug] Got process event
+[2025-03-11 15:02:19.086430] [171420] [debug] Getting appropriate protocol from event fd
+[2025-03-11 15:02:19.086433] [171420] [debug] Receiving process message
+[2025-03-11 15:02:19.086463] [171420] [debug] Received process message
+[2025-03-11 15:02:19.086466] [171420] [info] Received shutdown command
+[2025-03-11 15:02:19.086468] [171420] [debug] Sending shutdown to firewall process
+[2025-03-11 15:02:19.086490] [171420] [debug] Sending shutdown to scanner process
+[2025-03-11 15:02:19.086506] [171420] [debug] Sending shutdown to network process
+[2025-03-11 15:02:19.086576] [171420] [info] Stopping reactor
+[2025-03-11 15:02:19.086583] [171420] [debug] Waiting for child process waiter to die
+[2025-03-11 15:02:19.186830] [171420] [warning] Child process network exited with code 0
+[2025-03-11 15:02:19.186927] [171420] [warning] Child process scanner exited with code 0
+[2025-03-11 15:02:19.186992] [171420] [warning] Child process firewall exited with code 0
+[2025-03-11 15:02:19.186999] [171420] [debug] Sending shutdown to agent process
+[2025-03-11 15:02:19.187039] [171420] [debug] Successfully handled process message
+[2025-03-11 15:02:19.187095] [171420] [info] Orchestrator main finished with exit code 0
+[2025-03-11 15:02:19.196730] [171420] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:02:19.197001] [171420] [debug] resume: ignoring resumption of unsuspended queue
+[2025-03-11 15:02:21.822715] [171550] [info] Agent type: host
+[2025-03-11 15:02:21.822778] [171550] [info] Installation params: {"GKE_AUTOPILOT":false,"PACKAGE_TYPE":"rpm","SERVICE_TYPE":"systemd"}
+[2025-03-11 15:02:21.822781] [171550] [info] FIPS mode is: disabled
+[2025-03-11 15:02:21.822785] [171550] [debug] agent_config: writing 1 configurations in level: 1000
+[2025-03-11 15:02:21.822791] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:02:21.823437] [171550] [info] Agent capabilities for type host: kprobe|ebpf|network_control|manage_mounts
+[2025-03-11 15:02:21.823451] [171550] [warning] Percentage memory limit is below the minimum threshold (821941862B < 838860800B), setting to minimum
+[2025-03-11 15:02:21.823484] [171550] [info] Memory limit is enabled (Max usage: 838860800 bytes, Include swap: true, Monitor mode: s1-agent, Monitor policy: top-consumer, Fixed process name: agent)
+[2025-03-11 15:02:21.823515] [171550] [debug] agent_config: resetting instance
+[2025-03-11 15:02:21.823517] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/defaults.conf
+[2025-03-11 15:02:21.823967] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/basic.conf
+[2025-03-11 15:02:21.824028] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/policy.conf
+[2025-03-11 15:02:21.824063] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/override.conf
+[2025-03-11 15:02:21.824094] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/local.conf
+[2025-03-11 15:02:21.824129] [171550] [debug] agent_config: writing configuration file: /opt/sentinelone/configuration/global.conf
+[2025-03-11 15:02:21.824250] [171550] [info] Performance telemetry enabled: true
+[2025-03-11 15:02:21.824264] [171550] [info] Starting performance telemetry: report telemetry: true, expired: false (expiration: 09/09/2025 15:25:00.0), interval: 1 seconds, update interval: 3600 seconds, alert mode: false, alert report interval: 14400 seconds, memory limit enabled: true, memory limit in bytes: 838860800, include swap: true
+[2025-03-11 15:02:21.824312] [171550] [debug] Setting termination handler
+[2025-03-11 15:02:22.326070] [171550] [info] clean startup, didn't find any previous s1 process
+[2025-03-11 15:02:22.326146] [171550] [debug] Trying to clear cgroup configuration
+[2025-03-11 15:02:22.326443] [171550] [debug] Couldn't mount a cgroups v1 mount, errno: Device or resource busy. Trying to mount cgroups v2
+[2025-03-11 15:02:22.326581] [171550] [debug] Trying to remove agent memory cgroup
+[2025-03-11 15:02:22.326615] [171550] [debug] Failed removing agent memory cgroup: rmdir failed on path: /opt/sentinelone/cgroups//agent: No such file or directory
+[2025-03-11 15:02:22.326650] [171550] [info] Launching orchestrator main. version: 24.2.2.20
+[2025-03-11 15:02:22.326681] [171550] [debug] Creating crash dump file for process orchestrator
+[2025-03-11 15:02:22.326782] [171550] [info] Updating performance telemetry process list
+[2025-03-11 15:02:22.326784] [171550] [info] Performance telemetry process list updated successfully, name: orchestrator , pid: 171550, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:02:22.326787] [171550] [debug] Creating all processes
+[2025-03-11 15:02:22.326788] [171550] [info] Creating process network
+[2025-03-11 15:02:22.326790] [171550] [debug] Creating crash dump file for process network
+[2025-03-11 15:02:22.327352] [171550] [debug] Creating ipc context with spawned process: network 
+[2025-03-11 15:02:22.327482] [171550] [info] Updating performance telemetry process list
+[2025-03-11 15:02:22.327485] [171550] [info] Performance telemetry process list updated successfully, name: network , pid: 171551, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:02:22.327502] [171550] [info] Creating process scanner
+[2025-03-11 15:02:22.327504] [171550] [debug] Creating crash dump file for process scanner
+[2025-03-11 15:02:22.327937] [171550] [debug] Creating ipc context with spawned process: scanner 
+[2025-03-11 15:02:22.328043] [171550] [info] Updating performance telemetry process list
+[2025-03-11 15:02:22.328051] [171550] [info] Performance telemetry process list updated successfully, name: scanner , pid: 171552, cpu usage threshold 8%, memory usage threshold 102400 kbs
+[2025-03-11 15:02:22.328058] [171550] [info] Creating process agent
+[2025-03-11 15:02:22.328059] [171550] [debug] Creating crash dump file for process agent
+[2025-03-11 15:02:22.328420] [171550] [debug] Creating ipc context with spawned process: agent 
+[2025-03-11 15:02:22.328503] [171550] [info] Updating performance telemetry process list
+[2025-03-11 15:02:22.328515] [171550] [info] Performance telemetry process list updated successfully, name: agent , pid: 171553, cpu usage threshold 16%, memory usage threshold 4096000 kbs
+[2025-03-11 15:02:22.328530] [171550] [info] Creating process firewall
+[2025-03-11 15:02:22.328532] [171550] [debug] Creating crash dump file for process firewall
